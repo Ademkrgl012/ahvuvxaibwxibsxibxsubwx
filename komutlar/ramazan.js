@@ -33,7 +33,7 @@ exports.run = async (client, message, args) => {
             res.on("end", function() {
               var body = Buffer.concat(chunks);
               let json = JSON.parse(body);
-message.channel.send(new Discord.MessageEmbed().setDescription(`${yazi}\n\nSahur:${json.result[0].saat}\nİftar:${json.result[4].saat}`).setColor('RED').setFooter(`Adem Reyzz Bot Hayırlı Ramazanlar Diler.`));
+message.channel.send(new Discord.MessageEmbed().addTitle("", + yazi.toUpperCase()).setDescription(`${yazi}\n\nSahur:${json.result[0].saat}\nİftar:${json.result[4].saat}`).setColor('RED').setFooter(`Adem Reyzz Bot Hayırlı Ramazanlar Diler.`));
               });
               });
               }catch(err){
