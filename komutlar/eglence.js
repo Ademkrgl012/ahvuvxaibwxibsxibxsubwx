@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
 let prefix = 'a!'
 let yardım = new Discord.MessageEmbed()  
 .setColor('RANDOM')
-.addField('Adem Reyzz Kullanıcı Menüsü',`
+.addField('Adem Reyzz Eğlence Menüsü',`
 ✨ **a!fbi** : FBİ Gelir.
 ✨ **a!token** : Botun Tokenini Görürsünüz.
 ✨ **a!atam** : Dene ve Gör Reis.
@@ -40,18 +40,18 @@ let yardım = new Discord.MessageEmbed()
       message.author.avatarURL()
     )
     .setThumbnail(client.user.avatarURL());
-  message.channel.send(yardım);
+  message.channel.send();
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["eğlence"],
+  aliases: ["agla"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "eğlence",
-  category: "eğlence",
-  description: "Eğlence Komutları Gösterir."
+  name: "agla",
+  category: "agla",
+  description: ""
 };
