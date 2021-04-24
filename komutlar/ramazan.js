@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
           "method": "GET",
           "hostname": "api.collectapi.com",
           "port": null,
-          "path": "/pray/all?data.city=    " + yazi.toUpperCase(),
+          "path": "/pray/all?data.city=" + yazi.toUpperCase(),
           "headers": {
             "content-type": "application/json",
             "authorization": "apikey 0uQpICpHMdPOYdvARiwaSO:3LJFjzgGx7BC1qnJzUfmN5"
@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
               var body = Buffer.concat(chunks);
               let json = JSON.parse(body);
 message.channel.send(new Discord.MessageEmbed()
-.setDescription(`${yazi}\n\nSahur:${json.result[0].saat}\nİftar:${json.result[4].saat}`)
+.setDescription(`${yazi}\nSahur: ${json.result[0].saat}\nİftar: ${json.result[4].saat}`)
 .setColor('RED')
 .setFooter(`Adem Reyzz Bot Hayırlı Ramazanlar Diler.`)
               );

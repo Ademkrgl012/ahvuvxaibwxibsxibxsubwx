@@ -8,6 +8,9 @@ const express = require("express");
 const ayarlar = require("./ayarlar.json");
 const Canvas = require("canvas");
 const request = require("node-superfetch");
+const { readdirSync } = require("fs");
+const { join } = require("path");
+const { PREFIX } = require("./ayarlar.json")
 const app = express();
 app.get("/", (request, response) => {
   response.sendStatus(200);
@@ -19,7 +22,7 @@ const log = message => {
 require("./util/eventLoader.js")(client);
 
 client.on("ready", () => {
-  client.user.setActivity(`Adem Reyzz Bot | Ramazan Sistemi gelmiştir("a!vakit <şehir adı>")`);
+  client.user.setActivity(`Ramazan Sistemi gelmiştir("a!vakit <şehir adı>")`);
   console.log(
     `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
   );
