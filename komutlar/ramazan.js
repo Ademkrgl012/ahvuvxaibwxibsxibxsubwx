@@ -14,7 +14,7 @@ exports.run = async (client, message, args) => {
           "method": "GET",
           "hostname": "api.collectapi.com",
           "port": null,
-          "path": "/pray/all?data.city=" + yazi.toLowerCase(),
+          "path": "https://api.collectapi.com/pray/all?data.city=istanbul" + yazi.toLowerCase(),
           "headers": {
             "content-type": "application/json",
             "authorization": "apikey 0uQpICpHMdPOYdvARiwaSO:3LJFjzgGx7BC1qnJzUfmN5"
