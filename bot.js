@@ -43,14 +43,14 @@ client.on("warn", info => console.log(info));
 
 client.on("error", console.error)
 
-client.commands = new discord.Collection()
+client.commands = new Discord.Collection()
 client.prefix = PREFIX
 client.queue = new Map();
 
 
-const cmdFiles = readdirSync(join(__dirname, "komutlar1")).filter(file => file.endsWith(".js"))
+const cmdFiles = readdirSync(join(__dirname, "komutlar")).filter(file => file.endsWith(".js"))
 for (const file of cmdFiles) {
-  const command = require(join(__dirname, "komutlar1", file))
+  const command = require(join(__dirname, "komutlar", file))
   client.commands.set(command.name, command)
 } 
 
