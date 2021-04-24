@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "args": "^5.0.1",
-    "canvacord": "^5.1.0",
-    "canvas": "^2.7.0",
+    "canvacord": "^5.2.0",
+    "canvas": "^2.6.9",
     "command": "0.0.5",
     "common-tags": "^1.8.0",
     "discord-giveaways": "^4.4.3",
