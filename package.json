@@ -30,6 +30,7 @@
     "superagent": "^6.1.0",
     "weather-js": "^2.0.0",
     "weather.js": "^0.1.0",
+    "wio.db": "^4.0.20",
     "ytdl-core": "^4.5.0"
   },
   "engines": {
