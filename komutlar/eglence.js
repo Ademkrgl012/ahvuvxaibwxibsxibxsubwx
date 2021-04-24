@@ -24,23 +24,34 @@ let yardım = new Discord.MessageEmbed()
 ✨ **a!espri**: Size Espri Söyler.
 ✨ **a!yumruk-at**: Etiketlediğiniz Kişiye Yumruk Atar.
 ✨ **a!hava-durumu**: Yazdığınız şehirin hava durumunu atar.
-✨ **a!atatürk-sözü**: Rasgele Atatürk Sözü Söyler.`)
-.addField("**» Davet Linki**", " [Botu Davet](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)", )
-    .setImage("https://cdn.discordapp.com/attachments/813881349004984370/827103972581048340/standard_1.gif")
-.setFooter(`${message.author.tag} Tarafından İstendi.`, message.author.avatarURL())
-.setThumbnail(client.user.avatarURL())
- message.channel.send(yardım) 
-  };
+✨ **a!atatürk-sözü**: Rasgele Atatürk Sözü Atar.
+✨ **a!atasözü**: Rasgele Atasözü Atar.
+✨ **a!sarıl [etiket]**: Etiketlediğin Kişiye Sarılır.
+✨ **a!boğazla [etiket]**: Etiketlediğin Kişiyi Boğazlar.`)
+    .addField(
+      "**» Davet Linki**",
+      " [Botu Davet Et](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)"
+    )
+    .setImage(
+      "https://cdn.discordapp.com/attachments/813881349004984370/827103972581048340/standard_1.gif"
+    )
+    .setFooter(
+      `${message.author.tag} Tarafından İstendi.`,
+      message.author.avatarURL()
+    )
+    .setThumbnail(client.user.avatarURL());
+  message.channel.send(yardım);
+};
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['eğlence'],
+  aliases: ["eğlence"],
   permLevel: 0
 };
 
 exports.help = {
   name: "eğlence",
   category: "eğlence",
-    description: "Eğlence Komutları Gösterir."
+  description: "Eğlence Komutları Gösterir."
 };
