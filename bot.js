@@ -35,8 +35,6 @@ client.on("ready", () => {
       ` kullanıcıya hizmet veriliyor!`
   );
 });
-hor.bot) return;
-  if (!message.guild) return;
   
     
 //-------------Bot Eklenince Bir Kmmmla Mesaj Gönderme Komutu ---------------\\
