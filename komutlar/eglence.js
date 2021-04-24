@@ -40,18 +40,18 @@ let yardım = new Discord.MessageEmbed()
       message.author.avatarURL()
     )
     .setThumbnail(client.user.avatarURL());
-  message.channel.send();
+  message.channel.send(yardım);
 };
 
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["agla"],
+  aliases: ["eğlence"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "agla",
-  category: "agla",
+  name: "eğlence",
+  category: "eğlence",
   description: ""
 };
