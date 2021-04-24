@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
           "path": "/pray/all?data.city=" + yazi.toLowerCase(),
           "headers": {
             "content-type": "application/json",
-            "authorization": "apikey 0uQpICpHMdPOYdvARiwaSO:3LJFjzgGx7BC1qnJzUfmN5"
+            "authorization": "0uQpICpHMdPOYdvARiwaSO:3LJFjzgGx7BC1qnJzUfmN5"
           }
         };
     
