@@ -18,12 +18,12 @@ let yardım = new Discord.MessageEmbed()
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ['abone-yardım'],
+  aliases: ['abone-yardı'],
   permLevel: 0
 };
 
 exports.help = {
-  name: "abone-yardım",
-  category: "abone-yardım",
+  name: "abone-yardı",
+  category: "abone-yardı",
     description: "Eğlence Komutları Gösterir."
 };
