@@ -33,8 +33,8 @@ exports.run = async (client, message, args) => {
             res.on("end", function() {
               var body = Buffer.concat(chunks);
               let json = JSON.parse(body);
-              if(!json.result) return message.channel.send(`Yanlış şehir ismi girdiniz.`);
-              message.channel.send(`${yazi}\n\nSahur: ${json.result[0].saat}\nİftar: ${json.result[4].saat}`);
+              message.channel.send(new Discord.MessageEmbed().setColor('RED').setDescription(`
+              ${yazi}\n\nSahur: ${json.result[0].saat}\nİftar: ${json.result[4].saat}`));
               });
               });
               }catch(err){
