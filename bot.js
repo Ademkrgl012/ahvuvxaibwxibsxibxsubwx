@@ -19,7 +19,7 @@ const log = message => {
 require("./util/eventLoader.js")(client);
 
 client.on("ready", () => {
-  client.user.setActivity(`Ramazan Sistemi gelmiştir("a!vakit <şehir adı>")`);
+  client.user.setActivity(`Adem Reyzz Bot | a!yardım`);
   console.log(
     `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
   );
@@ -34,7 +34,8 @@ client.on("ready", () => {
         .toLocaleString() +
       ` kullanıcıya hizmet veriliyor!`
   );
-});thor.bot) return;
+});
+hor.bot) return;
   if (!message.guild) return;
   
     
