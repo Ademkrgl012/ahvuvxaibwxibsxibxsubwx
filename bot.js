@@ -19,7 +19,7 @@ const log = message => {
 require("./util/eventLoader.js")(client);
 
 client.on("ready", () => {
-  client.user.setActivity(`Adem Reyzz Bot | a!yardım`);
+  client.user.setActivity(`Adem Reyzz Bot | Ramazan Sistemi gelmiştir("a!vakit <şehir adı>")`);
   console.log(
     `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
   );
