@@ -30,12 +30,12 @@ exports.run = async (client, message, args) => {
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["gç-sıfırla"],
+  aliases: ["giriş-çıkış-sıfırla"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "gç-kapat",
+  name: "giriş-çıkış-kapat",
   description: "Giriş çıkışı kapatır",
-  usage: "gç-kapat"
+  usage: "giriş-çıkış-kapat"
 };
