@@ -6,7 +6,7 @@ module.exports = message => {
   if (talkedRecently.has(message.author.id)) {
     return;
   }
-  talkedRecently.add(message.author.id);
+  talkedRecently.add(message.author.id).setMaxListeners();
   setTimeout(() => {
     talkedRecently.delete(message.author.id);
   }, 2500);
