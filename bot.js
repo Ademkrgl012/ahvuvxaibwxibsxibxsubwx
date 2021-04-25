@@ -2264,20 +2264,16 @@ client.on("guildMemberRemove", async member => {
     ` <@${member.user.id}> hanedanımızdan **güle güle!**\n\nSensiz **${kişi}** kişiyiz.\n\nTagımızı alarak bize destek olabilirsin\n\nHesap kuruluş tarihi; **${tarih}** [**${gün}** gün önce]\n\n${kayıtcırol} sizinle ilgilenecektir. \n \n Hesabı ${devtr} `,
     resim
   );
-});     
-  
-  ,   
-  
-  
- 
-cl 
+});
 //////////////hg bb
-Clien,.on("guildMemberRemove", async member => {
+  client.on("guildMemberRemove", async member => {
   //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
   //const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
-  
+
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
-  var canvaskanal = member.guild.channels.cache.get(db.fetch(`gçkanal_${member.guild.id}`));
+  var canvaskanal = member.guild.channels.cache.get(
+    db.fetch(`gçkanal_${member.guild.id}`)
+  );
   if (!canvaskanal) return;
 
   const request = require("node-superfetch");
@@ -2309,7 +2305,11 @@ Clien,.on("guildMemberRemove", async member => {
   ctx.textAlign = "center";
   ctx.fillText(`${member.user.username}`, 300, 342);
 
-  let avatarURL = member.user.displayAvatarURL()({ format: 'png', dynamic: true, size: 1024 });
+  let avatarURL = member.user.displayAvatarURL()({
+    format: "png",
+    dynamic: true,
+    size: 1024
+  });
   const { body } = await request.get(avatarURL);
   const avatar = await Canvas.loadImage(body);
 
@@ -2326,20 +2326,21 @@ Clien,.on("guildMemberRemove", async member => {
     "ro-BOT-güle-güle.png"
   );
 
-    canvaskanal.send(attachment);
-    canvaskanal.send(
-      msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
-    );
-    if (member.user.bot)
-      return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
-  
+  canvaskanal.send(attachment);
+  canvaskanal.send(
+    msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
+  );
+  if (member.user.bot)
+    return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
 
 client.on("guildMemberAdd", async member => {
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
-  var canvaskanal = member.guild.channels.cache.get(db.fetch(`gçkanal_${member.guild.id}`));
+  var canvaskanal = member.guild.channels.cache.get(
+    db.fetch(`gçkanal_${member.guild.id}`)
+  );
 
-  if (!canvaskanal || canvaskanal ===  undefined) return;
+  if (!canvaskanal || canvaskanal === undefined) return;
   const request = require("node-superfetch");
   const Canvas = require("canvas"),
     Image = Canvas.Image,
@@ -2370,7 +2371,11 @@ client.on("guildMemberAdd", async member => {
   ctx.textAlign = "center";
   ctx.fillText(`${member.user.username}`, 300, 342);
 
-  let avatarURL = member.user.displayAvatarURL()({ format: 'png', dynamic: true, size: 1024 }) ;
+  let avatarURL = member.user.displayAvatarURL()({
+    format: "png",
+    dynamic: true,
+    size: 1024
+  });
   const { body } = await request.get(avatarURL);
   const avatar = await Canvas.loadImage(body);
 
@@ -2396,3 +2401,4 @@ client.on("guildMemberAdd", async member => {
 });
 //////////////
 client.login(process.env.Token);
+gin(process.env.Token);
