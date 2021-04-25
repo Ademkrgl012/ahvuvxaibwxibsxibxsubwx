@@ -784,22 +784,7 @@ client.on("ready", async () => {
       .join()
       .catch(err => console.error("Bot ses kanalına bağlanamadı!"));
 });
-
-///////////////////////////////Gelişmiş HG Mesajı
-client.on("guildMemberAdd", async member => {
-  /////////////////////////
-  //Kanal Tanımı
-  ////////////////////////////////////////
-  let viruskanal = client.channels.cache.get("802492913111924737");
-  ////////////////////////////////////////
-  //Güvenlik TanımlarıS
-  ////////////////////////////////////////
-  let virususer = client.users.cache.get(member.id);
-  let viruskullanıcı = client.users.cache.get(member.id);
-  const virushesapkurulus =
-    new Date().getTime() - viruskullanıcı.createdAt.getTi
-  
-////////////////////////////////Fake Katıl
+///////////////////Fake Katıl
 client.on("message", async message => {
   if (message.content === "fakekatıl") {
     // Buraya ne yazarsanız yazdığınız şeye göre çalışır
@@ -2360,5 +2345,5 @@ client.on("guildMemberAdd", async member => {
   if (member.user.bot)
     return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
-//////////////
+
 client.login(process.env.Token);
