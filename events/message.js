@@ -1,7 +1,6 @@
 const Discord = require("discord.js");
 const ayarlar = require("../ayarlar.json");
 let talkedRecently = new Set();
-let 
 
 module.exports = message => {
   if (talkedRecently.has(message.author.id)) {
