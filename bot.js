@@ -797,48 +797,8 @@ client.on("guildMemberAdd", async member => {
   let virususer = client.users.cache.get(member.id);
   let viruskullanıcı = client.users.cache.get(member.id);
   const virushesapkurulus =
-    new Date().getTime() - viruskullanıcı.createdAt.getTime();
-  let viruj;
-  if (virushesapkurulus < 1296000000) viruj = " Güvenilir Değil!";
-  if (virushesapkurulus > 1296000000) viruj = " Güvenilir!";
-
-  /////////////////////// /////////////////
-  //Embed
-  ////////////////////////////////////////
-  const hgembed = new Discord.MessageEmbed()
-    .setDescription(
-      `
-    
-     ゃ Aramıza Hoşgeldin **${virususer.username}** !
+    new Date().getTime() - viruskullanıcı.createdAt.getTi
   
-     ゃ Seninle Birlikte **${member.guild.memberCount}** Kişiyiz
-  
-     ゃ <@&802488999230832650> Rolundekiler Senle En Kısa Zamanda İlgilenicek
-  
-     ゃ İsmini Ve Yaşını Yazıp Kayıt Olabilirsin.
-
-     ゃ Hesabın Kuruluş Tarihi ${moment(member.user.createdAt).format(
-       "**DD MMMM YYYY hh:mm:ss**"
-     )}
-  
-     ゃ Hesabın Güvenlik Durumu: **${viruj}**
-  
-     ゃ Ayrıca Tagımızı Alarak Bize Destek Olabilirsin "ゃ"
-    
-    `
-    )
-    .setColor("#2f3136")
-    //.setImage("https://cdn.discordapp.com/attachments/706505340417736736/794296050121965568/ezgif-6-9ab9144abf46.gif")
-    .setTitle("Aramıza Yeni Birisi Katıldı !")
-    .setTimestamp()
-    .setThumbnail(member.user.displayAvatarURL({ dynamic: true }))
-    .setAuthor(member.guild.name, member.guild.iconURL({ dynamic: true }))
-    .setFooter("Aquiver Kayıt Sistemi");
-  ////////////////////////////////////////
-  //Kanala Gönderme
-  ////////////////////////////////////////
-  viruskanal.send(`<@&802488999230832650> <@${member.id}>`, hgembed);
-});
 ////////////////////////////////Fake Katıl
 client.on("message", async message => {
   if (message.content === "fakekatıl") {
