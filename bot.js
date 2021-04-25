@@ -2183,42 +2183,16 @@ client.on("guildMemberAdd", async member => {
   if (kurulus > 15) devtr = "Güvenilir!";
 
   kanal.send(
-    `Merhaba <@${member.user.id}> hanedanımıza **hoşgeldin!**\n\nSeninle beraber **${kişi}** kişiyiz.\n\nTagımızı alarak bize destek olabilirsin\n\nHesap kuruluş tarihi; **${tarih}** [**${gün}** gün önce]\n\n${kayıtcırol} sizinle ilgilenecektir. \n \n Hesabı ${devtr} `,
-    resim
-  );
-});
+    `Merhaba <@${member.user.id}> hanedanımıza **hoşgeldin!**\n\nSeninle beraber **${kişi}** kişiyiz.\n\nTagımızı alarak bize destek olabilirsin\n\nHesap kuruluş tarihi; **${tarih}** [**${gün}** gün önce]\n\n${kayıtcırol} sizinle ilgile
 
-///////////////görüşürüz mesaj
-client.on("guildMemberRemove", async member => {
-  require("moment-duration-format");
-  moment.locale("tr");
-  let user = client.users.cache.get(member.id);
-  let tarih = moment(member.user.createdAt.getTime()).format("LLL");
-  let gün = moment
-    .duration(new Date().getTime() - member.user.createdAt.getTime())
-    .format("D");
-  let resim = new Discord.MessageAttachment("");
-  let kişi = member.guild.memberCount;
-  let kayıtcırol = "81387567810045542"; //Yetkili rolünüz ID'sini girin.
-  let kanal = client.channels.cache.get("83002303916002512"); //Kanalınızın ID'sini girin.
-  const kurulus = new Date().getTime() - user.createdAt.getTime();
-  const gün1 = moment.duration(kurulus).format("D");
-  var devtr;
-
-  kanal.send(
-    ` <@${member.user.id}> hanedanımızdan **güle güle!**\n\nSensiz **${kişi}** kişiyiz.\n\nTagımızı alarak bize destek olabilirsin\n\nHesap kuruluş tarihi; **${tarih}** [**${gün}** gün önce]\n\n${kayıtcırol} sizinle ilgilenecektir. \n \n Hesabı ${devtr} `,
-    resim
-  );
-});
-
-///////////////canvaslı hg bb
+////////////////canvaslı hg bb
 client.on("guildMemberRemove", async member => {
   //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/g癟.json", "utf8"));
   //const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
 
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
   var canvaskanal = member.guild.channels.cache.get(
-    db.fetch(`g癟kanal_${member.guild.id}`)
+    db.fetch(`gçkanal_${member.guild.id}`)
   );
   if (!canvaskanal) return;
 
@@ -2283,7 +2257,7 @@ client.on("guildMemberRemove", async member => {
 client.on("guildMemberAdd", async member => {
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
   var canvaskanal = member.guild.channels.cache.get(
-    db.fetch(`g癟kanal_${member.guild.id}`)
+    db.fetch(`gçkanal_${member.guild.id}`)
   );
 
   if (!canvaskanal || canvaskanal === undefined) return;
@@ -2345,5 +2319,5 @@ client.on("guildMemberAdd", async member => {
   if (member.user.bot)
     return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
-
+/////////////////////
 client.login(process.env.Token);
