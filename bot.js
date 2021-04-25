@@ -2265,14 +2265,15 @@ client.on("guildMemberRemove", async member => {
     resim
   );
 });
-//////////////hg bb
-  client.on("guildMemberRemove", async member => {
-  //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
+
+///////////////canvaslı hg bb
+client.on("guildMemberRemove", async member => {
+  //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/g癟.json", "utf8"));
   //const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
 
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
   var canvaskanal = member.guild.channels.cache.get(
-    db.fetch(`gçkanal_${member.guild.id}`)
+    db.fetch(`g癟kanal_${member.guild.id}`)
   );
   if (!canvaskanal) return;
 
@@ -2331,13 +2332,13 @@ client.on("guildMemberRemove", async member => {
     msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
   );
   if (member.user.bot)
-    return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+    return canvaskanal.send(`�� Bu bir bot, ${member.user.tag}`);
 });
 
 client.on("guildMemberAdd", async member => {
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
   var canvaskanal = member.guild.channels.cache.get(
-    db.fetch(`gçkanal_${member.guild.id}`)
+    db.fetch(`g癟kanal_${member.guild.id}`)
   );
 
   if (!canvaskanal || canvaskanal === undefined) return;
@@ -2401,4 +2402,3 @@ client.on("guildMemberAdd", async member => {
 });
 //////////////
 client.login(process.env.Token);
-gin(process.env.Token);
