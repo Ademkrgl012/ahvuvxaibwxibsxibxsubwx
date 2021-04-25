@@ -35,8 +35,7 @@ client.on("ready", () => {
       ` kullanıcıya hizmet veriliyor!`
   );
 });
-  
-    
+
 //-------------Bot Eklenince Bir Kmmmla Mesaj Gönderme Komutu ---------------\\
 
 const emmmmbed = new Discord.MessageEmbed()
