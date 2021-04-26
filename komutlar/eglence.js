@@ -1,14 +1,9 @@
-const Discord = require("discord.js");
-
-let botid = ("")
-
-
-
-exports.run = (client, message, args) => {
-  const cmf = new Discord.RichmEmbed()
-  .setColor("RANDOM")
-  .setAuthor(`${client.user.username} Eğlence Komtları`)
-  .addField(`
+const Discord = require('discord.js');
+exports.run = async (client, message, args) => { 
+let prefix = 'a!'
+let yardım = new Discord.MessageEmbed()  
+.setColor('RANDOM')
+.addField('Adem Reyzz Eğlence Menüsü',`
 ✨ **a!fbi** : FBİ Gelir.
 ✨ **a!token** : Botun Tokenini Görürsünüz.
 ✨ **a!atam** : Dene ve Gör Reis.
@@ -33,5 +28,30 @@ exports.run = (client, message, args) => {
 ✨ **a!atasözü**: Rasgele Atasözü Atar.
 ✨ **a!sarıl [etiket]**: Etiketlediğin Kişiye Sarılır.
 ✨ **a!boğazla [etiket]**: Etiketlediğin Kişiyi Boğazlar.`)
-  .addField(`》Linkler`, `[Bot Davet Linki](https://disordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions8) **|** [Destek Sunucu](https://discord.gg/BAĞLANTI) **|** [Bota Oy ver](https://discordbots.org/bot/${botid}/vote)
-  message.channel.sendEmbed(cmf);
+    .addField(
+      "**» Davet Linki**",
+      " [Botu Davet Et](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)"
+    )
+    .setImage(
+      "https://cdn.discordapp.com/attachments/813881349004984370/827103972581048340/standard_1.gif"
+    )
+    .setFooter(
+      `${message.author.tag} Tarafından İstendi.`,
+      message.author.avatarURL()
+    )
+    .setThumbnail(client.user.avatarURL());
+  message.channel.send(yardım);
+};
+
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: ["eğlence"],
+  permLevel: 0
+};
+
+exports.help = {
+  name: "eğlence",
+  category: "eğlence",
+  description: ""
+};
