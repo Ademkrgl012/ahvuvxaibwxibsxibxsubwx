@@ -831,136 +831,136 @@ client.on("message", async message => {
 });
 ///////////////////////////////Resimli Giriş-Çıkış///////////////////
 //client.on("guildMemberRemove", async member => {
-  //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
-  //const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
+//let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
+//const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
 
-  //if (db.has(`gçkanal_${member.guild.id}`) === false) return;
- // var canvaskanal = member.guild.channels.cache.get(
-   // db.fetch(`gçkanal_${member.guild.id}`)
- // );
-  //if (!canvaskanal) return;
+//if (db.has(`gçkanal_${member.guild.id}`) === false) return;
+// var canvaskanal = member.guild.channels.cache.get(
+// db.fetch(`gçkanal_${member.guild.id}`)
+// );
+//if (!canvaskanal) return;
 
-  //const Canvas = require("canvas"),
-    //Image = Canvas.Image,
-   // Font = Canvas.Font,
-   // path = require("path");
+//const Canvas = require("canvas"),
+//Image = Canvas.Image,
+// Font = Canvas.Font,
+// path = require("path");
 
-  //var randomMsg = ["Sunucudan Ayrıldı."];
- // var randomMsg_integer =
-   // randomMsg[Math.floor(Math.random() * randomMsg.length)];
+//var randomMsg = ["Sunucudan Ayrıldı."];
+// var randomMsg_integer =
+// randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
-  //let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  //if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+//let msj = await db.fetch(`cikisM_${member.guild.id}`);
+//if (!msj) msj = `{uye}, ${randomMsg_integer}`;
 
- // const canvas = Canvas.createCanvas(640, 360);
-  ///const ctx = canvas.getContext("2d");
+// const canvas = Canvas.createCanvas(640, 360);
+///const ctx = canvas.getContext("2d");
 
-  //const background = await Canvas.loadImage(
-    //"https://i.hizliresim.com/Wrn1XW.jpg"
-  //);
-  //ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+//const background = await Canvas.loadImage(
+//"https://i.hizliresim.com/Wrn1XW.jpg"
+//);
+//ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-  //ctx.strokeStyle = "#74037b";
-  //ctx.strokeRect(0, 0, canvas.width, canvas.height);
+//ctx.strokeStyle = "#74037b";
+//ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-  //ctx.fillStyle = `#D3D3D3`;
-  //ctx.font = `37px "Warsaw"`;
-  //ctx.textAlign = "center";
-  //ctx.fillText(`${member.user.username}`, 300, 342);
+//ctx.fillStyle = `#D3D3D3`;
+//ctx.font = `37px "Warsaw"`;
+//ctx.textAlign = "center";
+//ctx.fillText(`${member.user.username}`, 300, 342);
 
-  //let avatarURL = member.user.displayAvatarURL({
-   // format: "png",
-   // dynamic: true,
-   // size: 1024
-  //});
- // const { body } = await request.get(avatarURL);
-  //const avatar = await Canvas.loadImage(body);
+//let avatarURL = member.user.displayAvatarURL({
+// format: "png",
+// dynamic: true,
+// size: 1024
+//});
+// const { body } = await request.get(avatarURL);
+//const avatar = await Canvas.loadImage(body);
 
-  //ctx.beginPath();
-  //ctx.lineWidth = 4;
-  //ctx.fill();
- // ctx.lineWidth = 4;
-  //ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
-  //ctx.clip();
-  //ctx.drawImage(avatar, 250, 55, 110, 110);
+//ctx.beginPath();
+//ctx.lineWidth = 4;
+//ctx.fill();
+// ctx.lineWidth = 4;
+//ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+//ctx.clip();
+//ctx.drawImage(avatar, 250, 55, 110, 110);
 
-  //const attachment = new Discord.MessageAttachment(
-    //canvas.toBuffer(),
-   // "ro-BOT-güle-güle.png"
- // );
+//const attachment = new Discord.MessageAttachment(
+//canvas.toBuffer(),
+// "ro-BOT-güle-güle.png"
+// );
 
-  //canvaskanal.send(attachment);
- // canvaskanal.send(
-   // msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
-  //);
-  //if (member.user.bot)
-    //return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+//canvaskanal.send(attachment);
+// canvaskanal.send(
+// msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
+//);
+//if (member.user.bot)
+//return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 //});
 
 //client.on("guildMemberAdd", async member => {
-  //if (db.has(`gçkanal_${member.guild.id}`) === false) return;
- // var canvaskanal = member.guild.channels.cache.get(
-   // db.fetch(`gçkanal_${member.guild.id}`)
-  //);
+//if (db.has(`gçkanal_${member.guild.id}`) === false) return;
+// var canvaskanal = member.guild.channels.cache.get(
+// db.fetch(`gçkanal_${member.guild.id}`)
+//);
 
-  //if (!canvaskanal || canvaskanal === undefined) return;
- // const request = require("node-superfetch");
- // const Canvas = require("canvas"),
-   // Image = Canvas.Image,
-   // Font = Canvas.Font,
-    //path = require("path");
+//if (!canvaskanal || canvaskanal === undefined) return;
+// const request = require("node-superfetch");
+// const Canvas = require("canvas"),
+// Image = Canvas.Image,
+// Font = Canvas.Font,
+//path = require("path");
 
-  //var randomMsg = ["Sunucuya Katıldı."];
-  //var randomMsg_integer =
-    //randomMsg[Math.floor(Math.random() * randomMsg.length)];
+//var randomMsg = ["Sunucuya Katıldı."];
+//var randomMsg_integer =
+//randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
-  //let paket = await db.fetch(`pakets_${member.id}`);
- // let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  //if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+//let paket = await db.fetch(`pakets_${member.id}`);
+// let msj = await db.fetch(`cikisM_${member.guild.id}`);
+//if (!msj) msj = `{uye}, ${randomMsg_integer}`;
 
- // const canvas = Canvas.createCanvas(640, 360);
-  //const ctx = canvas.getContext("2d");
+// const canvas = Canvas.createCanvas(640, 360);
+//const ctx = canvas.getContext("2d");
 
-  //const background = await Canvas.loadImage(
-    //"https://i.hizliresim.com/UyVZ4f.jpg"
-  //);
-  //ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+//const background = await Canvas.loadImage(
+//"https://i.hizliresim.com/UyVZ4f.jpg"
+//);
+//ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
- // ctx.strokeStyle = "#74037b";
-  //ctx.strokeRect(0, 0, canvas.width, canvas.height);
+// ctx.strokeStyle = "#74037b";
+//ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-  //ctx.fillStyle = `#D3D3D3`;
- // ctx.font = `37px "Warsaw"`;
- // ctx.textAlign = "center";
-  //ctx.fillText(`${member.user.username}`, 300, 342);
+//ctx.fillStyle = `#D3D3D3`;
+// ctx.font = `37px "Warsaw"`;
+// ctx.textAlign = "center";
+//ctx.fillText(`${member.user.username}`, 300, 342);
 
- // let avatarURL = member.user.displayAvatarURL({
-    //format: "png",
-   // dynamic: true,
-    //size: 1024
-  //});
-  //const { body } = await request.get(avatarURL);
-  //const avatar = await Canvas.loadImage(body);
+// let avatarURL = member.user.displayAvatarURL({
+//format: "png",
+// dynamic: true,
+//size: 1024
+//});
+//const { body } = await request.get(avatarURL);
+//const avatar = await Canvas.loadImage(body);
 
-  //ctx.beginPath();
-  //ctx.lineWidth = 4;
-  //ctx.fill();
-  //ctx.lineWidth = 4;
-  //ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
- // ctx.clip();
-  //ctx.drawImage(avatar, 250, 55, 110, 110);
+//ctx.beginPath();
+//ctx.lineWidth = 4;
+//ctx.fill();
+//ctx.lineWidth = 4;
+//ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+// ctx.clip();
+//ctx.drawImage(avatar, 250, 55, 110, 110);
 
-  //const attachment = new Discord.MessageAttachment(
-    //canvas.toBuffer(),
-    //"ro-BOT-hosgeldin.png"
-  //);
+//const attachment = new Discord.MessageAttachment(
+//canvas.toBuffer(),
+//"ro-BOT-hosgeldin.png"
+//);
 
-  //canvaskanal.send(attachment);
-  //canvaskanal.send(
-   // msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
-  //);
-  //if (member.user.bot)
-    //return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+//canvaskanal.send(attachment);
+//canvaskanal.send(
+// msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
+//);
+//if (member.user.bot)
+//return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 //});
 ///////////////////////////////Gelişmiş Hoşgeldin///////////////////////
 client.on(`guildMemberAdd`, async member => {
@@ -1055,34 +1055,34 @@ client.on("message", async message => {
 });
 //////////////////////////////giriş-çıkış
 //client.login("guildMemberAdd", member => {
- // let guild = member.guild;
- // let joinRole = guild.roles.find("name", "Üye"); // 'Üye' yazılan yeri otomatik rol vereceği rolü yapabilirsiniz.//Otorol Komudu :)
-  //member.sendMessage("Sunucuya Hoşgeldin Kardeşim."); //Sunucuya Yeni Biri Geldiğinde Mesaj Atar istediğini yaz.
- // member.addRole(joinRole);
+// let guild = member.guild;
+// let joinRole = guild.roles.find("name", "Üye"); // 'Üye' yazılan yeri otomatik rol vereceği rolü yapabilirsiniz.//Otorol Komudu :)
+//member.sendMessage("Sunucuya Hoşgeldin Kardeşim."); //Sunucuya Yeni Biri Geldiğinde Mesaj Atar istediğini yaz.
+// member.addRole(joinRole);
 
-  //const channel = member.guild.channels.find("name", "giriş-çıkış"); // 'gelen-giden' log ismidir. değiştirebilirsiniz. belirttiğiniz isme giriş çıkış gösterecektir.
-  //if (!channel) return;
-  //const embed = new Discord.RichEmbed()
-    //.setColor("0x00cc44")
-    //.setAuthor(client.user.username, client.user.avatarURL)
-    //.setThumbnail(member.user.avatarURL)
-    //.setTitle(`:inbox_tray: ${member.user.username} Sunucuya katıldı.`)
-    //.setTimestamp();
-  //channel.sendEmbed(embed);
+//const channel = member.guild.channels.find("name", "giriş-çıkış"); // 'gelen-giden' log ismidir. değiştirebilirsiniz. belirttiğiniz isme giriş çıkış gösterecektir.
+//if (!channel) return;
+//const embed = new Discord.RichEmbed()
+//.setColor("0x00cc44")
+//.setAuthor(client.user.username, client.user.avatarURL)
+//.setThumbnail(member.user.avatarURL)
+//.setTitle(`:inbox_tray: ${member.user.username} Sunucuya katıldı.`)
+//.setTimestamp();
+//channel.sendEmbed(embed);
 //});
 
 //client.login("guildMemberRemove", member => {
- // const channel = member.guild.channels.find("name", "giriş-çıkış"); // 'gelen-giden' log ismidir. değiştirebilirsiniz. belirttiğiniz isme giriş çıkış gösterecektir.
-  //if (!channel) return;
-  //const embed = new Discord.RichEmbed()
-    //.setColor("0xff1a1a")
-    //.setAuthor(client.user.username, client.user.avatarURL)
-    //.setThumbnail(member.user.avatarURL)
-   // .setTitle(
-     // `:outbox_tray: ${member.user.username} Sunucudan ayrıldı buna üzüldüm :(`
-    //)
-   // .setTimestamp();
-  //channel.sendEmbed(embed);
+// const channel = member.guild.channels.find("name", "giriş-çıkış"); // 'gelen-giden' log ismidir. değiştirebilirsiniz. belirttiğiniz isme giriş çıkış gösterecektir.
+//if (!channel) return;
+//const embed = new Discord.RichEmbed()
+//.setColor("0xff1a1a")
+//.setAuthor(client.user.username, client.user.avatarURL)
+//.setThumbnail(member.user.avatarURL)
+// .setTitle(
+// `:outbox_tray: ${member.user.username} Sunucudan ayrıldı buna üzüldüm :(`
+//)
+// .setTimestamp();
+//channel.sendEmbed(embed);
 //});
 //////////////////////////////Afk Komutu
 client.on("message", async message => {
@@ -1141,147 +1141,147 @@ client.on("message", async message => {
 }); // codare ♥
 //////////////////////////////giri scikis
 //client.on("guildMemberRemove", async member => {
-  //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
-  //const canvaskanal = member.guild.channels.get(resimkanal[member.guild.id].resim);
+//let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
+//const canvaskanal = member.guild.channels.get(resimkanal[member.guild.id].resim);
 
- // if (db.has(`gçkanal_${member.guild.id}`) === false) return;
- // var canvaskanal = member.guild.channels.get(
-    //db.fetch(`gçkanal_${member.guild.id}`)
-  //);
-  //if (!canvaskanal) return;
+// if (db.has(`gçkanal_${member.guild.id}`) === false) return;
+// var canvaskanal = member.guild.channels.get(
+//db.fetch(`gçkanal_${member.guild.id}`)
+//);
+//if (!canvaskanal) return;
 
-  //const request = require("node-superfetch");
-  //const Canvas = require("canvas"),
-    //Image = Canvas.Image,
-    //Font = Canvas.Font,
-   // path = require("path");
+//const request = require("node-superfetch");
+//const Canvas = require("canvas"),
+//Image = Canvas.Image,
+//Font = Canvas.Font,
+// path = require("path");
 
-  //var randomMsg = ["Sunucudan Ayrıldı."];
-  //var randomMsg_integer =
-   // randomMsg[Math.floor(Math.random() * randomMsg.length)];
+//var randomMsg = ["Sunucudan Ayrıldı."];
+//var randomMsg_integer =
+// randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
-  //let msj = await db.fetch(`cikisM_${member.guild.id}`);
- // if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+//let msj = await db.fetch(`cikisM_${member.guild.id}`);
+// if (!msj) msj = `{uye}, ${randomMsg_integer}`;
 
-  //const canvas = Canvas.createCanvas(640, 360);
- // const ctx = canvas.getContext("2d");
+//const canvas = Canvas.createCanvas(640, 360);
+// const ctx = canvas.getContext("2d");
 
-  //const background = await Canvas.loadImage(
-   // "https://i.hizliresim.com/Wrn1XW.jpg"
-  //);
-  //ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+//const background = await Canvas.loadImage(
+// "https://i.hizliresim.com/Wrn1XW.jpg"
+//);
+//ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-  //ctx.strokeStyle = "#74037b";
- // ctx.strokeRect(0, 0, canvas.width, canvas.height);
+//ctx.strokeStyle = "#74037b";
+// ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-  //ctx.fillStyle = `#D3D3D3`;
- // ctx.font = `37px "Warsaw"`;
-  //ctx.textAlign = "center";
-  //ctx.fillText(`${member.user.username}`, 300, 342);
+//ctx.fillStyle = `#D3D3D3`;
+// ctx.font = `37px "Warsaw"`;
+//ctx.textAlign = "center";
+//ctx.fillText(`${member.user.username}`, 300, 342);
 
- // let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL;
-  //const { body } = await request.get(avatarURL);
- // const avatar = await Canvas.loadImage(body);
+// let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL;
+//const { body } = await request.get(avatarURL);
+// const avatar = await Canvas.loadImage(body);
 
-  //ctx.beginPath();
-  //ctx.lineWidth = 4;
-  //ctx.fill();
-  //ctx.lineWidth = 4;
- // ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
-  //ctx.clip();
-  //ctx.drawImage(avatar, 250, 55, 110, 110);
+//ctx.beginPath();
+//ctx.lineWidth = 4;
+//ctx.fill();
+//ctx.lineWidth = 4;
+// ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+//ctx.clip();
+//ctx.drawImage(avatar, 250, 55, 110, 110);
 
-  //const attachment = new Discord.Attachment(
-   // canvas.toBuffer(),
-    //"ro-BOT-güle-güle.png"
- // );
+//const attachment = new Discord.Attachment(
+// canvas.toBuffer(),
+//"ro-BOT-güle-güle.png"
+// );
 
-  //canvaskanal.send(attachment);
- // canvaskanal.send(
-   // msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
-  //);
-  //if (member.user.bot)
-   // return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+//canvaskanal.send(attachment);
+// canvaskanal.send(
+// msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
+//);
+//if (member.user.bot)
+// return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 //});
 
 //client.on("guildMemberAdd", async member => {
- // if (db.has(`gçkanal_${member.guild.id}`) === false) return;
-  //var canvaskanal = member.guild.channels.get(
-   // db.fetch(`gçkanal_${member.guild.id}`)
-  //);
+// if (db.has(`gçkanal_${member.guild.id}`) === false) return;
+//var canvaskanal = member.guild.channels.get(
+// db.fetch(`gçkanal_${member.guild.id}`)
+//);
 
-  //if (!canvaskanal || canvaskanal === undefined) return;
-  //const request = require("node-superfetch");
-  //const Canvas = require("canvas"),
-    //Image = Canvas.Image,
-    //Font = Canvas.Font,
-    //path = require("path");
+//if (!canvaskanal || canvaskanal === undefined) return;
+//const request = require("node-superfetch");
+//const Canvas = require("canvas"),
+//Image = Canvas.Image,
+//Font = Canvas.Font,
+//path = require("path");
 
- // var randomMsg = ["Sunucuya Katıldı."];
-  //var randomMsg_integer =
-    //randomMsg[Math.floor(Math.random() * randomMsg.length)];
+// var randomMsg = ["Sunucuya Katıldı."];
+//var randomMsg_integer =
+//randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
-  //let paket = await db.fetch(`pakets_${member.id}`);
-  //let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  //if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+//let paket = await db.fetch(`pakets_${member.id}`);
+//let msj = await db.fetch(`cikisM_${member.guild.id}`);
+//if (!msj) msj = `{uye}, ${randomMsg_integer}`;
 
-  //const canvas = Canvas.createCanvas(640, 360);
-  //const ctx = canvas.getContext("2d");
+//const canvas = Canvas.createCanvas(640, 360);
+//const ctx = canvas.getContext("2d");
 
-  //const background = await Canvas.loadImage(
-   // "https://i.hizliresim.com/UyVZ4f.jpg"
-  //);
-  //ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+//const background = await Canvas.loadImage(
+// "https://i.hizliresim.com/UyVZ4f.jpg"
+//);
+//ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-  //ctx.strokeStyle = "#74037b";
- // ctx.strokeRect(0, 0, canvas.width, canvas.height);
+//ctx.strokeStyle = "#74037b";
+// ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
- // ctx.fillStyle = `#D3D3D3`;
-  //ctx.font = `37px "Warsaw"`;
-  //ctx.textAlign = "center";
-  //ctx.fillText(`${member.user.username}`, 300, 342);
+// ctx.fillStyle = `#D3D3D3`;
+//ctx.font = `37px "Warsaw"`;
+//ctx.textAlign = "center";
+//ctx.fillText(`${member.user.username}`, 300, 342);
 
-  //let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL;
-  //const { body } = await request.get(avatarURL);
-  //const avatar = await Canvas.loadImage(body);
+//let avatarURL = member.user.avatarURL || member.user.defaultAvatarURL;
+//const { body } = await request.get(avatarURL);
+//const avatar = await Canvas.loadImage(body);
 
-  //ctx.beginPath();
-  //ctx.lineWidth = 4;
-  //ctx.fill();
-  //ctx.lineWidth = 4;
-  //ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
-  //ctx.clip();
-  //ctx.drawImage(avatar, 250, 55, 110, 110);
+//ctx.beginPath();
+//ctx.lineWidth = 4;
+//ctx.fill();
+//ctx.lineWidth = 4;
+//ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+//ctx.clip();
+//ctx.drawImage(avatar, 250, 55, 110, 110);
 
- // const attachment = new Discord.Attachment(
-    //canvas.toBuffer(),
-    //"ro-BOT-hosgeldin.png"
-  //);
+// const attachment = new Discord.Attachment(
+//canvas.toBuffer(),
+//"ro-BOT-hosgeldin.png"
+//);
 
-  //canvaskanal.send(attachment);
- // canvaskanal.send(
-   // msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
-  //);
-  //if (member.user.bot)
-    //return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+//canvaskanal.send(attachment);
+// canvaskanal.send(
+// msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
+//);
+//if (member.user.bot)
+//return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 //});
 //////////////////////////////
 /////client.on("guildMemberAdd", async member => {
-  ///moment.locale("tr");
-  ///let tarih = moment(member.user.createdAt.getTime()).format("LLL");
-  ////let gün = moment
-    ////.duration(new Date().getTime() - member.user.createdAt.getTime())
-    ///.format("D");
-  ////let resim = new Discord.Attachment(
-    ////"https://cdn.discordapp.com/attachments/713874856143355935/714443923338297364/giphy.gif"
-  ////);
- /// let kişi = member.guild.memberCount;
- //// let kayıtcırol = "813875678100455425"; //Yetkili rolünüz ID'sini girin.
- //// let kanal = client.channels.get("830023039160025128"); //Kanalınızın ID'sini girin.
- ///// kanal.send(
-    ///`Merhaba <@${member.user.id}> hanedanımıza **hoşgeldin!**\n\nSeninle beraber **${kişi}** kişiyiz.\n\nTagımızı alarak bize destek olabilirsin\n\nHesap kuruluş tarihi; **${tarih}** [**${gün}** gün önce]\n\n${kayıtcırol} sizinle ilgilenecektir.`,
-   /// resim
- /// );
+///moment.locale("tr");
+///let tarih = moment(member.user.createdAt.getTime()).format("LLL");
+////let gün = moment
+////.duration(new Date().getTime() - member.user.createdAt.getTime())
+///.format("D");
+////let resim = new Discord.Attachment(
+////"https://cdn.discordapp.com/attachments/713874856143355935/714443923338297364/giphy.gif"
+////);
+/// let kişi = member.guild.memberCount;
+//// let kayıtcırol = "813875678100455425"; //Yetkili rolünüz ID'sini girin.
+//// let kanal = client.channels.get("830023039160025128"); //Kanalınızın ID'sini girin.
+///// kanal.send(
+///`Merhaba <@${member.user.id}> hanedanımıza **hoşgeldin!**\n\nSeninle beraber **${kişi}** kişiyiz.\n\nTagımızı alarak bize destek olabilirsin\n\nHesap kuruluş tarihi; **${tarih}** [**${gün}** gün önce]\n\n${kayıtcırol} sizinle ilgilenecektir.`,
+/// resim
+/// );
 //});
 
 //////////////////Müzik Komutu
@@ -2158,15 +2158,17 @@ client.on("message", msg => {
       `**Hey Yıkık Çocuk !**, https://cdn.discordapp.com/attachments/653255820955615239/806876440234688523/ezgif.com-gif-maker_10.gif`
     );
   }
-}); 
+});
 
 ////////////////canvaslı hg bb
 client.on("guildMemberRemove", async member => {
   let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
-  const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
+  const canvaskanal = member.guild.channels.cache.get(
+    resimkanal[member.guild.id].resim
+  );
 
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
-    db.fetch(`gçkanal_${member.guild.id}`)
+  db.fetch(`gçkanal_${member.guild.id}`);
   if (!canvaskanal) return;
 
   const request = require("node-superfetch");
@@ -2406,9 +2408,10 @@ client.on("guildMemberAdd", async member => {
     }
   });
 });
-//////////////////////Utils
-client.utils.forEach(util => {
-  util(client, Tags, Embed, Discord)
-})
+//////////////////////Giriş
+module.exports = (client, Tags, Embed, Discord) => {
+
+client.on('guildMemberAdd', async member => {
+
 //////////////////////
 client.login(process.env.Token);
