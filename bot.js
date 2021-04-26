@@ -2198,3 +2198,16 @@ client.on("guildMemberAdd", async member => {
   if (member.user.bot)
     return canvaskanal.sendFileFilesCodeEmbedMessage(`🤖 Bu bir bot, ${member.user.tag}`);
 });
+//////////
+client.on("message", async message => {
+  let gold = db.fetch(`gold_${message.author.id}`)
+  if (gold === "gold") {
+  if (message.content.toLowerCase() === 'sa') {
+   return message.channel.send("**O Bir Premium üye.Aleyküm selam Hoşgeldin.**")
+    } else {
+  
+  return;
+  
+    }}
+ });
+///////////

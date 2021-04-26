@@ -10,7 +10,7 @@ if(message.author.id !== "564837933912293386")  return message.channel.send("**B
   
   db.set(`gold_${nesne}`, 'gold')
   
-   message.channel.send(`**<@${nesne}>:okey: Adlı Kişinin Premium Üyelği Aktif Edildi.**<@${nesne}>**aramıza hoşgeldin dostum.:merhaba:**`)
+   message.channel.send(`**<@${nesne}>Adlı Kişinin Premium Üyelği Aktif Edildi.**<@${nesne}>**aramıza hoşgeldin dostum.**`)
   client.message.send( new Discord.MessageEmbed() .setDescription(`**<@${nesne}> ID\'li Kullanıcı Premium Üyeliğe Eklendi.**`) .setColor('BLUE'))
 }
 exports.conf = {
