@@ -16,7 +16,7 @@ app.listen(process.env.PORT);
 const log = message => {
   console.log(` ${message}`);
 };
-require("./util/eventLoader.js")(client);
+require("./utils/eventLoader.js")(client);
 
 client.on("ready", () => {
   client.user.setActivity(`Adem Reyzz Bot | a!yardım`);
@@ -2406,8 +2406,9 @@ client.on("guildMemberAdd", async member => {
     }
   });
 });
-   
 //////////////////////Utils
-
+client.utils.forEach(util => {
+  util(client, Tags, Embed, Discord)
+})
 //////////////////////
 client.login(process.env.Token);
