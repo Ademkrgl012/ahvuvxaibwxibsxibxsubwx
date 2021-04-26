@@ -33,4 +33,5 @@ exports.run = (client, message, args) => {
 ✨ **a!atasözü**: Rasgele Atasözü Atar.
 ✨ **a!sarıl [etiket]**: Etiketlediğin Kişiye Sarılır.
 ✨ **a!boğazla [etiket]**: Etiketlediğin Kişiyi Boğazlar.`)
-  .addField(`
+  .addField(`》Linkler`, `[Bot Davet Linki](https://disordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions8) **|** [Destek Sunucu](https://discord.gg/BAĞLANTI) **|** [Bota Oy ver](https://discordbots.org/bot/${botid}/vote)
+  message.channel.sendEmbed(cmf);
