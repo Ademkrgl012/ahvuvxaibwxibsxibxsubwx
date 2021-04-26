@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 exports.run = async (client, message, args) => { 
 let prefix = 'a!'
-let yardım = new Discord.MessageEmbed()  
+let yardım = new Discord.MessageEmbed(yardım)  
 .setColor('RANDOM')
 .addTitle('Adem Reyzz Eğlence Menüsü')
 .addField('✨ **a!fbi** : FBİ Gelir.')
