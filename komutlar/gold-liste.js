@@ -5,10 +5,10 @@ exports.run = (client, message, args) => {
    
   let code = args[1]
   let kişi = ''
-  let data = db.get(`gold_`)
-  let kişiAll = db.all().filter(i => i.ID.startsWith('gold_'))
+  let data = db.get(`gold`)
+  let kişiAll = db.all().filter(i => i.ID.startsWith('gold'))
   kişiAll.forEach(s => {
-    kişi += s.ID.replace('gold','<@') + "> \n" 
+    kişi += s.ID.replace('gold','<@') + ">" 
   })
 
   const embed = new Discord.MessageEmbed()
