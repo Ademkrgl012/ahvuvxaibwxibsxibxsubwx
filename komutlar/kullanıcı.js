@@ -13,7 +13,8 @@ let yardım = new Discord.MessageEmbed()
 👥 **a!i** : Botun İstatistiklerine Bakarsınız.
 👥 **a!bug-bildir** : Botun Bugunu Bildirirsiniz.
 👥 **a!davet** : Botu Davet Edersiniz.
-👥 **a!rank** : Seviye Bilginizi Gösterir Veya Etiketlediğiniz Kişinin Seviyesini Gösterir.`)
+👥 **a!rank** : Seviye Bilginizi Gösterir Veya Etiketlediğiniz Kişinin Seviyesini Gösterir.
+👥 **a!instagram**: İstediğiniz Kullanıcının İnstagram Profilini Görürsünüz`)
 .addField("**» Davet Linki**", " [Botu Davet](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)", )
     .setImage("https://cdn.discordapp.com/attachments/813881349004984370/827103972581048340/standard_1.gif")
 .setFooter(`${message.author.tag} Tarafından İstendi.`, message.author.avatarURL())

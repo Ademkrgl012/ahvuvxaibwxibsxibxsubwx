@@ -22,18 +22,6 @@ module.exports = message => {
   } else if (client.aliases.has(command)) {
     cmd = client.commands.get(client.aliases.get(command));
   }
-  if (!client.commands.has(command)) {
-    if (client.aliases.has(command)) {
-      cmd = client.commands.get(client.aliases.get(command));
-    } else {
-      if (command == "") return;
-      message.reply(
-        "**Botda** `" +
-          command +
-          "` **adında bir komut bulunamadı <a775360587650564127>**"
-      );
-    }
-  }
   if (cmd) {
     if (perms < cmd.conf.permLevel) return;
     cmd.run(client, message, params, perms);
