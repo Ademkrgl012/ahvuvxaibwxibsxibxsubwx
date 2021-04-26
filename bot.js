@@ -2162,13 +2162,11 @@ client.on("message", msg => {
 
 ////////////////canvaslı hg bb
 client.on("guildMemberRemove", async member => {
-  //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/g癟.json", "utf8"));
-  //const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
+  let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
+  const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
 
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
-  var canvaskanal = member.guild.channels.cache.get(
     db.fetch(`gçkanal_${member.guild.id}`)
-  );
   if (!canvaskanal) return;
 
   const request = require("node-superfetch");
@@ -2226,7 +2224,7 @@ client.on("guildMemberRemove", async member => {
     msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
   );
   if (member.user.bot)
-    return canvaskanal.send(`�� Bu bir bot, ${member.user.tag}`);
+    return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
 
 client.on("guildMemberAdd", async member => {
@@ -2254,7 +2252,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "UyVZ4f.jpg"
+    "https://images.app.goo.gl/TVES9VVDjpUg5U788"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2409,5 +2407,7 @@ client.on("guildMemberAdd", async member => {
   });
 });
    
+//////////////////////Utils
+
 //////////////////////
 client.login(process.env.Token);
