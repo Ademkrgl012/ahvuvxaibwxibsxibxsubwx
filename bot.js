@@ -2161,132 +2161,137 @@ client.on("message", msg => {
   }
 });
 
-////////////////canvaslı hg bb
-const canvas =require("canvas");
-    resimkanal[member.guild.id].resim
-  );
+////////////////
+client.on("guildMemberRemove", async member => {
+  //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
+  //const canvaskanal = member.guild.channels.cache.get(resimkanal[member.guild.id].resim);
 
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
-  db.fetch(`gçkanal_${member.guild.id}`);
+  var canvaskanal = member.guild.channels.cache.get(
+    db.fetch(`gçkanal_${member.guild.id}`)
+  );
   if (!canvaskanal) return;
 
   const request = require("node-superfetch");
-    Image = canvas.Image,
-    Font = canvas.Font,
-    path   ///////////////////saya
-const invites = {};
+  const Canvas = require("canvas"),
+    Image = Canvas.Image,
+    Font = Canvas.Font,
+    path = require("path");
 
-const wait = require("util").promisify(setTimeout);
+  var randomMsg = ["Sunucudan Ayrıldı."];
+  var randomMsg_integer =
+    randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
-client.on("ready", () => {
-  wait(1000);
+  let msj = await db.fetch(`cikisM_${member.guild.id}`);
+  if (!msj) msj = `{uye}, ${randomMsg_integer}`;
 
-  client.guilds.forEach(g => {
-    g.fetchInvites().then(guildInvites => {
-      invites[g.id] = guildInvites;
-    });
+  const canvas = Canvas.createCanvas(640, 360);
+  const ctx = canvas.getContext("2d");
+
+  const background = await Canvas.loadImage(
+    "https://i.hizliresim.com/Wrn1XW.jpg"
+  );
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
+
+  ctx.strokeStyle = "#74037b";
+  ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = `#D3D3D3`;
+  ctx.font = `37px "Warsaw"`;
+  ctx.textAlign = "center";
+  ctx.fillText(`${member.user.username}`, 300, 342);
+
+  let avatarURL = member.user.displayAvatarURL({
+    format: "png",
+    dynamic: true,
+    size: 1024
   });
-});
+  const { body } = await request.get(avatarURL);
+  const avatar = await Canvas.loadImage(body);
 
-client.on("guildMemberRemove", async member => {
-  let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
-  if (!kanal) return;
-  let veri = await db.fetch(`rol1_${member.guild.id}`);
-  let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
-  let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
-  let veri2 = await db.fetch(`rol2_${member.guild.id}`);
-  let d = await db.fetch(`bunudavet_${member.id}`);
-  const sa = client.users.get(d);
-  const sasad = member.guild.members.get(d);
-  let sayı2 = await db.fetch(`davet_${d}_${member.guild.id}`);
-  db.add(`davet_${d}_${member.guild.id}`, -1);
+  ctx.beginPath();
+  ctx.lineWidth = 4;
+  ctx.fill();
+  ctx.lineWidth = 4;
+  ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+  ctx.clip();
+  ctx.drawImage(avatar, 250, 55, 110, 110);
 
-  if (!d) {
-    const aa = new Discord.RichEmbed()
-      .setColor("BLACK")
-      .setDescription(
-        `\`\`${member.user.tag}\`\` **adlı şahıs aramızdan ayrıldı.\nŞahsı davet eden:** \`\`Bulunamadı!\`\``
-      )
-      .setFooter(client.user.username, client.user.avatarURL);
-    client.channels.get(kanal).send(aa);
-    return;
-  } else {
-    const aa = new Discord.RichEmbed()
-      .setColor("BLACK")
-      .setDescription(
-        `\`\`${member.user.tag}\`\` **adlı şahıs aramızdan ayrıldı.\nŞahsı davet eden:** \`\`${sa.tag}\`\``
-      )
-      .setFooter(client.user.username, client.user.avatarURL);
-    client.channels.get(kanal).send(aa);
+  const attachment = new Discord.MessageAttachment(
+    canvas.toBuffer(),
+    "ro-BOT-güle-güle.png"
+  );
 
-    if (!veri) return;
-
-    if (sasad.roles.has(veri)) {
-      if (sayı2 <= veri12) {
-        sasad.removeRole(veri);
-        return;
-      }
-    }
-    if (sasad.roles.has(veri2)) {
-      if (!veri2) return;
-      if (sayı2 <= veri21) {
-        sasad.removeRole(veri2);
-        return;
-      }
-    }
-  }
+  canvaskanal.send(attachment);
+  canvaskanal.send(
+    msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
+  );
+  if (member.user.bot)
+    return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
 });
 
 client.on("guildMemberAdd", async member => {
-  member.guild.fetchInvites().then(async guildInvites => {
-    let veri = await db.fetch(`rol1_${member.guild.id}`);
-    let veri12 = await db.fetch(`roldavet1_${member.guild.id}`);
-    let veri21 = await db.fetch(`roldavet2_${member.guild.id}`);
-    let veri2 = await db.fetch(`rol2_${member.guild.id}`);
-    let kanal = await db.fetch(`davetkanal_${member.guild.id}`);
-    if (!kanal) return;
-    const ei = invites[member.guild.id];
+  if (db.has(`gçkanal_${member.guild.id}`) === false) return;
+  var canvaskanal = member.guild.channels.cache.get(
+    db.fetch(`gçkanal_${member.guild.id}`)
+  );
 
-    invites[member.guild.id] = guildInvites;
+  if (!canvaskanal || canvaskanal === undefined) return;
+  const request = require("node-superfetch");
+  const Canvas = require("canvas"),
+    Image = Canvas.Image,
+    Font = Canvas.Font,
+    path = require("path");
 
-    const invite = guildInvites.find(i => ei.get(i.code).uses < i.uses);
-    const sasad = member.guild.members.get(invite.inviter.id);
-    const davetçi = client.users.get(invite.inviter.id);
+  var randomMsg = ["Sunucuya Katıldı."];
+  var randomMsg_integer =
+    randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
-    db.add(`davet_${invite.inviter.id}_${member.guild.id}`, +1);
-    db.set(`bunudavet_${member.id}`, invite.inviter.id);
-    let sayı = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
+  let paket = await db.fetch(`pakets_${member.id}`);
+  let msj = await db.fetch(`cikisM_${member.guild.id}`);
+  if (!msj) msj = `{uye}, ${randomMsg_integer}`;
 
-    let sayı2;
-    if (!sayı) {
-      sayı2 = 0;
-    } else {
-      sayı2 = await db.fetch(`davet_${invite.inviter.id}_${member.guild.id}`);
-    }
+  const canvas = Canvas.createCanvas(640, 360);
+  const ctx = canvas.getContext("2d");
 
-    const aa = new Discord.RichEmbed()
-      .setColor("BLACK")
-      .setDescription(
-        `\`\`${member.user.tag}\`\` **adlı şahıs sunucuya katıldı.\nŞahsı davet eden:** \`\`${davetçi.tag}\`\`\n**Toplam \`\`${sayı2}\`\` daveti oldu!**`
-      )
-      .setFooter(client.user.username, client.user.avatarURL);
-    client.channels.get(kanal).send(aa);
-    if (!veri) return;
+  const background = await Canvas.loadImage(
+    "https://i.hizliresim.com/UyVZ4f.jpg"
+  );
+  ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
-    if (!sasad.roles.has(veri)) {
-      if (sayı2 => veri12) {
-        sasad.addRole(veri);
-        return;
-      }
-    } else {
-      if (!veri2) return;
-      if (sayı2 => veri21) {
-        sasad.addRole(veri2);
-        return;
-      }
-    }
+  ctx.strokeStyle = "#74037b";
+  ctx.strokeRect(0, 0, canvas.width, canvas.height);
+
+  ctx.fillStyle = `#D3D3D3`;
+  ctx.font = `37px "Warsaw"`;
+  ctx.textAlign = "center";
+  ctx.fillText(`${member.user.username}`, 300, 342);
+
+  let avatarURL = member.user.displayAvatarURL({
+    format: "png",
+    dynamic: true,
+    size: 1024
   });
-});
-//////////////////////
+  const { body } = await request.get(avatarURL);
+  const avatar = await Canvas.loadImage(body);
 
-//////////////////////
+  ctx.beginPath();
+  ctx.lineWidth = 4;
+  ctx.fill();
+  ctx.lineWidth = 4;
+  ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+  ctx.clip();
+  ctx.drawImage(avatar, 250, 55, 110, 110);
+
+  const attachment = new Discord.MessageAttachment(
+    canvas.toBuffer(),
+    "ro-BOT-hosgeldin.png"
+  );
+
+  canvaskanal.send(attachment);
+  canvaskanal.send(
+    msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
+  );
+  if (member.user.bot)
+    return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+});
