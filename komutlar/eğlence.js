@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
 
-let botid = ("")
+let botid = ("826508857463275542")
 
 
 
@@ -33,5 +33,21 @@ exports.run = (client, message, args) => {
 ✨ **a!atasözü**: Rasgele Atasözü Atar.
 ✨ **a!sarıl [etiket]**: Etiketlediğin Kişiye Sarılır.
 ✨ **a!boğazla [etiket]**: Etiketlediğin Kişiyi Boğazlar.`)
-  .addField(`》Linkler`, `[Bot Davet Linki](https://disordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions8) **|** [Destek Sunucu](https://discord.gg/BAĞLANTI) **|** [Bota Oy ver](https://discordbots.org/bot/${botid}/vote)
+  .addField(`》Linkler`, `[Bot Davet Linki](https://disordapp.com/oauth2/authorize?client_id=${botid}&scope=bot&permissions8) **|** [Destek Sunucu](https://discord.gg/BAĞLANTI) **|** [Bota Oy ver](https://discordbots.org/bot/${botid}/vote)`)
   message.channel.sendEmbed(cmf);
+  
+  
+  };
+  
+  exports.conf = {
+    enabled: true,
+    guildOnly: false,
+    aliases: [],
+    permLevel: 0,
+  };
+
+exports.help = {
+  name: 'eğlence',
+  description: 'eğlence komutları',
+  usage: 'eğlence komutları'
+  };
