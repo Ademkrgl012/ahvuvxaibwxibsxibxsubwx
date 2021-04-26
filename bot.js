@@ -2409,8 +2409,5 @@ client.on("guildMemberAdd", async member => {
   });
 });
 //////////////////////
-client.utils.forEach(util => {
-  util(client, Tags, Embed ,Discord)
-  })
 //////////////////////
 client.login(process.env.token);
