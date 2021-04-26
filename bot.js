@@ -2254,7 +2254,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://i.hizliresim.com/UyVZ4f.jpg"
+    "UyVZ4f.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2284,7 +2284,7 @@ client.on("guildMemberAdd", async member => {
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
-    "ro-BOT-hosgeldin.png"
+    "UyVZ4f.jpg"
   );
 
   canvaskanal.send(attachment);
