@@ -20,7 +20,7 @@ const log = message => {
 require("./utils/eventLoader.js")(client);
 
 client.on("ready", () => {
-  client.user.setActivity(`Adem Reyzz Bot | a!yardım`);
+  client.user.setActivity(`a!yardım | a!vakit | a!davet`);
   console.log(
     `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
   );
