@@ -1456,10 +1456,7 @@ client.on("message", async msg => {
           ).size
         }`
       );
-    }
-  } else {
-  }
-});
+  
 ////////////////////Sunucu Sayaç
 client.on("guildCreate", guild => {
   let ademreyzz_sayi = "100"; //Sayılmasını istediğiniz sunucu sayacı.
