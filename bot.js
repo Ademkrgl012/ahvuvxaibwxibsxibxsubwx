@@ -1303,7 +1303,7 @@ client.on("message", msg => {
 });
 ///////////////panel
 client.on("message", async msg => {
-  let ever = msg.guild.roles.find(c => c.name === "@everyone");
+  let everyone = msg.guild.roles.find(c => c.name === "@everyone");
   let sistem = await db.fetch(`panell_${msg.guild.id}`);
   if (sistem == "açık") {
     let kategori = msg.guild.channels.find(c =>
@@ -2040,7 +2040,7 @@ client.on("guildMemberAdd", async member => {
   ctx.strokeStyle = "#74037b";
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = `#D3D3D3`;
+  ctx.fillStyle = `#ffffff`;
   ctx.font = `37px "Warsaw"`;
   ctx.textAlign = "center";
   ctx.fillText(`${member.user.username}`, 300, 342);
@@ -2057,9 +2057,9 @@ client.on("guildMemberAdd", async member => {
   ctx.lineWidth = 4;
   ctx.fill();
   ctx.lineWidth = 4;
-  ctx.arc(215 + 65, 65 + 65, 65, 0, 2 * Math.PI, false);
+  ctx.arc(112 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
   ctx.clip();
-  ctx.drawImage(avatar, 225, 65, 155, 155);
+  ctx.drawImage(avatar, 112, 55, 110, 110);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
