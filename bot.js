@@ -2061,11 +2061,11 @@ client.on("guildMemberAdd", async member => {
   ctx.lineWidth = 4;
   ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
   ctx.clip();
-  ctx.drawImage(avatar, 250, 25, 110, 110);
+  ctx.drawImage(avatar, 250, 55, 110, );
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
-    "ro-BOT-hosgeldin.png"
+    "Adem-Reyzz-Bot-hosgeldin.png"
   );
 
   canvaskanal.send(attachment);
