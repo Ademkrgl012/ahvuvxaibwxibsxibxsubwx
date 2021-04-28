@@ -7,7 +7,6 @@
     "start": "node bot.js"
   },
   "dependencies": {
-    "quick.db": "^7.1.2",
     "args": "^5.0.1",
     "canvacord": "^5.2.0",
     "canvas": "^2.7.0",
@@ -29,6 +28,7 @@
     "node-superfetch": "^0.2.2",
     "noflo-nodejs": "^0.15.1",
     "path": "^0.12.7",
+    "quick.db": "^7.1.2",
     "request": "^2.88.2",
     "superagent": "^6.1.0",
     "tags": "^2.0.10",
