@@ -1302,28 +1302,7 @@ client.on("message", msg => {
   if (msg.channel.bot) return;
 });
 ///////////////panel
-client.on("message", async msg => {
-  let ever = msg.guild.roles.find(c => c.name === "@everyone");
-  let sistem = await db.fetch(`panell_${msg.guild.id}`);
-  if (sistem == "açık") {
-    let kategori = msg.guild.channels.find(c =>
-      c.name.startsWith(msg.guild.name)
-    );
-    if (!kategori) {
-      msg.guild
-        .createChannel(`${msg.guild.name} | Sunucu Paneli`, {
-          type: "category",
-          permissionOverwrites: [
-            {
-              id: msg.guild.id,
-              deny: ["CONNECT"]
-            }
-          ]
-        })
-        .then(parent => {
-          setTimeout(async function() {
-            let eo = msg.guild.roles.find(r => r.name == "@everyone");
-            parent.overwritePermissions(eo, {
+(eo, {
               CONNECT: false
             });
             setTimeout(async function() {
