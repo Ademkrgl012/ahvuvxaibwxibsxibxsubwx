@@ -2023,7 +2023,7 @@ client.on("guildMemberAdd", async member => {
     Font = Canvas.Font,
     path = require("path");
 
-  var randomMsg = ["Sunucuya Katıldı."];
+  var randomMsg = [""];
   var randomMsg_integer =
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
@@ -2035,7 +2035,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://i.hizliresim.com/UyVZ4f.jpg"
+    "https://cdn.discordapp.com/attachments/813881989778112562/836756865101856778/PicsArt_04-28-03.08.48.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2061,7 +2061,7 @@ client.on("guildMemberAdd", async member => {
   ctx.lineWidth = 4;
   ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
   ctx.clip();
-  ctx.drawImage(avatar, 250, 55, 110, 110);
+  ctx.drawImage(avatar, 250, 25, 110, 110);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
@@ -2073,7 +2073,7 @@ client.on("guildMemberAdd", async member => {
     msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
   );
   if (member.user.bot)
-    return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+    return canvaskanal.send(``);
 });
 ////////////
 client.on("guildMemberRemove", async member => {
@@ -2169,7 +2169,7 @@ client.on("guildMemberAdd", async member => {
   ctx.strokeStyle = "#74037b";
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = `#D3D3D3`;
+  ctx.fillStyle = `#ffffff`;
   ctx.font = `37px "Warsaw"`;
   ctx.textAlign = "center";
   ctx.fillText(`${member.user.username}`, 300, 342);
@@ -2188,7 +2188,7 @@ client.on("guildMemberAdd", async member => {
 
   const attachment = new Discord.Attachment(
     canvas.toBuffer(),
-    "ro-BOT-hosgeldin.png"
+    "https://cdn.discordapp.com/attachments/813881989778112562/836756865101856778/PicsArt_04-28-03.08.48.jpg"
   );
 
   canvaskanal.sendFileFilesCodeEmbedMessage(attachment);
