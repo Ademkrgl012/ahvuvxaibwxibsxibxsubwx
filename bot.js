@@ -769,7 +769,7 @@ client.on("guildMemberAdd", member => {
         member.user.username +
         "** **Kullanıcısına** <@&" +
         rol +
-        ">**Rolü verildi**"
+        "> **Rolü verildi**"
     )
     .setColor("RANDOM"); //.setFooter(`<@member.id>`)
   member.guild.channels.cache.get(kanal).send(embed);

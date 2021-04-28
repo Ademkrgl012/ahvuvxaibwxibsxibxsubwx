@@ -43,7 +43,7 @@ exports.run = async (client, message, args) => {
       new Discord.MessageEmbed()
         .setColor("0x36393E")
         .setDescription(
-          "> **Otorol Sistemi Aktif edildi** <a:adem_tiks:798275047047168041> \n> **Sunucuya giren kişilere verilecek rol** <@&" +
+          "> **Otorol Sistemi Aktif edildi** <a:adem_tiks:798275047047168041> \n> **Sunucuya giren kişilere verilecek rol** < @& " +
             rol +
             "> \n> **Otorol mesajının gideceği kanal** <#" +
             rolkanal.id +
