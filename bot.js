@@ -1956,25 +1956,25 @@ client.on("guildMemberRemove", async member => {
     Font = Canvas.Font,
     path = require("path");
 
-  var randomMsg = ["Sunucudan Ayrıldı."];
+  var randomMsg = [""];
   var randomMsg_integer =
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+  if (!msj) msj = ``;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://i.hizliresim.com/Wrn1XW.jpg"
+    "https://cdn.discordapp.com/attachments/813881989778112562/836824107744100352/PicsArt_04-28-07.39.44.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
   ctx.strokeStyle = "#74037b";
   ctx.strokeRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = `#D3D3D3`;
+  ctx.fillStyle = `#ffffff`;
   ctx.font = `37px "Warsaw"`;
   ctx.textAlign = "center";
   ctx.fillText(`${member.user.username}`, 300, 342);
@@ -1991,9 +1991,9 @@ client.on("guildMemberRemove", async member => {
   ctx.lineWidth = 4;
   ctx.fill();
   ctx.lineWidth = 4;
-  ctx.arc(250 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+  ctx.arc(310, 175, 100, 0, Math.PI * 2, true);
   ctx.clip();
-  ctx.drawImage(avatar, 250, 55, 110, 110);
+  ctx.drawImage(avatar, 210, 75, 200, 200);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
@@ -2001,11 +2001,8 @@ client.on("guildMemberRemove", async member => {
   );
 
   canvaskanal.send(attachment);
-  canvaskanal.send(
-    msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
-  );
   if (member.user.bot)
-    return canvaskanal.send(`🤖 Bu bir bot, ${member.user.tag}`);
+    return canvaskanal.send(`Bir Bot Sunucudan Ayrıldı, ${member.user.tag}`);
 });
 
 client.on("guildMemberAdd", async member => {
@@ -2027,7 +2024,7 @@ client.on("guildMemberAdd", async member => {
 
   let paket = await db.fetch(`pakets_${member.id}`);
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = `{uye}, ${randomMsg_integer}`;
+  if (!msj) msj = ``;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
@@ -2067,9 +2064,6 @@ client.on("guildMemberAdd", async member => {
   );
 
   canvaskanal.send(attachment);
-  canvaskanal.send(
-    msj.replace("{}", member).replace("{sunucu}", member.guild.name)
-  );
   if (member.user.bot)
     return canvaskanal.send(`Sunucuya Bir Bot Girdi ${member.user.tag}`);
 });
