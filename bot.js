@@ -2043,7 +2043,7 @@ client.on("guildMemberAdd", async member => {
   ctx.fillStyle = `#ffffff`;
   ctx.font = `37px "Warsaw"`;
   ctx.textAlign = "center";
-  ctx.fillText(`${member.user.username}`, 300, 342);
+  ctx.fillText(`${member.user.username}`, 310, 320);
 
   let avatarURL = member.user.displayAvatarURL({
     format: "png",
@@ -2054,12 +2054,12 @@ client.on("guildMemberAdd", async member => {
   const avatar = await Canvas.loadImage(body);
 
   ctx.beginPath();
-  ctx.lineWidth = 4;
+  ctx.lineWidth = 5;
   ctx.fill();
-  ctx.lineWidth = 4;
-  ctx.arc(112 + 55, 55 + 55, 55, 0, 2 * Math.PI, false);
+  ctx.lineWidth = 5;
+  ctx.arc(230 + 65, 55 + 55, 65, 0, 2 * Math.PI, false);
   ctx.clip();
-  ctx.drawImage(avatar, 112, 55, 110, 110);
+  ctx.drawImage(avatar, 235, 55, 110, 110);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
