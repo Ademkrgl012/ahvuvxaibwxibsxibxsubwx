@@ -1101,7 +1101,7 @@ client.on("message", async message => {
       `sebep.${message.author.id}.${message.guild.id}`
     );
     const sp = await db.fetch(`giriş.${message.author.id}.${message.guild.id}`);
-    const asd = await d.fetch(
+    const asd = await db.fetch(
       `display.${message.author.id}.${message.guild.id}`
     );
 
@@ -1342,7 +1342,7 @@ client.on("message", async msg => {
                   })
                   .then(ch => {
                     setTimeout(function() {
-                      ch.overwritePermissions(ever, {
+                      ch.overwritePermissions(everyone, {
                         CONNECT: false
                       });
                       db.set(`toplamID_${msg.guild.id}`, ch.id);
@@ -2048,18 +2048,18 @@ client.on("guildMemberAdd", async member => {
   let avatarURL = member.user.displayAvatarURL({
     format: "png",
     dynamic: true,
-    size:2560
+    size: 1024
   });
   const { body } = await request.get(avatarURL);
   const avatar = await Canvas.loadImage(body);
 
   ctx.beginPath();
-  ctx.lineWidth = 10;
+  ctx.lineWidth = 5;
   ctx.fill();
-  ctx.lineWidth = 10;
-  ctx.arc(263 + 60, 60 + 55, 55, 0, 2* Math.PI, false);
+  ctx.lineWidth = 5;
+  ctx.arc(263 + 60, 95 + 95, 95, 0, 2 * Math.PI, false);
   ctx.clip();
-  ctx.drawImage(avatar, 270, 60, 110, 110);
+  ctx.drawImage(avatar, 263, 60, 110, 110);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
@@ -2070,7 +2070,8 @@ client.on("guildMemberAdd", async member => {
   canvaskanal.send(
     msj.replace("{uye}", member).replace("{sunucu}", member.guild.name)
   );
-  if (member.user.bot) return canvaskanal.send(`Sunucuya Bir Bot Girdi ${member.user.tag}`);
+  if (member.user.bot)
+    return canvaskanal.send(`Sunucuya Bir Bot Girdi ${member.user.tag}`);
 });
 ////////////
 client.on("guildMemberRemove", async member => {
