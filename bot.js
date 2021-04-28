@@ -2057,9 +2057,9 @@ client.on("guildMemberAdd", async member => {
   ctx.lineWidth = 5;
   ctx.fill();
   ctx.lineWidth = 5;
-  ctx.arc(200, 200, 70, 0, Math.PI * 2, true)
+  ctx.arc(175, 175, 70, 0, Math.PI * 2, true)
   ctx.clip();
-  ctx.drawImage(avatar, 235, 0, 200, 200);
+  ctx.drawImage(avatar, 35, 75, 205, 205);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
