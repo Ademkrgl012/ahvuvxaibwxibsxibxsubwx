@@ -2033,7 +2033,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-     "https://cdn.discordapp.com/attachments/813881989778112562/836818269800628254/PicsArt_04-28-07.14.55.png"
+     "https://cdn.discordapp.com/attachments/813881989778112562/836820359260012574/PicsArt_04-28-07.24.32.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2057,9 +2057,9 @@ client.on("guildMemberAdd", async member => {
   ctx.lineWidth = 0;
   ctx.fill();
   ctx.lineWidth = 0;
-  ctx.arc(125, 100, 100, 0, Math.PI * 2, true)
+  ctx.arc(275, 125, 100, 0, Math.PI * 2, true)
   ctx.clip();
-  ctx.drawImage(avatar, 25, 25, 200, 200);
+  ctx.drawImage(avatar, 175, 25, 200, 200);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
