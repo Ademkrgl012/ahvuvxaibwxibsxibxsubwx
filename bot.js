@@ -1303,7 +1303,7 @@ client.on("message", msg => {
 });
 ///////////////panel
 client.on("message", async msg => {
-  let everyone = msg.guild.roles.find(c => c.name === "@everyone");
+  let ever = msg.guild.roles.find(c => c.name === "@everyone");
   let sistem = await db.fetch(`panell_${msg.guild.id}`);
   if (sistem == "açık") {
     let kategori = msg.guild.channels.find(c =>
@@ -1342,7 +1342,7 @@ client.on("message", async msg => {
                   })
                   .then(ch => {
                     setTimeout(function() {
-                      ch.overwritePermissions(everyone, {
+                      ch.overwritePermissions(ever, {
                         CONNECT: false
                       });
                       db.set(`toplamID_${msg.guild.id}`, ch.id);
