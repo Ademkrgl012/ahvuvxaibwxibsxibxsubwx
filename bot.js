@@ -2090,7 +2090,7 @@ client.on("guildMemberRemove", async member => {
     Font = Canvas.Font,
     path = require("path");
 
-  var randomMsg = ["Sunucudan Ayrıldı."];
+  var randomMsg = [""];
   var randomMsg_integer =
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
@@ -2101,7 +2101,7 @@ client.on("guildMemberRemove", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://i.hizliresim.com/Wrn1XW.jpg"
+    "https://cdn.discordapp.com/attachments/813881989778112562/836756865521942558/PicsArt_04-28-03.12.23.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2150,7 +2150,7 @@ client.on("guildMemberAdd", async member => {
     Font = Canvas.Font,
     path = require("path");
 
-  var randomMsg = ["Sunucuya Katıldı."];
+  var randomMsg = [""];
   var randomMsg_integer =
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
@@ -2162,7 +2162,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://i.hizliresim.com/UyVZ4f.jpg"
+    "https://cdn.discordapp.com/attachments/813881989778112562/836756865101856778/PicsArt_04-28-03.08.48.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
