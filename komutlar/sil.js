@@ -11,7 +11,7 @@ exports.run = async(yashinu, message, args) => {
     rexussayi = rexussayi-100;
   };
   if (rexussayi > 0)  message.channel.bulkDelete(rexussayi).then(r => rexussilinen+=r.size);
-  message.channel.send(`**\`\`${args[0]}\`\` Adet Mesaj Silindi.** <791986525742563329>`);
+  message.channel.send(`${args[0]} Adet Mesaj Silindi.`);
 };
 
 exports.conf = {
