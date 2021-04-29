@@ -2298,7 +2298,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	 serverQueue.textChannel.send(new Discord.MessageEmbed()                                   
+	 serverQueue.textChannel.send(new Discord.RichEmbed()                                   
   .setTitle("** Music | 🎙 Müzik Başladı**",`https://cdn.discordapp.com/avatars/473974675194511361/6bb90de9efe9fb80081b185266bb94a6.png?size=2048`)
   .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg?width=80&height=60`)
   .addField('\nBaşlık', `[${song.title}](${song.url})`, true)
@@ -2321,3 +2321,5 @@ client.yetkiler = message => {
   if(message.author.id === ayarlar.sahip) permlvl = 7;
   return permlvl;
 };
+
+MessageMessageMessage.MessageMessageMessage
