@@ -2322,21 +2322,3 @@ client.yetkiler = message => {
   return permlvl;
 };
 
-
-
-
-
-
-client.on("message", async message => {
-var sabit = client.emojis.get(`609086032276619295`)
-
-  if (message.content === `<@${client.user.id}>`) {
- message.channel.sendEmbed(new Discord.RichEmbed().setDescription(`<a:sabit:601316113594449960> Hey, Benim Hakkımda Pek Bilgin Yok Gibi Gözüküyor! \n\n <a:sabit:601316113594449960> İşte Prefixim: **!** \n\n <a:sabit:601316113594449960> Eğer Komularımı Görmek İstiyorsan **!y** Yazman Yeterli!`).setFooter(`${message.author.username} Tarafından İstendi.`, message.author.avatarURL).setColor('#FF0000'))
-
-}
-  
-});
-
-
-
-
