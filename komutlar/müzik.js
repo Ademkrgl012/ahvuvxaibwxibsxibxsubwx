@@ -22,7 +22,7 @@ message.channel.send(embed)
 exports.conf = {
   enabled: true,
   guildOnly: false, 
-  aliases: ['müzik','muzik','komutlar'], 
+  aliases: ['y','yardım','müzik','muzik','komutlar'], 
   permLevel: 0 
 };
 
