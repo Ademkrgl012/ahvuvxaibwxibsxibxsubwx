@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const ayarlar = require('../ayarlar.json')
 var prefix = ayarlar.prefix
 exports.run = function(client, message) {
-const embed = new Discord.RichEmbed()
+const embed = new Discord.MessageEmbed()
 .setColor('#FF0000')
 .setTitle('» Muzik Komut Grupları')
 .setTimestamp()
