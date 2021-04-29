@@ -1,11 +1,12 @@
 dependencies:
   args: 5.0.1
+  bindings: 1.5.0
   canvacord: 5.2.0
   canvas: 2.7.0
   client: 0.0.1
   command: 0.0.5
   common-tags: 1.8.0
-  discord-giveaways: 4.5.0
+  discord-giveaways: 4.5.1
   discord.js: 12.5.3
   express: 4.17.1
   ffmpeg: 0.0.4
@@ -692,7 +693,7 @@ packages:
     resolution:
       integrity: sha512-Mw+adcfzPxcPeI+0WlvRrr/3lGVO0bD75SxX6811cxSh1Wbxx7xZBGK1eVtDf6si8rg2lhnUjsVLMFMfbRIuwA==
   /core-js/2.6.12:
-    deprecated: 'core-js@<3 is no longer maintained and not recommended for usage due to the number of issues. Please, upgrade your dependencies to the actual version of core-js@3.'
+    deprecated: 'core-js@<3.3 is no longer maintained and not recommended for usage due to the number of issues. Because of the V8 engine whims, feature detection in old core-js versions could cause a slowdown up to 100x even if nothing is polyfilled. Please, upgrade your dependencies to the actual version of core-js.'
     dev: false
     requiresBuild: true
     resolution:
@@ -829,13 +830,13 @@ packages:
     hasBin: true
     resolution:
       integrity: sha1-+hN8S9aY7fVc1c0CrFWfkaTEups=
-  /discord-giveaways/4.5.0:
+  /discord-giveaways/4.5.1:
     dependencies:
       deepmerge: 4.2.2
       serialize-javascript: 5.0.1
     dev: false
     resolution:
-      integrity: sha512-Z6hP2fnYJ/RIbn1SVFXWkhUt+veQP1QL8/Jws80DxcbrdIl2y/BUU+AzLMTWnsADZjgMAnjP3e98KRTi19GBRg==
+      integrity: sha512-aSOD7IiCqfJ2sU1GbdH0EP/xwuXZW/h7+8RH6LzgfZaYy2V89O0qKwbe52Dy2ToymAexPhEGpDKZHrm6Vd0Jqw==
   /discord.js/12.5.3:
     dependencies:
       '@discordjs/collection': 0.1.6
@@ -3361,6 +3362,7 @@ shrinkwrapMinorVersion: 9
 shrinkwrapVersion: 3
 specifiers:
   args: ^5.0.1
+  bindings: ^1.5.0
   canvacord: ^5.2.0
   canvas: ^2.7.0
   client: 0.0.1
