@@ -1315,24 +1315,6 @@ client.on("guildCreate", guild => {
 });
 
 ////////////////////
-client.on("message", msg => {
-  var dm = client.channels.cache.get("830510584159141971");
-  if (msg.channel.type === "dm") {
-    if (msg.author.id === client.user.id) return;
-    const botdm = new Discord.MessageEmbed()
-      .setTitle(`🔔 Yeni Bir Mesajım Var`)
-      .setTimestamp()
-      .setColor("RED")
-      .setThumbnail(`${msg.author.avatarURL()}`)
-      .addField("Gönderen", msg.author.tag)
-      .addField("Gönderen ID", msg.author.id)
-      .addField("Gönderilen Mesaj", msg.content);
-
-    dm.send(botdm);
-  }
-  if (msg.channel.bot) return;
-});
-
 //////////////gelismis sunucu kur
 client.on("message", async message => {
   const ms = require("ms");
