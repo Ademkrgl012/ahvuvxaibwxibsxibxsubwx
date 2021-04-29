@@ -17,7 +17,7 @@ app.listen(process.env.PORT);
 const log = message => {
   console.log(` ${message}`);
 };
-require("./utils/eventLoader.js")(client);
+require("./util/eventLoader.js")(client);
 
 client.on("ready", () => {
   client.user.setActivity(`a!yardım | a!vakit | a!davet`);
@@ -2042,4 +2042,9 @@ client.on("message", async message => {
     }
   }
 });
-///////////
+///////////Müzik Komutları
+
+
+
+
+
