@@ -11,23 +11,7 @@ const Canvas = require("canvas");
 const { GOOGLE_API_KEY } = require('./ayarlar.json');
 const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(GOOGLE_API_KEY);
-const queue = new Map();  
-const ytdl = require('ytdl-core');
-const secret = require("./settings/secret.json");
-const config = require("./settings/config.json");
-const Client = new Discord.Client({
-    disableEveryone: true
-});
-
-Client.queue = new Map();
-Client.commands = new Discord.Collection();
-Client.aliases = new Discord.Collection();
-
-const lib = require("./lib/core.js");
-lib.setup(client);
-
-module.exports.client = client;
-
+const queue = new Map();
 client.login(process.env.token);
 const app = express();
 app.get("/", (request, response) => {
