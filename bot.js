@@ -2048,7 +2048,6 @@ client.on("message", async message => {
   }
 });
 ///////////Müzik Komutları
-var prefix = ayarlar.prefix
 
 client.on('message', async msg => {
 
