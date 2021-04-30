@@ -2064,17 +2064,17 @@ client.on('message', async msg => {
 
 	if (command === 'çal') {
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.sendEmbed(new Discord.RichEmbed()
+		if (!voiceChannel) return msg.channel.sendEmbed(new Discord.MessageEmbed()
       .setColor('RED')
     .setDescription(':warning: | İlk olarak sesli bir kanala giriş yapmanız gerek.'));
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
-			return msg.channel.sendEmbed(new Discord.RichEmbed()
+			return msg.channel.sendEmbed(new Discord.MessageEmbed()
     .setColor('RED')
     .setTitle(':warning: | İlk olarak sesli bir kanala giriş yapmanız gerek.'));
 		}
 		if (!permissions.has('SPEAK')) {
-			 return msg.channel.sendEmbed(new Discord.RichEmbed()
+			 return msg.channel.sendEmbed(new Discord.MessageEmbed()
       .setColor('RED')
       .setTitle(':warning: | Şarkı başlatılamıyor. Lütfen mikrofonumu açınız.'));
         }
@@ -2086,7 +2086,7 @@ client.on('message', async msg => {
 				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
 				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
 			}
-			 return msg.channel.sendEmbed(new Discord.RichEmbed)
+			 return msg.channel.sendEmbed(new Discord.MessageEmbed)
       .setTitle(`**? | Oynatma Listesi: **${playlist.title}** Kuyruğa Eklendi!**`)
 		} else {
 			try {
@@ -2096,7 +2096,7 @@ client.on('message', async msg => {
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
           
-				 msg.channel.sendEmbed(new Discord.RichEmbed()                  
+				 msg.channel.sendEmbed(new Discord.MessageEmbed()                  
          .setTitle('XiR`S | Şarkı Seçimi')
          .setAuthor(`${msg.author.tag}`, msg.author.avatarURL)
          .setThumbnail("https://i.postimg.cc/W1b1LW13/youtube-kids-new-logo.png")
@@ -2113,7 +2113,7 @@ client.on('message', async msg => {
 						});
 					} catch (err) {
 						console.error(err);
-						 return msg.channel.sendEmbed(new Discord.RichEmbed()
+						 return msg.channel.sendEmbed(new Discord.MessageEmbed()
             .setColor('RED')
             .setDescription(':warning: | **Şarkı Değeri Belirtmediğiniz İçin Seçim İptal Edilmiştir**.'));
                     }
@@ -2121,7 +2121,7 @@ client.on('message', async msg => {
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
 				} catch (err) {
 					console.error(err);
-					return msg.channel.sendEmbed(new Discord.RichEmbed()
+					return msg.channel.sendEmbed(new Discord.MeEmbed()
           .setColor('RED')
           .setDescription(':( | **Aradım Fakat Hiç Bir Sonuç Çıkmadı**'));
                 }
