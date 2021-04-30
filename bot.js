@@ -1,6 +1,5 @@
 const Discord = require("discord.js");
 const fs = require("fs");
-const client = new Discord.Client();
 const http = require("http");
 const db = require("quick.db");
 const moment = require("moment");
@@ -13,6 +12,21 @@ const YouTube = require('simple-youtube-api');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();  
 const ytdl = require('ytdl-core');
+const secret = require("./settings/secret.json");
+const config = require("./settings/config.json");
+const client = new discord.Client({
+    disableEveryone: true
+});
+
+client.queue = new Map();
+client.commands = new discord.Collection();
+client.aliases = new discord.Collection();
+
+const lib = require("./lib/core.js");
+lib.setup(client);
+
+module.exports.client = client;
+
 client.login(process.env.token);
 const app = express();
 app.get("/", (request, response) => {
