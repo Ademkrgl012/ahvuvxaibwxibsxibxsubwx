@@ -54,7 +54,7 @@ client.on('message', async msg => {
 	let command = msg.content.toLowerCase().split(' ')[0];
 	command = command.slice(prefix.length)
 
-	if (command === 'çal') {
+	if (command === 'oynat') {
 		const voiceChannel = msg.member.voice.channel;
 		if (!voiceChannel) return msg.channel.send(new Discord.MessageEmbed()
       .setColor('RED')
