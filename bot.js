@@ -1,5 +1,6 @@
 const Discord = require("discord.js");
 const fs = require("fs");
+const client = new Discord.Client();
 const http = require("http");
 const db = require("quick.db");
 const moment = require("moment");
@@ -14,13 +15,13 @@ const queue = new Map();
 const ytdl = require('ytdl-core');
 const secret = require("./settings/secret.json");
 const config = require("./settings/config.json");
-const client = new discord.Client({
+const Client = new Discord.Client({
     disableEveryone: true
 });
 
-client.queue = new Map();
-client.commands = new discord.Collection();
-client.aliases = new discord.Collection();
+Client.queue = new Map();
+Client.commands = new Discord.Collection();
+Client.aliases = new Discord.Collection();
 
 const lib = require("./lib/core.js");
 lib.setup(client);
