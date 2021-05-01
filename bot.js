@@ -526,8 +526,8 @@ client.on("message", msg => {
     ".me",
     ".gg",
     "www.",
-    "https",
-    "http",
+    "https://",
+    "http://",
     ".gl",
     ".org",
     ".com.tr",
@@ -556,77 +556,23 @@ client.on("message", msg => {
   }
 });
 
-////////////////////KÜFÜR
+////////////////////
 
-client.on("message", async msg => {
-  if (msg.author.bot) return;
-  if (msg.channel.type === "dm") return;
-
-  let i = await db.fetch(`küfürFiltre_${msg.guild.id}`);
-  if (i == "acik") {
-    const küfür = [
-      "amcık",
-      "yarrak",
-      "orospu",
-      "piç",
-      "sikerim",
-      "sikik",
-      "amına",
-      "pezevenk",
-      "yavşak",
-      "ananı",
-      "anandır",
-      "orospu",
-      "evladı",
-      "göt",
-      "pipi",
-      "sokuk",
-      "yarak",
-      "bacını",
-      "karını",
-      "amk",
-      "aq",
-      "mk",
-      "anaskm"
-    ];
-    if (küfür.some(word => msg.content.toLowerCase().includes(word))) {
-      try {
-        if (!msg.member.hasPermission("MANAGE_WEBHOOKS")) {
-          msg.delete();
-          let embed = new Discord.MessageEmbed()
-            .setColor(0xffa300)
-            .setFooter("Adem Reyzz Küfür Sistemi", client.user.avatarURL())
-            .setAuthor(
-              msg.guild.owner.user.username,
-              msg.guild.owner.user.avatarURL()
-            )
-            .setDescription(
-              "Adem Reyzz, " +
-                `***${msg.guild.name}***` +
-                " adlı sunucunuzda küfür yakaladım."
-            )
-            .addField(
-              "Küfür Eden Kişi",
-              "Kullanıcı: " + msg.author.tag + "\nID: " + msg.author.id,
-              true
-            )
-            .addField("Engellenen mesaj", msg.content, true)
-            .setTimestamp();
-          msg.guild.owner.user.send(embed);
-          return msg.channel
-            .send(
-              `${msg.author}, Küfür Etmek Yasak! Senin Mesajını Özelden Kurucumuza Gönderdim.`
-            )
-            .then(msg => msg.delete(25000));
+        const kufur = ["oç", "amk", "ananı sikiyim", "ananıskm", "piç", "amk", "amsk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "mal", "sik", "yarrak", "am", "amcık", "amık", "yarram", "sikimi ye", "mk", "mq", "aq", "ak", "amq",];
+        if (kufur.some(word => newMessage.content.includes(word))) {
+          try {
+            if (!oldMessage.member.hasPermission("BAN_MEMBERS")) {
+                  oldMessage.delete();
+                          
+                      return oldMessage.reply('Bu Sunucuda Küfür Filtresi Aktiftir.')
+            }              
+          } catch(err) {
+            console.log(err);
+          }
         }
-      } catch (err) {
-        console.log(err);
-      }
     }
-  }
-  if (!i) return;
+    if (!i) return;
 });
-
 //////////////////////////MODLOG///////////////////
 client.on("messageDelete", async message => {
   if (message.author.bot || message.channel.type == "dm") return;

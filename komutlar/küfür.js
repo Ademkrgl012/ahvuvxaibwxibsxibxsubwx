@@ -1,33 +1,28 @@
-const Discord = require('discord.js');
-const db = require('quick.db');
-exports.run = async (client, message, args) => {
- if (!message.guild) {
-    const ozelmesajuyari = new Discord.MessageEmbed()
-    .setColor(0xFF0000)
-    .setTimestamp()
-    .setAuthor(message.author.username, message.author.avatarURL)
-    .addField('**Komutları Özel Mesajlarda Kullanılamaz!**')
-    return message.author.send(ozelmesajuyari); }
-  if (!message.member.hasPermission('ADMINISTRATOR')) return message.reply('Yetkiniz Bulunmamaktadır!');
-let reklam = db.fetch(`kufurengel.${message.guild.id}`)
-if(!reklam) {
-message.channel.send(`Küfür filtresi başarıyla açıldı.`)
-db.set(`kufurengel.${message.guild.id}`, true)
-} else {
-message.channel.send(`Küfür filtresi başarıyla kapatıldı.`)
-db.delete(`kufurengel.${message.guild.id}`)
-}
-};
+const Discord = require('discord.js')
+const db = require('quick.db')
 
+exports.run = async (client ,message, args) =>{
+if(args[0] === 'aktif') {
+    db.set(`kufur_${message.guild.id}`, "acik")
+    message.channel.send('Başarılı Şekilde `Aktif` Edildi.')
+  return
+}
+if (args[0] === 'deaktif') {
+  db.delete(`kufur_${message.guild.id}`)
+message.channel.send('Başarılı Şekilde `Deaktif` Edildi')
+return
+}
+  message.channel.send('Lüten `Aktif` yada `Deaktif` Yazın!')
+};
 exports.conf = {
-  enabled: true,
-  guildOnly: false,
-  aliases: ['küfür'],
-  permLevel: 0
+ enabled: true,
+ guildOnly: false,
+ aliases: ['küfür'],
+ permLevel: 0
 };
 
 exports.help = {
-  name: 'küfür-engel',
-  description: 'Adem Reyzz',
-  usage: 'reklam-filtre'
+ name: 'küfür-ayarla',
+ description: 'Davet Log Kanalını Belirler',
+ usage: 'davet-kanal-ayarla #kanal'
 };
