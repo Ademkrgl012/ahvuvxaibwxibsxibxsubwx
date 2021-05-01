@@ -556,23 +556,218 @@ client.on("message", msg => {
   }
 });
 
-////////////////////
-
-        const kufur = ["oç", "amk", "ananı sikiyim", "ananıskm", "piç", "amk", "amsk", "sikim", "sikiyim", "orospu çocuğu", "piç kurusu", "kahpe", "orospu", "mal", "sik", "yarrak", "am", "amcık", "amık", "yarram", "sikimi ye", "mk", "mq", "aq", "ak", "amq",];
-        if (kufur.some(word => newMessage.content.includes(word))) {
-          try {
-            if (!oldMessage.member.hasPermission("BAN_MEMBERS")) {
-                  oldMessage.delete();
-                          
-                      return oldMessage.reply('Bu Sunucuda Küfür Filtresi Aktiftir.')
-            }              
-          } catch(err) {
-            console.log(err);
-          }
+/////////////////küfür
+client.on("messageUpdate", (old, nev) => {
+  if (old.content != nev.content) {
+    const yasak = [
+      "discord.app",
+      "discord.gg",
+      "invite",
+      "discordapp",
+      "discordgg",
+      ".com",
+      ".net",
+      ".xyz",
+      ".tk",
+      ".pw",
+      ".io",
+      ".me",
+      ".gg",
+      "www.",
+      "https",
+      "http",
+      ".gl",
+      ".org",
+      ".com.tr",
+      ".biz",
+      ".party",
+      ".rf.gd",
+      ".az",
+      "sg",
+      "oç",
+      "oçe",
+      "anan",
+      "ananı",
+      "ananı sikim",
+      "anneni sikim",
+      "anneni sikeyim",
+      "ananı sikeyim",
+      "annen",
+      "ağzına",
+      "ağzına sıçim",
+      "ağzına sıçayım",
+      "ağzına s",
+      "am",
+      "ambiti",
+      "amını",
+      "amını s",
+      "amcık",
+      "amcik",
+      "amcığını",
+      "amciğini",
+      "amcığını",
+      "amcığını s",
+      "amck",
+      "amckskm",
+      "amcuk",
+      "amına",
+      "amına k",
+      "amınakoyim",
+      "amına s",
+      "amunu",
+      "amını",
+      "amın oğlu",
+      "amın o",
+      "amınoğlu",
+      "amk",
+      "aq",
+      "amnskm",
+      "anaskm",
+      "ananskm",
+      "amkafa",
+      "amk çocuğu",
+      "amk oç",
+      "piç",
+      "amk ç",
+      "amlar",
+      "amcıklar",
+      "amq",
+      "amındaki",
+      "amnskm",
+      "ananı",
+      "anan",
+      "ananın am",
+      "ananızın",
+      "aneni",
+      "aneni s",
+      "annen",
+      "anen",
+      "ananın dölü",
+      "sperm",
+      "döl",
+      "anasının am",
+      "anası orospu",
+      "orospu",
+      "orosp,",
+      "kahpe",
+      "kahbe",
+      "kahße",
+      "ayklarmalrmsikerim",
+      "ananı avradını",
+      "avrat",
+      "avradını",
+      "avradını s",
+      "babanı",
+      "babanı s",
+      "babanın amk",
+      "annenin amk",
+      "ananın amk",
+      "bacı",
+      "bacını s",
+      "babası pezevenk",
+      "pezevenk",
+      "pezeveng",
+      "kaşar",
+      "a.q",
+      "a.q.",
+      "bitch",
+      "çük",
+      "yarrak",
+      "am",
+      "cibiliyetini",
+      "bokbok",
+      "bombok",
+      "dallama",
+      "göt",
+      "götünü s",
+      "ebenin",
+      "ebeni",
+      "ecdadını",
+      "gavat",
+      "gavad",
+      "ebeni",
+      "ebe",
+      "fahişe",
+      "sürtük",
+      "fuck",
+      "gotten",
+      "götten",
+      "göt",
+      "gtveren",
+      "gttn",
+      "gtnde",
+      "gtn",
+      "hassiktir",
+      "hasiktir",
+      "hsktr",
+      "haysiyetsiz",
+      "ibne",
+      "ibine",
+      "ipne",
+      "kaltık",
+      "kancık",
+      "kevaşe",
+      "kevase",
+      "kodumun",
+      "orosbu",
+      "fucker",
+      "penis",
+      "pic",
+      "porno",
+      "sex",
+      "sikiş",
+      "s1kerim",
+      "s1k",
+      "puşt",
+      "sakso",
+      "sik",
+      "skcm",
+      "siktir",
+      "sktr",
+      "skecem",
+      "skeym",
+      "slaleni",
+      "sokam",
+      "sokuş",
+      "sokarım",
+      "sokarm",
+      "sokaym",
+      "şerefsiz",
+      "şrfsz",
+      "sürtük",
+      "taşak",
+      "taşşak",
+      "tasak",
+      "tipini s",
+      "yarram",
+      "yararmorospunun",
+      "yarramın başı",
+      "yarramınbaşı",
+      "yarraminbasi",
+      "yrrk",
+      "zikeyim",
+      "zikik",
+      "zkym"
+    ];
+    if (yasak.some(banned => nev.content.includes(banned))) {
+      if (!nev.member.hasPermission("MANAGE_MESSAGES")) {
+        try {
+          nev.delete();
+          nev.channel.send(
+            `<@${nev.author.id}>, bu sunucuda mesajını düzenleyerek küfür edemez veya reklam yapamazsın!`
+          );
+          nev.author.send(
+            `<@${nev.author.id}>, **${nev.guild.name}** adlı sunucuda mesajını düzenleyerek küfür edemez veya reklam yapamazsın!`
+          );
+        } catch (err) {
+          console.log(err);
         }
+      }
     }
-    if (!i) return;
-});
+  }
+});    
+
+
 //////////////////////////MODLOG///////////////////
 client.on("messageDelete", async message => {
   if (message.author.bot || message.channel.type == "dm") return;
