@@ -1,128 +1,76 @@
 const Discord = require('discord.js');
-const qdb = require('quick.db');
-const ms = require("ms");
-const ayarlar = require("./ayarlar.json");
+const database = require('quick.db');
+const ms = require('ms');
 
-const low = require('lowdb');
-const FileSync = require('lowdb/adapters/FileSync');
-const adapter = new FileSync('./database/systems.json');
-const sdb = low(adapter);
+exports.run = async (client, message, args) => {// can#0002
+if(!message.member.hasPermission('MANAGE_MESSAGES')) return;
 
-exports.run = async (client, message, args) => {    
+const muteRoleFetch = await database.fetch(`carl-mute-role.${message.guild.id}`);
+if(!muteRoleFetch) return message.channel.send('This server does not have a mute role, use `!muterole ` to set one or `!muterole create [name]` to create one.');
 
-var msg = message;
-sdb.read()
-var muterole1 = qdb.fetch(`muteroluid_${message.guild.id}`);
-var muterole2 = message.guild.roles.cache.find(r => r.id === muterole1);
-if (!muterole2) {
-    try {
-     muterole2 = await message.guild.roles.create({ 
-            data: {
-                name: "Muted",
-                color: "#1800FF",
-                permissions: []
-              },
-            reason: 'Mute Rolü!' 
-            })
-        qdb.set(`muteroluid_${message.guild.id}`, muterole2.id);
-        message.guild.channels.cache.forEach(async (channel) => {
-            await channel.createOverwrite(muterole2, {
-                  SEND_MESSAGES: false,
-                  ADD_REACTIONS: false,
-                  CONNECT: false
-              });
-          });
-} catch (err) {
-    console.log(err);
-}
+if(!args[0]) return message.channel.send(`\`\`\`${message.content.split('mute')[0]}mute  [duration]
+      ^^^^^^^^
+member is a required argument that is missing.\`\`\``);
+
+let member = message.guild.members.cache.get(args[0]) || message.mentions.members.first() || message.guild.members.cache.find(a => message.guild.members.cache.get(a.user.id).nickname && a.nickname.toLowerCase().includes(args[0].toLowerCase())) || message.guild.members.cache.find(a => a.user.username.toLowerCase().includes(args[0].toLowerCase()))
+if(!member) return message.channel.send(`Member "${args[0]}" not found`);
+
+let infinity = false;
+if(args[1]) {
+infinity = args.find(a => a.endsWith('m') || a.endsWith('h') || a.endsWith('s') || a.endsWith('d') || a.endsWith('w') || a.endsWith('y'));
 };
-var kisi = message.guild.member(message.mentions.users.first() || message.guild.members.cache.get(args[0]));
-if (!kisi) return message.reply("Susturmam İçin Bir Kullanıcı Belirtiniz!");
-var time = args[1];
-var reason = args.slice(2).join(" ")
-if (!time) {
-    if(reason) {
-        if(!sdb.get('mute').find({guild: message.guild.id, user: kisi.id}).value()) {
-            let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: reason, time: "INFINITY", finishtime: "INFINITY"}
-            sdb.get('mute').push(obj12).write()
-            } else {
-                let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: reason, time: "INFINITY", finishtime: "INFINITY"}
-                sdb.get('mute').find({guild: msg.guild.id, user: kisi.id}).assign(obj12).write()
-            }
-            if(!kisi.roles.cache.has(muterole2.id)) await kisi.roles.add(muterole2.id);
-        message.channel.send(`${kisi} **SINIRSIZ** Şekilde Susturuldu!\nNedeni: **${reason}**\nYetkili: **${message.author}**`);
-    } else {
-        if(!sdb.get('mute').find({guild: message.guild.id, user: kisi.id}).value()) {
-            let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: "No Reason Given", time: "INFINITY", finishtime: "INFINITY"}
-            sdb.get('mute').push(obj12).write()
-            } else {
-                let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: "No Reason Given", time: "INFINITY", finishtime: "INFINITY"}
-                sdb.get('mute').find({guild: msg.guild.id, user: kisi.id}).assign(obj12).write()
-            }
-            if(!kisi.roles.cache.has(muterole2.id)) await kisi.roles.add(muterole2.id);
-        message.channel.send(`${kisi} **SINIRSIZ** Şekilde Susturuldu!\nYetkili: **${message.author}**`);
-    };
+
+var sayı = 0;
+let zaman;
+let gercek;
+args.forEach(s => {
+sayı++
+if(s === infinity) {
+gercek = sayı;
+zaman = args[sayı-1];
+};
+});
+args[gercek-1] = '';
+args = args.filter(a => a !== '');
+
+let reason;
+if(!args[1]) reason = 'Resaon: no reason given';
+if(args[1]) reason = 'Reason: '+args.slice(1).join(' ');
+
+if(!zaman) {
+member.roles.add(muteRoleFetch).then(() => {
+return message.channel.send(`**${message.author.tag}** muted **${member.user.tag}** for infinity. ${reason}`);
+});
 } else {
-    let finishtime = Date.now() + ms(time.replace(' dakika', 'm').replace(' saat', 'h').replace(' saniye', 's').replace(' gün', 'd'))
-    if(reason){
-        if(!sdb.get('mute').find({guild: message.guild.id, user: kisi.id}).value()) {
-            let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: reason, time: time, finishtime: finishtime}
-            sdb.get('mute').push(obj12).write()
-            } else {
-                let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: reason, time: time, finishtime: finishtime}
-                sdb.get('mute').find({guild: msg.guild.id, user: kisi.id}).assign(obj12).write()
-            }
-            if(!kisi.roles.cache.has(muterole2.id)) await kisi.roles.add(muterole2.id);
-        message.channel.send(`${kisi} **${time}** Süresince Şekilde Susturuldu!\nNedeni: **${reason}**\nYetkili: **${message.author}**`);
-        sdb.read()
-        let bitiszamani = sdb.get('mute').find({guild: msg.guild.id, user: kisi.id}).value().finishtime
-        if(bitiszamani && bitiszamani !== null && bitiszamani !== "INFINITY") {
-        let ainterval = setInterval(function() {
-            if(bitiszamani <= Date.now()) {
-                clearInterval(ainterval)
-            if(kisi.roles.cache.find(r => r.id === muterole2.id)){
-                kisi.roles.remove(muterole2.id)
-                sdb.get('mute').remove(sdb.get('mute').find({guild:message.guild.id, user: kisi.id}).value()).write()
-              message.channel.send(`${kisi} Susturulma Süresi Dolduğu İçin Susturulması Kaldırılmıştır.`)
-            }
-        }
-           }, 6000);
-        }
-    } else {
-        if(!sdb.get('mute').find({guild: message.guild.id, user: kisi.id}).value()) {
-            let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: "No Reason Given", time: time, finishtime: finishtime}
-            sdb.get('mute').push(obj12).write()
-            } else {
-                let obj12 = {guild: msg.guild.id, guild_name: msg.guild.name, user: kisi.id, user_name: kisi.user.username, staff: msg.author.id, staff_username: message.author.username, channel: message.channel.id, channel_name: message.channel.name, reason: "No Reason Given", time: time, finishtime: finishtime}
-                sdb.get('mute').find({guild: msg.guild.id, user: kisi.id}).assign(obj12).write()
-            }
-            if(!kisi.roles.cache.has(muterole2.id)) await kisi.roles.add(muterole2.id);
-        message.channel.send(`${kisi} **${time}** Süresince Şekilde Susturuldu!\nYetkili: **${message.author}**`);
-        sdb.read()
-        let bitiszamani = sdb.get('mute').find({guild: msg.guild.id, user: kisi.id}).value().finishtime
-        if(bitiszamani && bitiszamani !== null && bitiszamani !== "INFINITY") {
-        let ainterval = setInterval(function() {
-            if(bitiszamani <= Date.now()) {
-                clearInterval(ainterval)
-                if(kisi.roles.cache.find(r => r.id === muterole2.id)){
-                    kisi.roles.remove(muterole2.id)
-                    sdb.get('mute').remove(sdb.get('mute').find({guild:message.guild.id, user: kisi.id}).value()).write()
-                  message.channel.send(`${kisi} Susturulma Süresi Dolduğu İçin Susturulması Kaldırılmıştır.`)
-                }
-            }
-           }, 6000);
-        }
-    }
-};
-};
 
+let zamann = zaman.replace('w', ' week').replace('d', ' day').replace('s', ' second').replace('m', ' minute').replace('h', ' hour');
+if(zamann.includes('second') && zamann.split(' ')[0] == 1) zamann = 'now'
+if(zamann.includes('second') && zamann.split(' ')[0] > 1) zamann = zamann.split(' ')[0]+' seconds';
+if(zamann.includes('minute') && zamann.split(' ')[0] > 1) zamann = zamann.split(' ')[0]+' minutes';
+if(zamann.includes('hour') && zamann.split(' ')[0] > 1) zamann = zamann.split(' ')[0]+' hours';
+if(zamann.includes('day') && zamann.split(' ')[0] > 1) zamann = zamann.split(' ')[0]+' days';
+if(zamann.includes('week') && zamann.split(' ')[0] > 1) zamann = zamann.split(' ')[0]+' weeks';
+if(ms(zaman) >= 2147483647) return message.channel.send('You can mute a maximum of one for 24 days.');// ellemeyin arkadaslar.
+
+member.roles.add(muteRoleFetch).then(() => {
+message.channel.send(`**${message.author.tag}** muted **${member.user.tag}** for ${zamann}. ${reason}`);
+setTimeout(() => {
+if(member.roles.has(muteRoleFetch)) {
+member.roles.remove(muteRoleFetch);
+};
+}, require('ms')(zaman))
+return;
+});
+}
+
+}; 
 exports.conf = {
-  aliases: ['sustur',],
-  permLevel: 2
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
 };
-
+ 
 exports.help = {
-  name: 'mute',
-  description: 'Sunucudaki Bir Kişiyi Susuturur.',
-  usage: 'mute {@kullanici} {zaman} {sebep}'
-};
+  name: 'mute'
+};// codare ♥

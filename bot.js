@@ -2281,7 +2281,11 @@ client.on("message", async message => {
     }
   }
 });
-///////////Müzik Komutları
+///////////Mute
+client.on('roleDelete', async role => {
+const data = await require('quick.db').fetch(`carl-mute-role.${role.guild.id}`);
+if(data && data === role.id) require('quick.db').delete(`carl-mute-role.${role.guild.id}`); 
+});
 
 
 
