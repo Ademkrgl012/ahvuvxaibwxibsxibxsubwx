@@ -557,48 +557,6 @@ client.on("message", msg => {
 });
 
 /////////////////küfür
-client.on("message", async msg => {
- 
- 
- const i = await db.fetch(`kufur_${msg.guild.id}`)
-    if (i == "acik") {
-        const kufur = ["sg","SG","Sg","sG"];
-        if (kufur.some(word => msg.content.includes(word))) {
-          try {
-            if (!msg.member.hasPermission("BAN_MEMBERS")) {
-                  msg.delete();
-                          
-                      return msg.reply('Bu Sunucuda Küfür Filtresi Aktiftir.')
-            }             
-          } catch(err) {
-            console.log(err);
-          }
-        }
-    }
-    if (!i) return;
-});
-
-client.on("messageUpdate", (oldMessage, newMessage) => {
- 
- 
- const i = db.fetch(`${oldMessage.guild.id}.kufur`)
-    if (i) {
-        const kufur = ["sg","SG","sG","Sg"];
-        if (kufur.some(word => newMessage.content.includes(word))) {
-          try {
-            if (!oldMessage.member.hasPermission("BAN_MEMBERS")) {
-                  oldMessage.delete();
-                          
-                      return oldMessage.reply('Bu Sunucuda Küfür Filtresi Aktiftir.')
-            }             
-          } catch(err) {
-            console.log(err);
-          }
-        }
-    }
-    if (!i) return;
-});
-
 //////////////////////////MODLOG///////////////////
 client.on("messageDelete", async message => {
   if (message.author.bot || message.channel.type == "dm") return;
