@@ -562,7 +562,7 @@ client.on("message", async msg => {
  
  const i = await db.fetch(`kufur_${msg.guild.id}`)
     if (i == "acik") {
-        const kufur = ["küfürler","küfürler","küfürler",];
+        const kufur = ["sg","SG","Sg","sG"];
         if (kufur.some(word => msg.content.includes(word))) {
           try {
             if (!msg.member.hasPermission("BAN_MEMBERS")) {
@@ -583,7 +583,7 @@ client.on("messageUpdate", (oldMessage, newMessage) => {
  
  const i = db.fetch(`${oldMessage.guild.id}.kufur`)
     if (i) {
-        const kufur = ["küfürler","küfürler","küfürler",];
+        const kufur = ["sg","SG","sG","Sg"];
         if (kufur.some(word => newMessage.content.includes(word))) {
           try {
             if (!oldMessage.member.hasPermission("BAN_MEMBERS")) {
