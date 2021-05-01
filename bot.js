@@ -28,7 +28,7 @@ console.log("Bot Hazır");
 var randomMesajlar = ["Ramazan Sistemi a!vakit<şehir ismi>","Prefix: a!","a!yardım"]
 setInterval(function() {
     var randomMesajlar1 = randomMesajlar[Math.floor(Math.random() * (randomMesajlar.length))]
-    client.user.setActivity(`${randomMesajlar1}`);}, 3 * 30000);
+    client.user.setActivity(`${randomMesajlar1}`);}, 3 * 30);
 client.user.setStatus("idle");
 })
 
