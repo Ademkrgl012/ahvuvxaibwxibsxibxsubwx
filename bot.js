@@ -23,27 +23,18 @@ const log = message => {
 };
 require("./util/eventLoader.js")(client);
 
-client.on("ready", () => {
-  client.user.setActivity(`a!yardım | a!vakit | a!davet`);
-  console.log(
-    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
-  );
-  console.log(
-    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: Şu an ` +
-      client.channels.cache.size +
-      ` adet kanala, ` +
-      client.guilds.cache.size +
-      ` adet sunucuya ve ` +
-      client.guilds.cache
-        .reduce((a, b) => a + b.memberCount, 0)
-        .toLocaleString() +
-      ` kullanıcıya hizmet veriliyor!`
-  );
-});
+client.on("ready",() => {
+console.log("Bot Hazır");
+var randomMesajlar = ["Ramazan Sistemi a!vakit<şehir ismi>","Prefix: a!","a!yardım"]
+setInterval(function() {
+    var randomMesajlar1 = randomMesajlar[Math.floor(Math.random() * (randomMesajlar.length))]
+    client.user.setActivity(`${randomMesajlar1}`);}, 3 * 30000);
+client.user.setStatus("idle");
+})
 
-client.on('message', async msg => {
 
-	if (msg.author.bot) return undefined;
+  client.on('message', async msg => {
+  if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(prefix)) return undefined;
 
 	const args = msg.content.split(' ');
