@@ -34,7 +34,7 @@ client.on("ready", () => {
     var randomMesajlar1 =
       randomMesajlar[Math.floor(Math.random() * randomMesajlar.length)];
     client.user.setActivity(`${randomMesajlar1}`);
-  }, 3 * 30);
+  }, 3 * 300000);
   client.user.setStatus("idle");
 });
 
