@@ -31,7 +31,7 @@ message.guild.members.get(message.author.id).setNickname(`AFK - ${display}`)
 }
 exports.conf = {
 enabled: 'true',
-guildOnly: 'false',
+guildOnly: 'true',
 aliases: [''],
 permLevel: 0
 }
