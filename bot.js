@@ -9,20 +9,6 @@ const ayarlar = require("./ayarlar.json");
 const request = require("node-superfetch");
 const Canvas = require("canvas");
 const { GOOGLE_API_KEY } = require("./ayarlar.json");
-
-
-consconstt ytdl = require("ytdl-core");
-
-Client.queue = new Map();
-Client.commands = new discord.Collection();
-Client.aliases = new discord.Collection();
-
-const lib = require("./lib/core.js");
-lib.setup(client);
-
-module.exports.client = client;
-
-Client.login(secret.token);
 client.login(process.env.token);
 const app = express();
 app.get("/", (request, response) => {
