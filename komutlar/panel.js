@@ -33,7 +33,7 @@ exports.run = async function(client, msg, args) {
       } else {
         
       }
-ch.delete();
+      ch.delete();
       db.delete(`panelParentID_${msg.guild.id}`);
       db.delete(`panell_${msg.guild.id}`);
       msg.reply("sistem kapalı hâle getirildi!");
@@ -82,6 +82,7 @@ ch.delete();
     }
   }
 };
+
 exports.conf = {
   enabled: true,
   guildOnly: false, 
