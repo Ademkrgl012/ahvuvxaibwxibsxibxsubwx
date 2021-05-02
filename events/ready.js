@@ -1,15 +1,15 @@
-const { client } = require('../index.js');
-const chalk = require("chalk");
+module.exports = client => {
+var oyun = [
+        "thisismrare.js",
+        "Developer Doğukan"
+        
+    ];
 
-client.on("ready", async () => {
+    setInterval(function() {
 
-    console.log(chalk.cyan(`============================================`));
-    console.log(chalk.cyan(`||              Ertassla#0001 | Geliştirildi (❃ wioniqle.q#0001)        ||`));
-    console.log(chalk.cyan(`||       Music v12        ||`));
-    console.log(chalk.cyan(`============================================`));
+        var random = Math.floor(Math.random()*(oyun.length-0+1)+0);
 
-
-    await client.user.setActivity("Music", {type: "LISTENING"})
-
-
-});
+        client.user.setActivity(oyun[random], "a!yardım" );
+        }, 2 * 2500);
+ 
+  client.user.setStatus("idle");

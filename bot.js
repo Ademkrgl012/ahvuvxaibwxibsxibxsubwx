@@ -2838,32 +2838,4 @@ data.delete(`display.${message.author.id}.${message.guild.id}`)
 }
 
 })// codare ♥
-///////////
-client.on('inviteCreate', async invite => guildInvites.set(invite.guild.id, await invite.guild.fetchInvites()));
-client.on('ready', () => {
-    client.guilds.cache.forEach(guild => {
-        guild.fetchInvites()
-            .then(invites => guildInvites.set(guild.id, invites))
-            .catch(err => console.log(err));
-    });
-});
-
-client.on('guildMemberAdd', async member => {//hamzamertakbaba#3361
-    const cachedInvites = guildInvites.get(member.guild.id);
-    const newInvites = await member.guild.fetchInvites();
-    guildInvites.set(member.guild.id, newInvites);
-    try {
-        const usedInvite = newInvites.find(inv => cachedInvites.get(inv.code).uses < inv.uses) || "1";
-        const embed = new Discord.MessageEmbed()
-            .setDescription(`${member.user.tag} Sunucuya ${member.guild.memberCount}. sırayla katıldı. ${usedInvite.inviter.tag} tarafından davet edilmiş. ${usedInvite.url} Davet koduyla katılmış. Bu davet kodu ${usedInvite.uses} kere kullanılmış.`)
-            .setTimestamp()
-            .setFooter("")
-        const welcomeChannel = member.guild.channels.cache.find(channel => channel.id === 'LOG KANALI ID');
-        if(welcomeChannel) {
-            welcomeChannel.send(embed).catch(err => console.log(err));
-        }
-    }
-    catch(err) {
-        console.log(err);
-    }
-});
+///////////      r.    
