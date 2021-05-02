@@ -9,14 +9,9 @@ const ayarlar = require("./ayarlar.json");
 const request = require("node-superfetch");
 const Canvas = require("canvas");
 const { GOOGLE_API_KEY } = require("./ayarlar.json");
-const discord = require("discord.js");
-const secret = require("./settings/secret.json");
-const config = require("./settings/config.json");
-const Client = new discord.Client({
-  disableEveryone: true
-});
 
-const ytdl = require("ytdl-core");
+
+consconstt ytdl = require("ytdl-core");
 
 Client.queue = new Map();
 Client.commands = new discord.Collection();
