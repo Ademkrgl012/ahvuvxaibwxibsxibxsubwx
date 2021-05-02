@@ -612,36 +612,20 @@ client.on("guildCreate", guild => {
 });
 
 ///////////////////////////////////REKLAMENLGEL
-  const badwords = ["deneme", "deneme1"]
-  const splitMessage = 
-   message.content.split('.com'),
-   message.content.split('.net'),
-   message.content.split('.xyz'),
-   message.content.split('.tk'),
-   message.content.split('.pw'),
-   message.content.split('.io'),
-   message.content.split('.me'),
-   message.content.split('.gg'),
-   message.content.split('www.'),
-   message.content.split('https://'),
-   message.content.split('http://'),
-   message.content.split('.gl'),
-   message.content.split('.org'),
-   message.content.split('.com.tr'),
-   message.content.split('.biz'),
-   message.content.split('net'),
-   message.content.split('.rf.gd'),
-   message.content.split('.az'),
-   message.content.split('.party'),
-   message.content.split('discord.gg')
+const badwords = ["deneme", "deneme1"]
+
+const splitMessage = message.content.split('  ')
+
 let deleting = false
 
 splitMessage.map((content) => {
-  if
-    (badwords.get?.includes(content.toLowerCase()
-     )
-     )
-    deleting = true
+if (badwords.get?.includes(content.toLowerCase()
+)
+)
+deleting = true
+)}
+
+if (deleting) return message.delete()deleting = true
   )}
                  if (deleting) return message.delete()
 
