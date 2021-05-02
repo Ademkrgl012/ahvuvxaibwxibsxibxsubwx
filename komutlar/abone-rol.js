@@ -25,7 +25,7 @@ exports.help = {
 }
 
 exports.play = {
-  kullanım: 'a!abonerol @rol',
+  kullanım: 'm!abonerol @rol',
   açıklama: 'Abone Rolünü Ayarlarsınız',
   kategori: 'Abone'
 }

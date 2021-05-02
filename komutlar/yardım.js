@@ -20,10 +20,10 @@ Bir komut hakkında detaylı __yardım için__:
 **a!yardım**`)
 
 .addField('**• Komutlar**',' Botun Tüm Komutları Aşağıda Bulunmaktadır.')
-.addField('> a!moderasyon ',' 🔰 Moderasyon komutları')
-.addField('> a!kullanıcı ',' 👥 Kullanıcı komutları')
-.addField('> a!abone-yardım ',' 🔔 Ayarlamalı Abone Rol Sistemi')
-.addField('> a!eğlence','  ✨ Eğlence Komutları')
+.addField('> m!moderasyon ',' 🔰 Moderasyon komutları')
+.addField('> m!kullanıcı ',' 👥 Kullanıcı komutları')
+.addField('> m!abone-yardım ',' 🔔 Ayarlamalı Abone Rol Sistemi')
+.addField('> !eğlence','  ✨ Eğlence Komutları')
 return message.channel.send(ADEMREYZZEMBED)
 .then; 
 
@@ -38,5 +38,5 @@ exports.conf = {
   exports.help = {
     name: 'yardım', 
     description: 'Botun Komut Listesini Gösterir!',
-    usage: 'a!eğlence'
+    usage: 'm!eğlence'
 };

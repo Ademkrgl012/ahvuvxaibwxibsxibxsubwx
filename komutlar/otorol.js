@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
       new Discord.MessageEmbed()
         .setColor("0x36393E")
         .setDescription(
-          "> **Otorol sistemini ne yapmak istediğini belirtmedin** <a800419824538091610>  \n> `a!otorol ayarla @üye #kanal` **Otorol sistemini ayarlar.** \n> `a!otorol sıfırla` **Otorol sistemini sıfırlar.**"
+          "> **Otorol sistemini ne yapmak istediğini belirtmedin** <a800419824538091610>  \n> `m!otorol ayarla @üye #kanal` **Otorol sistemini ayarlar.** \n> `m!otorol sıfırla` **Otorol sistemini sıfırlar.**"
         )
     );
 
