@@ -679,7 +679,7 @@ client.on("message", async msg => {
 
     if (küfürler.some(küfür => msg.content.toLowerCase().includes(küfür))) {
       if (!msg.member.hasPermission("ADMINISTRATOR")) {
-        msg.delete().then(msg.reply("Küfür etmek yasak lna"));
+        msg.delete().then(msg.reply("Küfür etmek yasak ibnenin öz evladı"));
       }
     }
   }

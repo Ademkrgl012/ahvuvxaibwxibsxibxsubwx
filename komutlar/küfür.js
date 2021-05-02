@@ -5,7 +5,7 @@ exports.run = (client, message, args, func) => {
   
   if(!message.member.hasPermission("ADMINISTRATOR")) return message.channel.send(`Bu komutu kullanabilmek için "\`Yönetici\`" yetkisine sahip olmalısın.`);
   
-    if(!args[0]) return message.channel.send("Doğru kullanım `!küfür-engel aç/kapat`")
+    if(!args[0]) return message.channel.send("Doğru kullanım `a!küfür aç/kapat`")
       if(args[0] === "aç"){
     var anahtar = db.fetch(`kufur_${message.guild.id}`)
     if(anahtar === "acik") return message.channel.send("Zaten açık!!")
@@ -34,7 +34,7 @@ exports.conf = {
 };
   
   exports.help = {
-    name: 'küfür-engel',
+    name: 'küfür',
     description: 'FİBER BOTLİST &amp; CODE',
-    usage: 'küfür-engel'
+    usage: 'küfür'
 };
