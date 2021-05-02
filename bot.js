@@ -643,7 +643,7 @@ client.on("message", msg => {
         msg.delete();
         return msg
           .reply(
-            "**Bu Sunucuda** `Reklam Engelle`** Aktif Reklam Yapmana İzin Vermem !**"
+            "**Bu Sunucuda** Reklam Yapmana İzin Vermem !**"
           )
           .then(msg => msg.delete(4000));
 
