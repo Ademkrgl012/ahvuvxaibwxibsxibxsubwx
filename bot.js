@@ -23,72 +23,9 @@ const log = message => {
 };
 require("./util/eventLoader.js")(client)
 
-client.on("message", async msg => {
-  if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(prefix)) return undefined;
 
-  const args = msg.content.split(" ");
-  const searchString = args.slice(1).join(" ");
-  const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
-  const serverQueue = queue.get(msg.guild.id);
-  let command = msg.content.toLowerCase().split(" ")[0];
-  command = command.slice(prefix.length);
 
-  if (command === "oynat") {
-    const voiceChannel = msg.member.voice.channel;
-    if (!voiceChannel)
-      return msg.channel.send(
-        new Discord.MessageEmbed()
-          .setColor("RED")
-          .setDescription(
-            ":warning: | İlk olarak sesli bir kanala giriş yapmanız gerek."
-          )
-      );
-    const permissions = voiceChannel.permissionsFor(msg.client.user);
-    if (!permissions.has("CONNECT")) {
-      return msg.channel.send(
-        new Discord.MessageEmbed()
-          .setColor("RED")
-          .setTitle(
-            ":warning: | İlk olarak sesli bir kanala giriş yapmanız gerek."
-          )
-      );
-    }
-    if (!permissions.has("SPEAK")) {
-      return msg.channel.send(
-        new Discord.MessageEmbed()
-          .setColor("RED")
-          .setTitle(
-            ":warning: | Şarkı başlatılamıyor. Lütfen mikrofonumu açınız."
-          )
-      );
-    }
-
-    if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-      const playlist = await youtube.getPlaylist(url);
-      const videos = await playlist.getVideos();
-      for (const video of Object.values(videos)) {
-        const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-        await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
-      }
-      return msg.channel
-        .send(new Discord.MessageEmbed())
-        .setTitle(
-          `**? | Oynatma Listesi: **${playlist.title}** Kuyruğa Eklendi!**`
-        );
-    } else {
-      try {
-        var video = await youtube.getVideo(url);
-      } catch (error) {
-        try {
-          var videos = await youtube.searchVideos(searchString, 10);
-          let index = 0;
-
-          msg.channel.send(
-            new Discord.MessageEmbed()
-              .setTitle("XiR`S | Şarkı Seçimi")
-              .setAuthor(`${msg.author.tag}`, msg.author.avatarURL())
-              .setThumbnail(
+    (
                 "https://i.postimg.cc/W1b1LW13/youtube-kids-new-logo.png"
               )
               .setDescription(
