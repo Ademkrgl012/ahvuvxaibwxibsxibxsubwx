@@ -623,7 +623,7 @@ if (badwords.get?.includes(content.toLowerCase()
 )
 )
 deleting = true
-)}
+
 
 if (deleting) return message.delete()deleting = true
   )}
