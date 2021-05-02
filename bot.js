@@ -616,26 +616,26 @@ client.on("guildCreate", guild => {
 client.on("message", msg => {
   if (!db.has(`reklam_${msg.guild.id}`)) return;
   const reklam = [
-   message.content.split(".com"),
-    ".net",
-    ".xyz",
-    ".tk",
-    ".pw",
-    ".io",
-    ".me",
-    ".gg",
-    "www.",
-    "https://",
-    "http://",
-    ".gl",
-    ".org",
-    ".com.tr",
-    ".biz",
-    "net",
-    ".rf.gd",
-    ".az",
-    ".party",
-    "discord.gg"
+   message.content.split('.com'),
+   message.content.split('.net'),
+   message.content.split('.xyz'),
+   message.content.split('.tk'),
+   message.content.split('.pw'),
+   message.content.split('.io'),
+   message.content.split('.me'),
+   message.content.split('.gg'),
+   message.content.split('www.'),
+   message.content.split('https://'),
+   message.content.split('http://'),
+   message.content.split('.gl'),
+   message.content.split('.org'),
+   message.content.split('.com.tr'),
+   message.content.split('.biz'),
+   message.content.split('net'),
+   message.content.split('.rf.gd'),
+   message.content.split('.az'),
+   message.content.split('.party'),
+   message.content.split('discord.gg')
   ];
   if (reklam.some(word => msg.content.includes(word))) {
     try {
@@ -2838,32 +2838,4 @@ data.delete(`display.${message.author.id}.${message.guild.id}`)
 }
 
 })// codare ♥
-///////////
-client.on('inviteCreate', async invite => guildInvites.set(invite.guild.id, await invite.guild.fetchInvites()));
-client.on('ready', () => {
-    client.guilds.cache.forEach(guild => {
-        guild.fetchInvites()
-            .then(invites => guildInvites.set(guild.id, invites))
-            .catch(err => console.log(err));
-    });
-});
-
-client.on('guildMemberAdd', async member => {//hamzamertakbaba#3361
-    const cachedInvites = guildInvites.get(member.guild.id);
-    const newInvites = await member.guild.fetchInvites();
-    guildInvites.set(member.guild.id, newInvites);
-    try {
-        const usedInvite = newInvites.find(inv => cachedInvites.get(inv.code).uses < inv.uses) || "1";
-        const embed = new Discord.MessageEmbed()
-            .setDescription(`${member.user.tag} Sunucuya ${member.guild.memberCount}. sırayla katıldı. ${usedInvite.inviter.tag} tarafından davet edilmiş. ${usedInvite.url} Davet koduyla katılmış. Bu davet kodu ${usedInvite.uses} kere kullanılmış.`)
-            .setTimestamp()
-            .setFooter("")
-        const welcomeChannel = member.guild.channels.cache.find(channel => channel.id === 'LOG KANALI ID');
-        if(welcomeChannel) {
-            welcomeChannel.send(embed).catch(err => console.log(err));
-        }
-    }
-    catch(err) {
-        console.log(err);
-    }
-});
+///////////        ) 
