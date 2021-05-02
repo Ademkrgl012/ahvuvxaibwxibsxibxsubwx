@@ -21,22 +21,7 @@ app.listen(process.env.PORT);
 const log = message => {
   console.log(` ${message}`);
 };
-require("./util/eventLoader.js")(client);
-
-client.on("ready", () => {
-  console.log("Bot Hazır");
-  var randomMesajlar = [
-    "Ramazan Sistemi a!vakit<şehir ismi>",
-    "Prefix: a!",
-    "a!yardım"
-  ];
-  setInterval(function() {
-    var randomMesajlar1 =
-      randomMesajlar[Math.floor(Math.random() * randomMesajlar.length)];
-    client.user.setActivity(`${randomMesajlar1}`);
-  }, 3 * 300000);
-  client.user.setStatus("idle");
-});
+require("./util/eventLoader.js")(client)
 
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
