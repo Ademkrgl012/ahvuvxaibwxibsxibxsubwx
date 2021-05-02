@@ -616,7 +616,7 @@ client.on("guildCreate", guild => {
 client.on("message", msg => {
   if (!db.has(`reklam_${msg.guild.id}`)) return;
   const reklam = [
-    ".com",
+   message.content.split(".com"),
     ".net",
     ".xyz",
     ".tk",
