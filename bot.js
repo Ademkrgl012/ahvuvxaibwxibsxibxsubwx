@@ -612,23 +612,48 @@ client.on("guildCreate", guild => {
 });
 
 ///////////////////////////////////REKLAMENLGEL
-const badwords = ["deneme", "deneme1"]
 
-const splitMessage = message.content.split('  ')
+client.on("message", msg => {
+  if (!db.has(`reklam_${msg.guild.id}`)) return;
+  const reklam = [
+   message.content.split('.com'),
+   message.content.split('.net'),
+   message.content.split('.xyz'),
+   message.content.split('.tk'),
+   message.content.split('.pw'),
+   message.content.split('.io'),
+   message.content.split('.me'),
+   message.content.split('.gg'),
+   message.content.split('www.'),
+   message.content.split('https://'),
+   message.content.split('http://'),
+   message.content.split('.gl'),
+   message.content.split('.org'),
+   message.content.split('.com.tr'),
+   message.content.split('.biz'),
+   message.content.split('net'),
+   message.content.split('.rf.gd'),
+   message.content.split('.az'),
+   message.content.split('.party'),
+   message.content.split('discord.gg')
+  ];
+  if (reklam.some(word => msg.content.includes(word))) {
+    try {
+      if (!msg.member.hasPermission("BAN_MEMBERS")) {
+        msg.delete();
+        return msg
+          .reply(
+            "**Bu Sunucuda** `Reklam Engelle`** Aktif Reklam Yapmana İzin Vermem !**"
+          )
+          .then(msg => msg.delete(4000));
 
-let deleting = false
-
-splitMessage.map((content) => {
-if (badwords.get?.includes(content.toLowerCase()
-)
-)
-deleting = true
-
-
-if (deleting) return message.delete()deleting = true
-  )}
-                 if (deleting) return message.delete()
-
+        msg.delete(4000);
+      }
+    } catch (err) {
+      console.log(err);
+    }
+  }
+});
 
 /////////////////küfür
 client.on("message", async msg => {
