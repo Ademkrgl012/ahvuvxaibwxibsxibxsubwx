@@ -612,10 +612,8 @@ client.on("guildCreate", guild => {
 });
 
 ///////////////////////////////////REKLAMENLGEL
-
-client.on("message", msg => {
-  if (!db.has(`reklam_${msg.guild.id}`)) return;
-  const reklam = [
+  const badwords = ["deneme", "deneme1"]
+  const splitMessage = 
    message.content.split('.com'),
    message.content.split('.net'),
    message.content.split('.xyz'),
@@ -636,24 +634,17 @@ client.on("message", msg => {
    message.content.split('.az'),
    message.content.split('.party'),
    message.content.split('discord.gg')
-  ];
-  if (reklam.some(word => msg.content.includes(word))) {
-    try {
-      if (!msg.member.hasPermission("BAN_MEMBERS")) {
-        msg.delete();
-        return msg
-          .reply(
-            "**Bu Sunucuda** `Reklam Engelle`** Aktif Reklam Yapmana İzin Vermem !**"
-          )
-          .then(msg => msg.delete(4000));
+let deleting = false
 
-        msg.delete(4000);
-      }
-    } catch (err) {
-      console.log(err);
-    }
-  }
-});
+splitMessage.map((content) => {
+  if
+    (badwords.get?.includes(content.toLowerCase()
+     )
+     )
+    deleting = true
+  )}
+                 if (deleting) return message.delete()
+
 
 /////////////////küfür
 client.on("message", async msg => {
