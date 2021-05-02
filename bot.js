@@ -22,6 +22,8 @@ const log = message => {
   console.log(` ${message}`);
 };
 require("./util/eventLoader.js")(client)
+require("../events/ready.js");
+
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
