@@ -23,7 +23,7 @@ Bir komut hakkında detaylı __yardım için__:
 .addField('> m!moderasyon ',' 🔰 Moderasyon komutları')
 .addField('> m!kullanıcı ',' 👥 Kullanıcı komutları')
 .addField('> m!abone-yardım ',' 🔔 Ayarlamalı Abone Rol Sistemi')
-.addField('> !eğlence','  ✨ Eğlence Komutları')
+.addField('> m!eğlence','  ✨ Eğlence Komutları')
 return message.channel.send(ADEMREYZZEMBED)
 .then; 
 
