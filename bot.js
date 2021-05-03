@@ -19,6 +19,7 @@ const log = message => {
   console.log(` ${message}`);
 };
 require("./util/eventLoader.js")(client);
+require('./util/eventHandler.js')(client);
 
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;

@@ -9,8 +9,10 @@ console.log("Bot Hazır");
 
 var randomMesajlar = [
 
-    "Emrinizdeyim",
-    "ByMayFe'ın Köpeğiyim"
+    "m!yardım",
+    "m!vakit",
+    "m!korona",
+    "Youtube: Adem Reyzz"
 ]
 
 
@@ -20,9 +22,9 @@ setInterval(function() {
     var randomMesajlar1 = randomMesajlar[Math.floor(Math.random() * (randomMesajlar.length))]
     client.user.setActivity(`${randomMesajlar1}`);
 
-}, 2 * 30000);
+}, 2 * 5000);
 
-client.user.setStatus("idle");
+client.user.setStatus("dnd");
 /*
 idle yerine yazılabilecekler
 dnd 
