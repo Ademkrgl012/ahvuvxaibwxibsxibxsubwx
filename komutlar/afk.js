@@ -19,19 +19,19 @@ if(args[0]) sebep = args.slice(0).join(' ');
   
   moment.locale('tr');
   
-let display = message.guild.members.get(message.author.id).displayName;
+let display = message.guild.members.cache.get(message.author.id).displayName;
 data.set(`display.${message.author.id}.${message.guild.id}`, display)
 data.set(`afk.${message.author.id}.${message.guild.id}`, 'afksın knk')
 data.set(`giriş.${message.author.id}.${message.guild.id}`, atılma)
 data.set(`sebep.${message.author.id}.${message.guild.id}`, sebep)
 
 message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, tebrikler!`).setColor('GREEN').setDescription(`${sebep} sebebiyle afk moduna giriş yaptın.`))
-message.guild.members.get(message.author.id).setNickname(`AFK - ${display}`)
+message.guild.members.cache.get(message.author.id).setNickname(`AFK - ${display}`)
 
 }
 exports.conf = {
-enabled: true,
-guildOnly: false,
+enabled: 'true',
+guildOnly: 'true',
 aliases: [''],
 permLevel: 0
 }
