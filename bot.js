@@ -25,10 +25,22 @@ client.on("message", async msg => {
   if (!msg.content.startsWith(prefix)) return undefined;
 
 client.on("ready", () => {
-  client.user.setActivity(`a!yardım | a!vakit | a!davet`);
+  client.user.setActivity(`m!yardım | m!moderasyon | m!vakit`);
   console.log(
     `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
   );
+  console.log(
+    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: Şu an ` +
+      client.channels.cache.size +
+      ` adet kanala, ` +
+      client.guilds.cache.size +
+      ` adet sunucuya ve ` +
+      client.guilds.cache
+        .reduce((a, b) => a + b.memberCount, 0)
+        .toLocaleString() +
+      ` kullanıcıya hizmet veriliyor!`
+  );
+});
   
   const args = msg.content.split(" ");
   const searchString = args.slice(1).join(" ");
@@ -2815,32 +2827,4 @@ client.on("message", async (msg) => {
 
 	}
 })  
-////////////////afk
-client.on('message', async message => {// chimp'∞B#1008
-if(message.channel.type === 'dm') return;
-if(await data.fetch(`afk.${message.author.id}.${message.guild.id}`) == undefined) return;
-const ms = require('ms')
-
-if(message.content.length > 2) {
-const sebepp = await data.fetch(`sebep.${message.author.id}.${message.guild.id}`)
-const sp = await data.fetch(`giriş.${message.author.id}.${message.guild.id}`)
-const asd = await data.fetch(`display.${message.author.id}.${message.guild.id}`)
-
-  let atılmaay = moment(Date.now()+10800000).format("MM")
-  let atılmagün = moment(Date.now()+10800000).format("DD")
-  let atılmasaat = moment(Date.now()+10800000).format("HH:mm:ss")
-  let atılma = `\`${atılmagün} ${atılmaay.replace(/01/, 'Ocak').replace(/02/, 'Şubat').replace(/03/, 'Mart').replace(/04/, 'Nisan').replace(/05/, 'Mayıs').replace(/06/, 'Haziran').replace(/07/, 'Temmuz').replace(/08/, 'Ağustos').replace(/09/, 'Eylül').replace(/10/, 'Ekim').replace(/11/, 'Kasım').replace(/12/, 'Aralık')} ${atılmasaat}\``
-
-
-message.guild.members.get(message.author.id).setNickname(asd)
-message.channel.send(new Discord.RichEmbed().setTitle(`${message.author.username}, hoşgeldin!`).setColor('GREEN').setDescription(`Afk modundan başarıyla çıkış yaptın.`)
-.addField('Giriş sebebin:', sebepp) 
-.addField('AFK olma zamanın:', sp)
-.addField('Çıkış zamanın:', atılma))
-data.delete(`afk.${message.author.id}.${message.guild.id}`)
-data.delete(`sebep.${message.author.id}.${message.guild.id}`)
-data.delete(`giriş.${message.author.id}.${message.guild.id}`)
-data.delete(`display.${message.author.id}.${message.guild.id}`)
-}
-
-})
+////////////////afk 
