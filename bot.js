@@ -24,10 +24,12 @@ client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
-client.on("ready", async ready => {
-  if (ready.author.bot) return undefined;
-  if (!ready.content.startsWith(prefix)) return undefined;
-
+client.on("ready", () => {
+  client.user.setActivity(`a!yardım | a!vakit | a!davet`);
+  console.log(
+    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
+  );
+  
   const args = msg.content.split(" ");
   const searchString = args.slice(1).join(" ");
   const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
@@ -65,11 +67,11 @@ client.on("ready", async ready => {
     }
 
     if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
-      const playlist = await youtube.getPlaylist(url);
-      const videos = await playlist.getVideos();
+      const playlist = youtube.getPlaylist(url);
+      const videos = playlist.getVideos();
       for (const video of Object.values(videos)) {
-        const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
-        await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
+        const video2 = youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
+        handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
       }
       return msg.channel
         .send(new Discord.MessageEmbed())
@@ -78,10 +80,10 @@ client.on("ready", async ready => {
         );
     } else {
       try {
-        var video = await youtube.getVideo(url);
+        var video = youtube.getVideo(url);
       } catch (error) {
         try {
-          var videos = await youtube.searchVideos(searchString, 10);
+          var videos =  youtube.searchVideos(searchString, 10);
           let index = 0;
 
           msg.channel.send(
@@ -104,7 +106,7 @@ client.on("ready", async ready => {
           msg.delete(5000);
 
           try {
-            var response = await msg.channel.awaitMessages(
+            var response = msg.channel.awaitMessages(
               msg2 => msg2.content > 0 && msg2.content < 11,
               {
                 maxMatches: 1,
@@ -123,7 +125,7 @@ client.on("ready", async ready => {
             );
           }
           const videoIndex = parseInt(response.first().content);
-          var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
+          var video = youtube.getVideoByID(videos[videoIndex - 1].id);
         } catch (err) {
           console.error(err);
           return msg.channel.send(
@@ -2841,5 +2843,4 @@ data.delete(`giriş.${message.author.id}.${message.guild.id}`)
 data.delete(`display.${message.author.id}.${message.guild.id}`)
 }
 
-})// codare ♥
-///////////      r.    
+})
