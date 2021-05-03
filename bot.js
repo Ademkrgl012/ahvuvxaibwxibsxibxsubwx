@@ -2810,4 +2810,3 @@ client.on("guildMemberAdd", member => {
   member.send("Hoş geldin sahip!");
   return;
 });
-//////////////////////////////afk 
