@@ -1,15 +1,19 @@
-module.exports = client => {
-var oyun = [
-        "thisismrare.js",
-        "Developer Doğukan"
-        
-    ];
+const randomInt = (low, high) => {
+    return Math.floor(Math.random() * (high - low + 1)) + low;
+};
 
-    setInterval(function() {
 
-        var random = Math.floor(Math.random()*(oyun.length-0+1)+0);
+activities: [
+        { state: "shopping_cart・Market sistemi'ni", type: "WATCHING" },
+        { state: "hammer・Yetkili alımları'nı", type: "WATCHING" },
+        { state: "ticket・Seviye sistemi'ni", type: "WATCHING" },
+        { state: "tada・Sayısız çekilişler'i", type: "WATCHING" },
+        { state: "tv・Bişeyler", type: "WATCHING" }
+    ],
 
-        client.user.setActivity(oyun[random], "a!yardım" );
-        }, 2 * 2500);
- 
-  client.user.setStatus("idle");
+
+this.client = client
+
+const activities = this.client.config.activities;
+             const randomNumber = randomInt(0,activities.length-1);
+             this.client.user.setActivity(activities[randomNumber].state, { type: activities[randomNumber].type });
