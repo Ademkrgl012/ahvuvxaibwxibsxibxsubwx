@@ -12,7 +12,7 @@ const ADEMREYZZEMBED = new Discord.MessageEmbed()
 .setColor("BLACK")
 .setTitle("**  » MUTOT**")
 .setThumbnail("https://cdn.discordapp.com/attachments/813881660717793331/828047155981320232/standard.gif")
-.setImage(""achments/")
+.setImage("https://cdn.discordapp.com/attachments/838139251862011956/838740310619979796/standard.gif")
 .setDescription(`
 **» Bağlantılar** 
 **[Destek Sunucusu](https://discord.gg/uruvQjX47v)** **•** **[Botun Davet Linki](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)** **•**
