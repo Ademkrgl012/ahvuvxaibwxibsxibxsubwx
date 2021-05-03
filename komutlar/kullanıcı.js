@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
 let prefix = 'm!'
 let yardım = new Discord.MessageEmbed()  
 .setColor('RANDOM')
-.addField('Adem Reyzz Kullanıcı Menüsü',`
+.addField('MUTOT Kullanıcı Menüsü',`
 👥 **m!profil** : Ppnizi Görürsünüz Veya Birini Etiketleyerek O Kişinin Ppsini Görürsünüz.
 👥 **m!avatar** : Avatarınıza Bakarsınız.
 👥 **m!say** : Sunucudaki Üye Sayısını Gösterir.
@@ -16,7 +16,7 @@ let yardım = new Discord.MessageEmbed()
 👥 **m!rank** : Seviye Bilginizi Gösterir Veya Etiketlediğiniz Kişinin Seviyesini Gösterir.
 👥 **m!instagram**: İstediğiniz Kullanıcının İnstagram Profilini Görürsünüz`)
 .addField("**» Davet Linki**", " [Botu Davet](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)", )
-    .setImage("https://cdn.discordapp.com/attachments/813881349004984370/827103972581048340/standard_1.gif")
+    .setImage("https://cdn.discordapp.com/attachments/838139251862011956/838740310858268702/standard_1.gif")
 .setFooter(`${message.author.tag} Tarafından İstendi.`, message.author.avatarURL())
 .setThumbnail(client.user.avatarURL())
  message.channel.send(yardım) 
