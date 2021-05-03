@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 exports.run = async (client, message, args) => { 
 let prefix = 'm!'
-let yardım = new Discord.MessageEmbed(yardım)  
+let yardım = new Discord.MessageEmbed()  
 .setColor('RANDOM')
 .addTitle('Adem Reyzz Eğlence Menüsü')
 .addField('✨ **m!fbi** : FBİ Gelir.')
@@ -27,7 +27,7 @@ let yardım = new Discord.MessageEmbed(yardım)
 .addField('✨ **m!atatürk-sözü**: Rasgele Atatürk Sözü Atar.')
 .addField('✨ **m!atasözü**: Rasgele Atasözü Atar.')
 .addField('✨ **m!sarıl [etiket]**: Etiketlediğin Kişiye Sarılır.')
-.addField('✨ **!boğazla [etiket]**: Etiketlediğin Kişiyi Boğazlar.')
+.addField('✨ **m!boğazla [etiket]**: Etiketlediğin Kişiyi Boğazlar.')
     .addField("**» Davet Linki**"," [Botu Davet Et](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)")
     .setImage("https://cdn.discordapp.com/attachments/813881349004984370/827103972581048340/standard_1.gif")
     .setFooter(`${message.author.tag} Tarafından İstendi.`,message.author.avatarURL())
