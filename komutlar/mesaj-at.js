@@ -17,10 +17,7 @@ exports.run = (client, message, args) => {
   message.delete();
   message.reply('Mesajını Gönderdim. Adem Reyzz Youtube Kanalınada abone oldum ♥')
   var embed = new Discord.MessageEmbed()
-  .setColor('RANDOM')
-  .setTitle(`****`)
-  .setTimestamp()
-  .setDescription(reason);
+  .setDescription(reason)
   return user.send(embed);
 };//DevTR
  
