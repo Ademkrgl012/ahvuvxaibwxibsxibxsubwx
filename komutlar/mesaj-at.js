@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 exports.run = (client, message, args) => {
-  if (message.author.id != "564837933912293386") return message.reply('Bunu Sadece DEVTR Sahibi Kullanabilir');
+  if (message.author.id != "564837933912293386") return message.reply('Bunu Sadece Botun Sahibi Kullanabilir');
      
   if (!message.guild) {
   const ozelmesajuyari = new Discord.RichEmbed()
@@ -17,10 +17,6 @@ exports.run = (client, message, args) => {
   message.delete();
   message.reply('Mesajını Gönderdim. Adem Reyzz Youtube Kanalınada abone oldum ♥')
   var embed = new Discord.MessageEmbed()
-  .setColor('RANDOM')
-  .setTitle(`****`)
-  .setTimestamp()
-  .setDescription(reason);
   return user.send(embed);
 };//DevTR
  
