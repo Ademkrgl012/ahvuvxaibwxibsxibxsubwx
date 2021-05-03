@@ -36,7 +36,7 @@ exports.run = async (client, message, args) => {
 message.channel.send(new Discord.MessageEmbed()
 .setDescription(`${yazi}\nSahur: ${json.result[0].saat}\nİftar: ${json.result[4].saat}`)
 .setColor('RED')
-.setFooter(`Adem Reyzz Bot Hayırlı Ramazanlar Diler.`)
+.setFooter(`MUTOT Bot Hayırlı Ramazanlar Diler.`)
               );
               });
               });
