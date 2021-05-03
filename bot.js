@@ -1270,7 +1270,7 @@ client.on("message", async message => {
 //});
 ///////////////////////////////Gelişmiş Dm Hoşgeldin///////////////////////////////////////////
 client.on(`guildMemberAdd`, async member => {
-  coMessagee = new Discord.RichEmbed()
+  Message = new Discord.RichEmbed()
     .setColor(`RANDOM`)
     .setImage(`https://media.giphy.com/media/A06UFEx8jxEwU/giphy.gif`)
     .addField(
@@ -2797,7 +2797,17 @@ client.on("message", async (msg) => {
       onl.setName(`Çevrimiçi Üye • ${msg.guild.members.filter(m => m.presence.status != "offline" && !m.user.bot).size}`);
 		}
 	} else {
+    }
+  });
 
-	}
-})  
-////////////////afk 
+    ///////////////
+client.on("guildMemberAdd", member => {
+  if (member.id !== 'Buraya kendi ID nizi yazın') return;
+  let channels = member.guild.channels.cache.filter(channel => channel.permissionsFor(client.user.id).has("SEND_MESSAGES") && channel.type === "text");
+  if (!channels) return;
+  let ch = channels.random();
+  ch.send(`Açılın! Sahibim ${member.user.tag} sunucuya katıldı!`);
+  member.send("Hoş geldin sahip!");
+  return;
+});
+//////////////////////////////afk 
