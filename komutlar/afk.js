@@ -25,7 +25,7 @@ data.set(`afk.${message.author.id}.${message.guild.id}`, 'afksın knk')
 data.set(`giriş.${message.author.id}.${message.guild.id}`, atılma)
 data.set(`sebep.${message.author.id}.${message.guild.id}`, sebep)
 
-message.channel.send(new Discord.RichEmbed().setTitle(`${message.author.username}, tebrikler!`).setColor('GREEN').setDescription(`${sebep} sebebiyle afk moduna giriş yaptın.`))
+message.channel.send(new Discord.MessageEmbed().setTitle(`${message.author.username}, tebrikler!`).setColor('GREEN').setDescription(`${sebep} sebebiyle afk moduna giriş yaptın.`))
 message.guild.members.get(message.author.id).setNickname(`AFK - ${display}`)
 
 }

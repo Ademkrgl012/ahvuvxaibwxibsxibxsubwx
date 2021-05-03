@@ -3,7 +3,7 @@ exports.run = async (client, message, args) => {
   let prefix = "m!";
   let yardım = new Discord.MessageEmbed()
     .setColor("RANDOM")
-    .addField("Adem Reyzz Moderasyon Menüsü",`
+    .addField("MUTOT Moderasyon Menüsü",`
 ✨ **m!fbi** : FBİ Gelir.
 ✨ **m!token** : Botun Tokenini Görürsünüz.
 ✨ **m!atam** : Dene ve Gör Reis.
@@ -24,7 +24,7 @@ exports.run = async (client, message, args) => {
 ✨ **m!espri**: Size Espri Söyler.
 ✨ **m!yumruk-at**: Etiketlediğiniz Kişiye Yumruk Atar.`)
     .addField("**» Davet Linki**", " [Botu Davet Et](https://discord.com/oauth2/authorize?client_id=826508857463275542&scope=bot&permissions=2147483647)", )
-    .setImage("https://cdn.discordapp.com/attachments/813881349004984370/827103972581048340/standard_1.gif")
+    .setImage("https://cdn.discordapp.com/attachments/838139251862011956/838740310858268702/standard_1.gif")
     .setFooter(`Sayfa 2 m!eğlence2`)
     .setThumbnail(client.user.avatarURL());
   message.channel.send(yardım);
