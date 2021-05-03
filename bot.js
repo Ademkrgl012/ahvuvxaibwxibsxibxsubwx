@@ -24,6 +24,10 @@ client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
+client.on("ready", async ready => {
+  if (ready.author.bot) return undefined;
+  if (!ready.content.startsWith(prefix)) return undefined;
+
   const args = msg.content.split(" ");
   const searchString = args.slice(1).join(" ");
   const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : "";
