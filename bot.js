@@ -11,9 +11,6 @@ const Canvas = require("canvas");
 const { GOOGLE_API_KEY } = require("./ayarlar.json");
 client.login(process.env.token);
 const app = express();
-client.on('ready', () => {
- client.user.setActivity(`${client.guilds.size} Sunucu + ${client.users.size} Kullanıcı!`);
-})
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
