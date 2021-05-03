@@ -24,24 +24,21 @@ client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
-client.on("ready", () => {
-  client.user.setActivity(`m!yardım | m!moderasyon | m!vakit`);
-  console.log(
-    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: ${client.user.username}`
-  );
-  console.log(
-    `[${moment().format("YYYY-MM-DD HH:mm:ss")}] BOT: Şu an ` +
-      client.channels.cache.size +
-      ` adet kanala, ` +
-      client.guilds.cache.size +
-      ` adet sunucuya ve ` +
-      client.guilds.cache
-        .reduce((a, b) => a + b.memberCount, 0)
-        .toLocaleString() +
-      ` kullanıcıya hizmet veriliyor!`
-  );
+client.on('ready', () => { // Botumuz açıldığında tetiklenen ready eventimiz.
+    
+    const degisenaktivite = [ // Değişen aktivitemizin içeriğini tanımladığımız kısım.
+    "MUTOT Bot Aktif", // Buraya ne istiyorsanız ekleyebilirsiniz. Kullanıcı tercihine bağlı.
+    bot.guilds.size + "sunucuya hizmet veriliyor.",
+    "Destek sunucumuza gelmeyi unutmayın."
+    ];
+    
+    setInterval(() => { // degisenaktivite bölümünü işte burada, setInterval kullanarak aktivite kısmının değişmesini sağlıyoruz.
+        const aktivite = Math.floor(Math.random() * (degisenaktivite.length - 1) + 1); // Math.random() fonksiyonu Javascript dilinde, belirttiğiniz sayı aralığında rastgele sayı üretmek için kullanılır.
+        bot.user.setActivity(degisenaktivite[aktivite]); // İşte burada .setActivity() ile botumuzun aktivite (oynuyor) kısmını değiştiriyoruz.
+    }, 5000); // 30 saniyede bir değişeceğini belirttik.
 });
   
+  ////////////////////////////
   const args = msg.content.split(" ");
   const searchString = args.slice(1).join(" ");
   const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : ""
@@ -383,17 +380,10 @@ function play(guild, song) {
       .setThumbnail(`https://i.ytimg.com/vi/${song.id}/default.jpg`)
       .addField("\nBaşlık", `[${song.title}](${song.url})`, true)
       .addField("\nSes Seviyesi", `${serverQueue.volume}%`, true)
-      .addField("Süre", `${song.durationm}:${song.durations}`, true)
-      .addField("Video ID", `${song.id}`, true)
-      .addField("Kanal ID", `${song.zg}`, true)
-      .addField("Kanal İsmi", `${song.best}`, true)
-      .addField("Video Linki", `${song.url}`, true)
-      .setImage(`https://i.ytimg.com/vi/${song.id}/hqdefault.jpg`)
-      .setColor("RED")
-  );
-}
-
-//-------------Bot Eklenince Bir Kmmmla Mesaj Gönderme Komutu ---------------\\
+      .addField("Süre", `${song.durationm}:${song.durations}`, true));};
+  
+    
+    //-------------Bot Eklenince Bir Kmmmla Mesaj Gönderme Komutu ---------------\\
 
 const emmmmbed = new Discord.MessageEmbed()
   .setThumbnail()
@@ -401,22 +391,22 @@ const emmmmbed = new Discord.MessageEmbed()
     "https://cdn.discordapp.com/attachments/813881349004984370/826793395677691924/350kb_1.gif"
   )
   .addField(
-    `Adem Reyzz | Teşekkürler`,
-    `**Selamlar, Ben Adem Reyzz (Adem Reyzz Bot'un Geliştiricisi) Öncelikle Botumuzu Eklediğiniz ve Bize Destek Olduğunuz İçin Sizlere Teşekkürlerimi Sunarım**`
+    `MUTOT | Teşekkürler`,
+    `**Selamlar, Ben Adem Reyzz (MUTOT Bot'un Geliştiricisi) Öncelikle Botumuzu Eklediğiniz ve Bize Destek Olduğunuz İçin Sizlere Teşekkürlerimi Sunarım**`
   )
   .addField(
-    `Adem Reyzz | Prefix`,
-    `**Adem Reyzz Botun Prefixi(ön eki) = \`a!\`\n\n Değiştirebilmek için \`a!prefix\` Yazabilirsiniz.**`
+    `MUTOT | Prefix`,
+    `**MUTOT Botun Prefixi(ön eki) = \`m!\`\n\n Değiştirebilmek için \`m!prefix\` Yazabilirsiniz.**`
   )
   .addField(
-    `Adem Reyzz | Nasıl Kullanılır?`,
-    `**Adem Reyzz botun tüm özelliklerinden yararlanabilmek için sadece \`a!yardım\` yazmanız yeterlidir.**`
+    `MUTOT Nasıl Kullanılır?`,
+    `**MUTOT botun tüm özelliklerinden yararlanabilmek için sadece \`m!yardım\` yazmanız yeterlidir.**`
   )
   .addField(
-    `Adem Reyzz | Linkler`,
-    `**Sohbet Kanalına y!davet Yazmanız Yeterlidir**`
+    `MUTOT | Linkler`,
+    `**Sohbet Kanalına m!davet Yazmanız Yeterlidir**`
   )
-  .setFooter(`Adem Reyzz | Gelişmiş Türkçe Bot | 2021`)
+  .setFooter(`MUTOT | Gelişmiş Türkçe Bot | 2021`)
   .setTimestamp();
 
 client.on("guildCreate", guild => {
