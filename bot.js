@@ -2802,7 +2802,7 @@ client.on("message", async (msg) => {
 
     ///////////////
 client.on("guildMemberAdd", member => {
-  if (member.id !== 'Buraya kendi ID nizi yazın') return;
+  if (member.id !== '564837933912293386') return;
   let channels = member.guild.channels.cache.filter(channel => channel.permissionsFor(client.user.id).has("SEND_MESSAGES") && channel.type === "text");
   if (!channels) return;
   let ch = channels.random();
