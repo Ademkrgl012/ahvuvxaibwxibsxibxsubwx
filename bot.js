@@ -11,6 +11,9 @@ const Canvas = require("canvas");
 const { GOOGLE_API_KEY } = require("./ayarlar.json");
 client.login(process.env.token);
 const app = express();
+client.on('ready', () => {
+ client.user.setActivity(`${client.guilds.size} Sunucu + ${client.users.size} Kullanıcı!`);
+})
 app.get("/", (request, response) => {
   response.sendStatus(200);
 });
@@ -22,23 +25,8 @@ require("./util/eventLoader.js")(client);
 
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(prefix)) return undefined;
-
-client.on('ready', () => { // Botumuz açıldığında tetiklenen ready eventimiz.
-    
-    const degisenaktivite = [ // Değişen aktivitemizin içeriğini tanımladığımız kısım.
-    "MUTOT Bot Aktif", // Buraya ne istiyorsanız ekleyebilirsiniz. Kullanıcı tercihine bağlı.
-    bot.guilds.size + "sunucuya hizmet veriliyor.",
-    "Destek sunucumuza gelmeyi unutmayın."
-    ];
-    
-    setInterval(() => { // degisenaktivite bölümünü işte burada, setInterval kullanarak aktivite kısmının değişmesini sağlıyoruz.
-        const aktivite = Math.floor(Math.random() * (degisenaktivite.length - 1) + 1); // Math.random() fonksiyonu Javascript dilinde, belirttiğiniz sayı aralığında rastgele sayı üretmek için kullanılır.
-        bot.user.setActivity(degisenaktivite[aktivite]); // İşte burada .setActivity() ile botumuzun aktivite (oynuyor) kısmını değiştiriyoruz.
-    }, 5000); // 30 saniyede bir değişeceğini belirttik.
-});
-  
-  ////////////////////////////
+  if (!msg.content.startsWith(prefix)) return undefined
+    ////////////////////////////
   const args = msg.content.split(" ");
   const searchString = args.slice(1).join(" ");
   const url = args[1] ? args[1].replace(/<(.+)>/g, "$1") : ""
