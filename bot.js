@@ -2812,6 +2812,7 @@ client.on("guildMemberAdd", member => {
 });
 ////////afk
 client.on('message', async message => {// chimp'∞B#1008
+if (message.content.startsWith(ayarlar.prefix"afk")) return;
 if(message.channel.type === 'dm') return;
 if(await db.fetch(`afk.${message.author.id}.${message.guild.id}`) == undefined) return;
 const ms = require('ms')
