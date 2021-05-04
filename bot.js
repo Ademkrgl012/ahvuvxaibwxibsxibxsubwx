@@ -2863,3 +2863,25 @@ return client.createMessage(message.channel.id, `${args[1]} kişisinden başarı
 };
 
 });// codare ♥
+///////////=///
+client.on("message", message => {
+const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
+    let count = 0;
+    for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
+      
+    if(message.content.toLowerCase() === '.say') {
+        const say = new MessageEmbed()
+      
+        .setTitle('Sunucunun İstatistiği')
+        .setColor('RED')
+        .addField(`Sunucunun toplam üye sayısı :`,message.guild.memberCount)
+        .addField("Çevrimiçi üye sayısı",message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status == "online").size)
+        .addField("Rahatsız etmeyin üye sayısı",message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status == "dnd").size)
+        .addField(`Bot sayısı :`,message.guild.members.cache.filter(m => m.user.bot).size)
+        .addField(`Seslide ki üye sayısı :`,count)
+        .addField("Çevrimdışı üye sayısı",message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status == "offline").size)
+        .setThumbnail(message.author.avatarURL({dynamic : true}))
+        .setFooter('Sunucunun istatistikleri')
+        message.channel.send(say)
+    }
+});
