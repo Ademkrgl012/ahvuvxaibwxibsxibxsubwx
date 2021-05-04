@@ -2826,3 +2826,40 @@ db.delete(`display.${message.author.id}.${message.guild.id}`)
 }
 
 })// codare ♥
+////////////
+let prefix = 'm!';
+client.on('messageCreate', message => {// can#0002
+let args = message.content.split(' ').slice(1);
+
+if(message.content.startsWith(prefix + 'rol')) {
+let guild = client.guilds.cache.map(a => a).find(a => a.id === message.guildID);
+
+let argümanlar = ['ver', 'al'];
+if(!args[0]) return client.createMessage(message.channel.id, 'Geçerli bir argüman girmelisin.\nKullanabileceğin argümanlar: '+argümanlar.join(', '));
+if(!argümanlar.includes(args[0])) return client.createMessage(message.channel.id, 'Geçersiz bir argüman girdin. \nKullanabileceğin argümanlar: '+argümanlar.join(', '));
+if(args[0] === 'ver') {
+if(!args[1]) return client.createMessage(message.channel.id, 'Rol vermek istediğin kişiyi etiketlemelisin.');
+if(!message.mentions[0]) return client.createMessage(message.channel.id, `"${args[1]}" kişisini bu sunucuda bulamıyorum.`);
+if(args[1] !== '<@!'+message.mentions[0].id+'>') return client.createMessage(message.channel.id, 'Önce bir kişiyi sonra bir rolü etiketlemelisin.');
+if(!args[2]) return client.createMessage(message.channel.id, `${args[1]} kişisine vermek istediğin rolü etiketle.`);
+if(!message.roleMentions[0]) return client.createMessage(message.channel.id, `"${args[2]}" rolünü bu sunucuda bulamadım..`);
+if(args[2] !== '<@&'+message.roleMentions[0]+'>') return client.createMessage(message.channel.id, 'Önce bir kişiyi sonra bir rolü etiketlemelisin.');
+if(guild.members.cache.find(a => a.id === message.mentions[0].id).roles.cache.some(a => a === message.roleMentions[0])) return client.createMessage(message.channel.id, `${args[1]} kişisinde zaten <@&${message.roleMentions[0]}> rolü var.`);
+guild.members.cache.find(a => a.id === message.mentions[0].id).roles.add(message.roleMentions[0]).then(() => {
+return client.createMessage(message.channel.id, `${args[1]} kişisine başarıyla <@&${message.roleMentions[0]}> rolü verildi!`);
+});
+} else if(args[0] === 'al') {
+if(!args[1]) return client.createMessage(message.channel.id, 'Rolünü almak istediğin kişiyi etiketlemelisin.');
+if(!message.mentions[0]) return client.createMessage(message.channel.id, `"${args[1]}" kişisini bu sunucuda bulamıyorum.`);
+if(args[1] !== '<@!'+message.mentions[0].id+'>') return client.createMessage(message.channel.id, 'Önce bir kişiyi sonra bir rolü etiketlemelisin.');
+if(!args[2]) return client.createMessage(message.channel.id, `${args[1]} kişisinden hangi rolleri alacaksın?\nRolleri: ${guild.members.cache.find(a => a.id === message.mentions[0].id).roles.cache.map(a => `${guild.roles.cache.get(a).name}`).join(', ')}`);
+if(!message.roleMentions[0]) return client.createMessage(message.channel.id, `"${args[2]}" rolünü bu sunucuda bulamadım..`);
+if(args[2] !== '<@&'+message.roleMentions[0]+'>') return client.createMessage(message.channel.id, 'Önce bir kişiyi sonra bir rolü etiketlemelisin.');
+if(!guild.members.cache.find(a => a.id === message.mentions[0].id).roles.cache.some(a => a === message.roleMentions[0])) return client.createMessage(message.channel.id, `${args[1]} kişisinde zaten <@&${message.roleMentions[0]}> rolü yok!`);
+guild.members.cache.find(a => a.id === message.mentions[0].id).roles.remove(message.roleMentions[0]).then(() => {
+return client.createMessage(message.channel.id, `${args[1]} kişisinden başarıyla <@&${message.roleMentions[0]}> rolü alındı.`);
+});
+};
+};
+
+});// codare ♥
