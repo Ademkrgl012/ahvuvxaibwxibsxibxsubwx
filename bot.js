@@ -1298,7 +1298,60 @@ client.on("channelDelete", async function(channel) {
 });
 
 ///////////////////////////////Seviye Öğrenme////////////////
-  
+client.on("message", async message => {
+  let prefix = ayarlar.prefix;
+
+  var id = message.author.id;
+  var gid = message.guild.id;
+
+  let hm = await db.fetch(`seviyeacik_${gid}`);
+  let kanal = await db.fetch(`svlog_${gid}`);
+  let xps = await db.fetch(`verilecekxp_${gid}`);
+  let seviyerol = await db.fetch(`svrol_${gid}`);
+  let rollvl = await db.fetch(`rollevel_${gid}`);
+
+  if (!hm) return;
+  if (message.content.startsWith(prefix)) return;
+  if (message.author.bot) return;
+
+  var xp = await db.fetch(`xp_${id}_${gid}`);
+  var lvl = await db.fetch(`lvl_${id}_${gid}`);
+  var xpToLvl = await db.fetch(`xpToLvl_${id}_${gid}`);
+
+  if (!lvl) {
+    
+    if (xps) {
+      db.set(`xp_${id}_${gid}`, xps);
+    }
+    db.set(`xp_${id}_${gid}`, 4);
+    db.set(`lvl_${id}_${gid}`, 1);
+    db.set(`xpToLvl_${id}_${gid}`, 100);
+  } else {
+    if (xps) {
+      db.add(`xp_${id}_${gid}`, xps);
+    }
+    db.add(`xp_${id}_${gid}`, 4);
+
+    if (xp > xpToLvl) {
+      db.add(`lvl_${id}_${gid}`, 1);
+      db.add(
+        `xpToLvl_${id}_${gid}`,
+        (await db.fetch(`lvl_${id}_${gid}`)) * 100
+      );
+      if (kanal) {
+        client.channels
+          .get(kanal.id)
+          .send(
+            message.member.user.username +
+              "** Seviye Atladı! Yeni seviyesi; `" +
+              lvl +
+              "` Tebrikler! :tada: **"
+          );
+
+        
+      }
+   
+    }
 //////////////////////////////giriş-çıkış
 //client.login("guildMemberAdd", member => {
 // let guild = member.guild;
@@ -2834,25 +2887,4 @@ return client.createMessage(message.channel.id, `${args[1]} kişisinden başarı
 };
 
 });// codare ♥
-///////////=///
-client.on("message", message => {
-const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice');
-    let count = 0;
-    for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
-      
-    if(message.content.toLowerCase() === '.say') {
-        const say = new Discord.MessageEmbed()
-      
-        .setTitle('Sunucunun İstatistiği')
-        .setColor('RED')
-        .addField(`Sunucunun toplam üye sayısı :`,message.guild.memberCount)
-        .addField("Çevrimiçi üye sayısı",message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status == "online").size)
-        .addField("Rahatsız etmeyin üye sayısı",message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status == "dnd").size)
-        .addField(`Bot sayısı :`,message.guild.members.cache.filter(m => m.user.bot).size)
-        .addField(`Seslide ki üye sayısı :`,count)
-        .addField("Çevrimdışı üye sayısı",message.guild.members.cache.filter(m => !m.user.bot && m.user.presence.status == "offline").size)
-        .setThumbnail(message.author.avatarURL({dynamic : true}))
-        .setFooter('Sunucunun istatistikleri')
-        message.channel.send(say)
-    }
-});
+   
