@@ -6,7 +6,7 @@ exports.run = async (client, message, args) => {
 
     if(!ardademruser) return message.reply('bir kullanıcı etiketlemelisin.')
 
-    message.guild.member(ardademruser).roles.add(message.guild.roles.cache.find(role=>role.id=="825799088745480192").id);
+    message.guild.member(ardademruser).roles.add(message.guild.roles.cache.find(role=>role.id=="827951686714785823").id);
 message.channel.send('Rolü verildi.')
 
 
