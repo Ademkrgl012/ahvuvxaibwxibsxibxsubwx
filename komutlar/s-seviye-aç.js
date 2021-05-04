@@ -30,7 +30,7 @@ exports.run = async(client, message, args) => {
   else kontrol3 = seviyerol
   
   
-  let fagame = new Discord.RichEmbed()
+  let fagame = new Discord.MessageEmbed()
   .setTitle(' | Aktif Edildi!')
   .setDescription(message.guild.name + ' Sunucusuna başarıyla seviye sistemini aktifleştirdim!\n Genel ayarlar aşağıda veriliyor..')
   .addBlankField()

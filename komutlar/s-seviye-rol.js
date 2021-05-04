@@ -24,7 +24,7 @@ exports.run = async(client, message, args) => {
   if(xp == null) kontrol2 = '4 (Varsayılan)'
   else kontrol2 = xp
   
-  let codeming = new Discord.RichEmbed()
+  let codeming = new Discord.MessageEmbed()
   .setTitle('Başarılı Ayarlandı!')
   .setDescription('Seviye rol ödülü başarıyla ayarlandı.')
     .addBlankField()

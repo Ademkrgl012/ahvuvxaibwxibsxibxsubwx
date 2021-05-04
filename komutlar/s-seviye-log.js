@@ -22,7 +22,7 @@ exports.run = async(client, message, args) => {
   if(seviyerol == null) kontrol3 = 'Seviye Rol Sistemi Aktif Değil! <a:warning:651848396834996279>'
   else kontrol3 = seviyerol
   
-  let codeming = new Discord.RichEmbed()
+  let codeming = new Discord.MessageEmbed()
   .setTitle('İşlem Başarılı!')
   .setDescription('Seviye logs kanalı ayarlandı.Üyeler seviye atlayınca orda belirteceğim.')
   .addBlankField()

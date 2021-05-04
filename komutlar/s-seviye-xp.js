@@ -27,7 +27,7 @@ exports.run = async(client, message, args) => {
   if(seviyerol == null) kontrol3 = 'Seviye Rol Sistemi Aktif Değil!'
   else kontrol3 = seviyerol
   
-  let selin = new Discord.RichEmbed()
+  let selin = new Discord.MessageEmbed()
   .setTitle('İşlem Başarılı!')
   .setDescription('Mesaj başına verilecek olan xp değeri (**'+değer+'**) Olarak ayarlandı!')
   .addBlankField()

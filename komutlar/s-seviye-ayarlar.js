@@ -25,7 +25,7 @@ exports.run = async(client, message, args) => {
   if(rollvl == null) kontrol4 = ':x:'
   else kontrol4 = ':white_check_mark: | '+rollvl
   if(!hm) return message.channel.send('Seviye sistemi bu sunucuda aktif durumda değil! \n Bunu mu arıyorsun? `f>seviye-aç`')
-  let ayarlar = new Discord.RichEmbed()
+  let ayarlar = new Discord.MessageEmbed()
   .setTitle('Sunucu Seviye Ayarları:')
   .setDescription(message.guild.name + ' Sunucusunun seviye ayarları!')
   .addField('Göstergeler', ':white_check_mark: : **Aktif** \n :x: : **Devre Dışı**')
