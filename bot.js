@@ -2870,7 +2870,7 @@ const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice
     for (const [id, voiceChannel] of voiceChannels) count += voiceChannel.members.size;
       
     if(message.content.toLowerCase() === '.say') {
-        const say = new MessageEmbed()
+        const say = new Discord.MessageEmbed()
       
         .setTitle('Sunucunun İstatistiği')
         .setColor('RED')
