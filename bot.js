@@ -1298,7 +1298,7 @@ client.on("channelDelete", async function(channel) {
 });
 
 ///////////////////////////////Seviye Öğrenme//////////////// ) {
-      le//////////////////////////////giriş-çıkış
+//////////////////////////////giriş-çıkış
 //client.login("guildMemberAdd", member => {
 // let guild = member.guild;
 // let joinRole = guild.roles.find("name", "Üye"); // 'Üye' yazılan yeri otomatik rol vereceği rolü yapabilirsiniz.//Otorol Komudu :)
