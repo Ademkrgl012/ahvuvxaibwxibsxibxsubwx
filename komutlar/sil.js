@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 
 exports.run = async(yashinu, message, args) => {
-  if (!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`Bu komutu kullanabilmek için "MESAJLARI YÖNET" iznine sahip olmalısın!`);
+  if (!message.member.hasPermission("MANAGE_Messages")) return message.reply(`Bu komutu kullanabilmek için "MESAJLARI YÖNET" iznine sahip olmalısın!`);
   if (!args[0] || isNaN(args[0])) return message.reply(`Temizlenecek mesaj miktarını belirtmelisin! (İstediğin kadar)`);
   message.delete();
   let rexussayi = Number(args[0]);
