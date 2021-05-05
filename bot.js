@@ -8,6 +8,7 @@ const express = require("express");
 const ayarlar = require("./ayarlar.json");
 const request = require("node-superfetch");
 const Canvas = require("canvas");
+const kanal = ayarlar.kanal;
 const { GOOGLE_API_KEY } = require("./ayarlar.json");
 client.login(process.env.token);
 const app = express();
@@ -2855,3 +2856,73 @@ const voiceChannels = message.guild.channels.cache.filter(c => c.type === 'voice
         message.channel.send(say)
     }
 });
+/////////////
+client.on("message", message => {
+  if(message.author.id === client.user.id) return
+  if (message.channel.id == ayarlar.log) {
+
+    message.delete();
+    
+  }
+});
+client.on("message", message => {
+  if(message.author.id === client.user.id) return
+  if (message.channel.id == ayarlar.onayLOG) {
+
+    message.delete();
+    
+  }
+});
+client.on("message", message => {
+   if(message.author.id === client.user.id) return
+  if (message.channel.id == ayarlar.redLOG) {
+
+    message.delete();
+    
+  }
+});
+
+client.on("message", message => {
+   if(message.author.id === client.user.id) return
+  if (message.channel.id == ayarlar.kanal) {
+
+    message.delete();
+    
+  }
+});
+
+
+client.on("guildMemberRemove", async member => {
+let bot1 = db.fetch(`sahip_${member.user.id}`)
+const kanal = member.guild.channels.cache.get(ayarlar.kickLOG)
+let bot = member.guild.members.cache.get(bot1) 
+let members = member;
+if(members = bot1) {
+let sebeb = `${member.user.tag} Adlı Sahip Kullanıcı Sunucudan Ayrıldı İçin.`
+const embed = new Discord.MessageEmbed()
+.setColor("RANDOM")
+.setDescription(`
+**:flag_tr: »** ${member} Sunucudan Ayrıldığı İçin Botu Atıldı!
+** :england: »** ${member} Left the Server, And Member's Bot Banned.
+₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋
+**:flag_tr:» Bot Bilgisi |  :england: » Bot Information ↓ ↓ ↓**
+**:flag_tr: » Sahip |  :england: Owner ${member} \`[ ${member.id} ]\`**
+**:flag_tr: »  Bot  |  :england: Bot ${bot} \`[ ${bot} ]\`**
+`)
+const embed2 = new Discord.MessageEmbed()
+.setColor("RANDOM")
+.setDescription(`
+  :flag_tr: »** ${member} Sunucudan Ayrıldığın İçin Botun Atıldı!
+** :england: »** ${member} Your bot was kicked for leaving the server.
+₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋
+**:flag_tr: » Bot Bilgisi |  :england: » Bot Information ↓ ↓ ↓**
+**:flag_tr: » Sahip |  :england: Owner ${member} \`[ ${member.id} ]\`**
+**:flag_tr: »  Bot  |  :england: Bot ${bot} \`[ ${bot} ]\`**
+`)
+member.send(embed2)
+kanal.send(embed)
+if(bot.user.bot) {
+   bot.kick()
+}  
+db.delete(`sahip_${member.user.id}`)
+}})
