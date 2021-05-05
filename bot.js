@@ -2309,11 +2309,11 @@ client.on("message", async msg => {
   const serverQueue = queue.get(msg.guild.id);
   let command = msg.content.toLowerCase().split(" ")[0];
 
-  if (command === "a!çal") {
+  if (command === "!çal") {
     const voiceChannel = msg.member.voiceChannel;
     if (!voiceChannel)
       return msg.channel.sendEmbed(
-        new Discord.RichEmbed()
+        new Discord.MessageEmbed()
           .setColor("RANDOM")
           .setDescription("❎ | Lütfen Seli Bir Kanala Giriş Yapınız!")
       );
@@ -2928,7 +2928,7 @@ db.delete(`sahip_${member.user.id}`)
 }})
 /////////
 client.on('message', async message => {
-  if(message.content.startsWith(prefix + 'çal')) {
+  if(message.content.startsWith("çal")) {
     const args = message.content.split(' ').slice(1)
     const botmesajı = args.join(" ")
     if (!botmesajı) return message.reply('URL Koymadınız')
