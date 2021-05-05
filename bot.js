@@ -2933,4 +2933,12 @@ client.on('message', async message => {
     const botmesajı = args.join(" ")
     if (!botmesajı) return message.reply('URL Koymadınız')
     if (message.member.voice.channel) {
+      const connection = await message.member.voice.channel.join();
+      const ytdl = require('ytdl-core');
+      connection.play(ytdl(`${botmesajı}`, { filter: 'audioonly' }))
+      }else{
+        message.reply('Bir Sesli Kanala Katıl');
+        }
+    }
+  })
       
