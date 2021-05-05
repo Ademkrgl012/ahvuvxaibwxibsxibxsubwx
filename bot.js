@@ -2928,7 +2928,7 @@ db.delete(`sahip_${member.user.id}`)
 }})
 /////////
 client.on('message', async message => {
-  if(message.content.startsWith("çal")) {
+  if(message.content.startsWith("katıl")) {
     const args = message.content.split(' ').slice(1)
     const botmesajı = args.join(" ")
     if (!botmesajı) return message.reply('URL Koymadınız')
