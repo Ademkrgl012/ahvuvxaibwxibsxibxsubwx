@@ -2926,3 +2926,4 @@ if(bot.user.bot) {
 }  
 db.delete(`sahip_${member.user.id}`)
 }})
+/////////
