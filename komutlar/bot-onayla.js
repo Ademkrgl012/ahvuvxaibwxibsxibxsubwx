@@ -51,7 +51,7 @@ exports.run = function(client, message, args) {
   .setColor('#71ea00')
   .setDescription(`
     :flag_tr:  » **Tebrikler, ${botisim} adlı botun başarıyla onaylandı.** 
-    :england:  » **Congratulations, your bot ${botisim} has been successfully approved.** 
+  :england:  » **Congratulations, your bot ${botisim} has been successfully approved.** 
     ₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋₋
   `)
   .setFooter('» Onaylandığı Zaman ')

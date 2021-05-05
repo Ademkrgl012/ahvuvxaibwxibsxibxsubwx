@@ -26,7 +26,7 @@ if(!prefix) return message.channel.send(`Lütfen eksik kısımları doldurun.\n*
         let embed2 = new Discord.MessageEmbed()
     .setColor('#fff76b')
     .setDescription(`
-    ** 🤖 Bir bot başvurusu gönderildi**
+    **🤖 Bir bot başvurusu gönderildi**
     **・** ${message.author} **adlı kullanıcının botu** [<@!${botID}>] **sıraya eklendi**
     
     🤷‍♂️ **Sahip Bilgi |${message.author} \`[ ${message.author.id} ]\`**
