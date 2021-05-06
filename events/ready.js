@@ -15,7 +15,7 @@ var randomMesajlar = [
     "Youtube: Adem Reyzz"
 ]
 var randomdurum = [
-  
+  client.user.setStatus("dnd")
 ]
 
 
@@ -26,10 +26,13 @@ setInterval(function() {
     client.user.setActivity(`${randomMesajlar1}`);
 
 }, 2 * 5000);
-
-client.user.setStatus("dnd");
-
-/*
+  
+  setIntevral(function() {
+     var randomdurum1 = randomdurum[Math.floor(Math.random() * (randomdurum.length))]
+    client.user.setStatus(`${randomdurum1}`);
+  
+  }, 2 * 5000);
+ /*
 idle yerine yazılabilecekler
 dnd 
 idle
