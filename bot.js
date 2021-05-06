@@ -2137,7 +2137,7 @@ client.on("guildMemberAdd", async member => {
     return canvaskanal.send(`Sunucuya Bir Bot Girdi ${member.user.tag}`);
 });
 ////////////
-client.on("guildMemberRemove", async member => {
+client.on("guildMember", async member => {
   //let resimkanal = JSON.parse(fs.readFileSync("./ayarlar/gç.json", "utf8"));
   //const canvaskanal = member.guild.channels.get(resimkanal[member.guild.id].resim);
 
@@ -2207,7 +2207,7 @@ client.on("guildMemberRemove", async member => {
     );
 });
 
-client.on("guildMemberAdd", async member => {
+client.on("guildMember", async member => {
   if (db.has(`gçkanal_${member.guild.id}`) === false) return;
   var canvaskanal = member.guild.channels.get(
     db.fetch(`gçkanal_${member.guild.id}`)
