@@ -25,7 +25,7 @@ require('./util/eventHandler.js')(client);
 const Client = new Discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
 const { readdirSync } = require("fs");
 const { join } = require("path");
-const {PREFIX} = require("./config.json")
+const { TOKEN, PREFIX } = require("./config.json")
 
 Client.on("warn", info => console.log(info));
 
