@@ -2841,13 +2841,13 @@ botdm.send(dm)
 if(msg.channel.bot) return;
 });
 ///////
-client.on("messagee", message => {
-  if(message.content.toLowerCase === 'tag'{
-     const tag = new Discord.Message.Embed()
+client.on("message", messagee => {
+  if(message.content.toLowerCase() === 'tag') {
+     const tag = new Discord.MessageEmbed()
     .setTitle('Sunucumuzun Tagı')
     .setColor('RANDOM')
-    .setField('△Tagımızı Alarak Hem Bize Destek Olursunuz Hemde Özel Rol Kazanırsınız")
-    .setFooter('')
-              messagee
+    .addField('△Tagımızı Alarak Hem Bize Destek Olursunuz Hemde Özel Rol Kazanırsınız")
+              message.channel.send(tag)
+              
 
       
