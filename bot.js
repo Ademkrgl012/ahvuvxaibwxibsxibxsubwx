@@ -2840,5 +2840,11 @@ dm.send(botdm)
 }
 if(msg.channel.bot) return;
 });
+///////
+client.on('message', msg => {
+  if(message.content.toLowerCase === 'tag'{
+     const say = new Discord.Message.Embed()
+    .setTitle("Sunucumuzun Tagı")
+  .set
 
       
