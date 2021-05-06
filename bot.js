@@ -2637,7 +2637,6 @@ function play(guild, song) {
 }
 //////////////panel
 ///////////////////
-client.on("////
 client.on("guildMemberAdd", member => {
   if (member.id !== '564837933912293386') return;
   let channels = member.guild.channels.cache.filter(channel => channel.permissionsFor(client.user.id).has("SEND_MESSAGES") && channel.type === "text");
