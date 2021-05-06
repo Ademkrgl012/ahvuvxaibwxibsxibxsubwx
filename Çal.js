@@ -1,6 +1,6 @@
 const play = require('discordjs-ytdl')
 module.exports = {
-  kod: "çal",
+  name: "çal",
   async run (client, message, args){
     if (message.member.voice.channel){
       const connection = await message.member.voice.channel.join()
