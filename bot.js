@@ -31,7 +31,7 @@ client.on("message", async msg => {
   const serverQueue = queue.get(msg.guild.id);
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
-  if (command === "oynat") {
+  if (command === "çal") {
     const voiceChannel = msg.member.voice.channel;
     if (!voiceChannel)
       return msg.channel.send(
