@@ -21,34 +21,6 @@ const log = message => {
 };
 require("./util/eventLoader.js")(client);
 require('./util/eventHandler.js')(client);
-
-const { readdirSync } = require("fs");
-const { join } = require("path");
-const { TOKEN, PREFIX } = require("./config.json")
-
-client.on("warn", info => console.log(info));
-
-client.on("error", console.error)
-
-client.commands = new Discord.Collection()
-client.prefix = PREFIX
-client.queue = new Map();
-
-
-const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))
-for (const file of cmdFiles) {
-  const command = require(join(__dirname, "commands", file))
-  client.commands.set(command.name, command)
-} 
-
-
-client.on("message", message => {
-   if (message.author.bot) return;
-  if (!message.guild) return;
-  
-  if(message.content.startsWith(PREFIX)) {
-    
-    const arg
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
@@ -445,7 +417,7 @@ fs.readdir("./komutlar/", (err, files) => {
   log(`${files.length} komut yüklenecek.`);
   files.forEach(f => {
     let props = require(`./komutlar/${f}`);
-    log(`Yüklenen komut: ${props.help.name}.`);
+    log(`Yüklenen komut: ${props.help.name}`);
     client.commands.set(props.help.name, props);
     props.conf.aliases.forEach(alias => {
       client.aliases.set(alias, props.help.name);
