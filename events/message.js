@@ -28,7 +28,7 @@ module.exports = message => {
     } else {
     }
   }
-  if (cmd) {
+  if (cmd){
     }else{
     const laura = [];
     client.commands.forEach(dropinnem => {
