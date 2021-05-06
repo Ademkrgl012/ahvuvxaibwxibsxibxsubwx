@@ -21,52 +21,8 @@ const log = message => {
 };
 require("./util/eventLoader.js")(client);
 require('./util/eventHandler.js')(client);
+/////////////
 
-const Client = new Discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
-const { readdirSync } = require("fs");
-const { join } = require("path");
-const { TOKEN, PREFIX } = require("./config.json")
-
-Client.on("warn", info => console.log(info));
-
-Client.on("error", console.error)
-
-Client.commands = new Discord.Collection()
-Client.prefix = PREFIX
-Client.queue = new Map();
-
-
-const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))
-for (const file of cmdFiles) {
-  const command = require(join(__dirname, "commands", file))
-  Client.commands.set(command.name, command)
-} 
-
-
-Client.on("message", message => {
-   if (message.author.bot) return;
-  if (!message.guild) return;
-  
-  if(message.content.startsWith(PREFIX)) {
-    
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/)
-    const command = args.shift().toLowerCase();
-    
-    if(!client.commands.has(command)) {
-      return;
-    } 
-    
-  try  { 
-      Client.commands.get(command).execute(client, message, args)
-    } catch (err) { 
-      console.log(err)
-      message.reply("I am getting error on using this command")
-    }
-    
-  }
-  
-  
-});
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
