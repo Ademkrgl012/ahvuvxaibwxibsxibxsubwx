@@ -14,6 +14,9 @@ var randomMesajlar = [
     "m!korona",
     "Youtube: Adem Reyzz"
 ]
+var randomdurum = [
+  
+]
 
 
 
@@ -25,6 +28,7 @@ setInterval(function() {
 }, 2 * 5000);
 
 client.user.setStatus("dnd");
+
 /*
 idle yerine yazılabilecekler
 dnd 
