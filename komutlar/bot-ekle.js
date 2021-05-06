@@ -59,12 +59,12 @@ if(!prefix) return message.channel.send(`Lütfen eksik kısımları doldurun.\n*
 exports.conf = {
   enabled: true,
   guildOnly: false,
-  aliases: ["ekle"],
+  aliases: ["add"],
   permLevel: 0
 };
 
 exports.help = {
-  name: "botekle",
+  name: "ekle",
   description: "Sunucuya bot eklemenizi sağlar.",
   usage: "botekle <botid> <prefix>"
 };
