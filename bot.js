@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
+const Client = new Discord.Client();
 const fs = require("fs");
-const client = new Discord.Client();
 const http = require("http");
 const db = require("quick.db");
 const moment = require("moment");
@@ -10,7 +10,6 @@ const request = require("node-superfetch");
 const Canvas = require("canvas");
 const kanal = ayarlar.kanal;
 const { GOOGLE_API_KEY } = require("./ayarlar.json");
-client.login(process.env.token);
 const app = express();
 app.get("/", (request, response) => {
   response.sendStatus(200);
@@ -19,10 +18,56 @@ app.listen(process.env.PORT);
 const log = message => {
   console.log(` ${message}`);
 };
-require("./util/eventLoader.js")(client);
-require('./util/eventHandler.js')(client);
 /////////////
+const discord = require("discord.js")
 
+const client = new discord.Client({ disableEveryone: true, disabledEvents: ["TYPING_START"] });
+require(".util/eventLoader.js")(Client);
+require('.util/eventHandler.js')(Client);
+const { readdirSync } = require("fs");
+const { join } = require("path");
+const { TOKEN, PREFIX } = require("./config.json")
+client.login(TOKEN);
+client.on("warn", info => console.log(info));
+
+client.on("error", console.error)
+
+client.commands = new discord.Collection()
+client.prefix = PREFIX
+client.queue = new Map();
+
+
+const cmdFiles = readdirSync(join(__dirname, "commands")).filter(file => file.endsWith(".js"))
+for (const file of cmdFiles) {
+  const command = require(join(__dirname, "commands", file))
+  client.commands.set(command.name, command)
+} 
+
+
+client.on("message", message => {
+   if (message.author.bot) return;
+  if (!message.guild) return;
+  
+  if(message.content.startsWith(PREFIX)) {
+    
+    const args = message.content.slice(PREFIX.length).trim().split(/ +/)
+    const command = args.shift().toLowerCase();
+    
+    if(!client.commands.has(command)) {
+      return;
+    } 
+    
+  try  { 
+      client.commands.get(command).execute(client, message, args)
+    } catch (err) { 
+      console.log(err)
+      message.reply("I am getting error on using this command")
+    }
+    
+  }
+  
+  
+});
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
