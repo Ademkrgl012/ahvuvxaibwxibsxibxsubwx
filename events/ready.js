@@ -13,11 +13,7 @@ var randomMesajlar = [
     "m!vakit",
     "m!korona",
     "Youtube: Adem Reyzz"
-]
-var randomdurum = [
-  client.user.setStatus("dnd")
-]
-
+  ]
 
 
 
@@ -25,13 +21,10 @@ setInterval(function() {
     var randomMesajlar1 = randomMesajlar[Math.floor(Math.random() * (randomMesajlar.length))]
     client.user.setActivity(`${randomMesajlar1}`);
 
-}, 2 * 5000);
+}, 2 * 30000);
+ 
   
-  setIntevral(function() {
-     var randomdurum1 = randomdurum[Math.floor(Math.random() * (randomdurum.length))]
-    client.user.setStatus(`${randomdurum1}`);
-  
-  }, 2 * 5000);
+client.user.setStatus("dnd");
  /*
 idle yerine yazılabilecekler
 dnd 
