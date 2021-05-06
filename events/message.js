@@ -29,17 +29,7 @@ module.exports = message => {
     }
   }
   if (cmd) {
-    if (perms < cmd.conf.permLevel) return;
-    cmd.run(client, message, params, perms);
-  }
-// if (cmd) {
-//
-// } 
-// en sondaki süslü parantezden sonra yapıştırın.
-//
-// string-similarity modülü gereklidir. konsola      npm i string-similarity yazarak    indirebilirsiniz.
-
- else{
+    }else{
     const laura = [];
     client.commands.forEach(dropinnem => {
       laura.push(dropinnem.help.name);
