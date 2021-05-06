@@ -27,6 +27,7 @@
     "moment": "^2.29.1",
     "moment-duration-format": "^2.3.2",
     "ms": "^2.1.3",
+    "node-fetch": "^2.6.1",
     "node-opus": "^0.3.3",
     "node-superfetch": "^0.2.3",
     "noflo-nodejs": "^0.15.1",
@@ -41,7 +42,7 @@
     "weather-js": "^2.0.0",
     "weather.js": "^0.1.0",
     "wio.db": "^4.0.20",
-    "ytdl-core": "^4.5.0"
+    "ytdl-core": "^4.7.0"
   },
   "engines": {
     "node": "12.x"
