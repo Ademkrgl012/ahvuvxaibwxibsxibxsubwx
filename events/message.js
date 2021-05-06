@@ -29,14 +29,7 @@ module.exports = message => {
     }
   }
   if (cmd){
-    }else{
-    const laura = [];
-    client.commands.forEach(dropinnem => {
-      laura.push(dropinnem.help.name);
-      dropinnem.conf.aliases.forEach(abcdef => laura.push(abcdef));
-    });
-
-    const rifleman = require('string-similarity').findBestMatch(command, laura);
-    message.channel.send(`bunu mu demek istediniz? ${rifleman.bestMatch.target}`)
-  };
-  };
+    if (perms < cmd.conf.permLevel) return;
+    cmd.run(client, message, params, perms);
+  }
+};
