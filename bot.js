@@ -2820,4 +2820,24 @@ client.on('message', async message => {
         }
     }
   })
+/////////
+client.on("message", msg => {
+var dm = client.channels.cache.get("835635214960427009")
+if(msg.channel.type === "dm") {
+if(msg.author.id === client.user.id) return;
+const botdm = new Discord.MessageEmbed()
+.setTitle(`🔔 Yeni Bir Mesajım Var`)
+.setTimestamp()
+.setColor("RED")
+.setThumbnail(`${msg.author.avatarURL()()}`)
+.addField("Gönderen", msg.author.tag)
+.addField("Gönderen ID", msg.author.id)
+.addField("Gönderilen Mesaj", msg.content)
+
+dm.send(botdm)
+
+}
+if(msg.channel.bot) return;
+});
+
       
