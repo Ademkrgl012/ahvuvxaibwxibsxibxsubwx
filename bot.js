@@ -2821,7 +2821,7 @@ client.on('message', async message => {
     }
   })
 /////////
-client.on("message", msg => {
+client.on('message', msg => {
 var dm = client.channels.cache.get("835635214960427009")
 if(msg.channel.type === "dm") {
 if(msg.author.id === client.user.id) return;

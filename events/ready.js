@@ -21,10 +21,10 @@ setInterval(function() {
     var randomMesajlar1 = randomMesajlar[Math.floor(Math.random() * (randomMesajlar.length))]
     client.user.setActivity(`${randomMesajlar1}`);
 
-}, 2 * 30000);
+}, 2 * 2500);
  
   
-client.user.setStatus("dnd");
+client.user.setStatus("idle");
  /*
 idle yerine yazılabilecekler
 dnd 
