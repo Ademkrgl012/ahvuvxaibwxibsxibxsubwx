@@ -2835,16 +2835,19 @@ const botdm = new Discord.MessageEmbed()
 .addField("Gönderen ID", msg.author.id)
 .addField("Gönderilen Mesaj", msg.content)
 
-dm.send(botdm)
+botdm.send(dm)
 
 }
 if(msg.channel.bot) return;
 });
 ///////
-client.on('message', msg => {
+client.on("messagee", message => {
   if(message.content.toLowerCase === 'tag'{
-     const say = new Discord.Message.Embed()
-    .setTitle("Sunucumuzun Tagı")
-  .set
+     const tag = new Discord.Message.Embed()
+    .setTitle('Sunucumuzun Tagı')
+    .setColor('RANDOM')
+    .setField('△Tagımızı Alarak Hem Bize Destek Olursunuz Hemde Özel Rol Kazanırsınız")
+    .setFooter('')
+              messagee
 
       
