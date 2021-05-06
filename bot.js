@@ -42,30 +42,13 @@ for (const file of cmdFiles) {
 } 
 
 
-Client.on("message", message => {
+client.on("message", message => {
    if (message.author.bot) return;
   if (!message.guild) return;
   
   if(message.content.startsWith(PREFIX)) {
     
-    const args = message.content.slice(PREFIX.length).trim().split(/ +/)
-    const command = args.shift().toLowerCase();
-    
-    if(!client.commands.has(command)) {
-      return;
-    } 
-    
-  try  { 
-      Client.commands.get(command).execute(client, message, args)
-    } catch (err) { 
-      console.log(err)
-      message.reply("I am getting error on using this command")
-    }
-    
-  }
-  
-  
-});
+    const arg
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
