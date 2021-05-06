@@ -24,8 +24,8 @@ setInterval(function() {
 }, 2 * 2500);
  
   
-client.user.setStatus("idle");
- client.user.setStatus("dnd");
+client.user.setStatus("idle"),
+ client.user.setStatus("dnd"),
   client.user.setStatus("online");
  /*
 idle yerine yazılabilecekler
