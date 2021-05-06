@@ -2842,12 +2842,16 @@ if(msg.channel.bot) return;
 });
 ///////
 client.on("message", messagee => {
-  if(message.content.toLowerCase() === 'tag') {
+  if(messagee.content.toLowerCase() === 'tag') {
      const tag = new Discord.MessageEmbed()
     .setTitle('Sunucumuzun Tagı')
     .setColor('RANDOM')
-    .addField('△Tagımızı Alarak Hem Bize Destek Olursunuz Hemde Özel Rol Kazanırsınız")
-              message.channel.send(tag)
+    .addField('△Tagımızı Alarak Hem Bize Destek Olursunuz Hemde Özel Rol Kazanırsınız')
+    .setFooter('Teşekkürler🙏')
+     .setThumbnail(`${messagee.author.avatarURL()()}`)
+    messagee.channel.send(tag)
+    }
+  });
               
 
       
