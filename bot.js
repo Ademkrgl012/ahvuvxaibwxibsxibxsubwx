@@ -10,6 +10,7 @@ const request = require("node-superfetch");
 const Canvas = require("canvas");
 const kanal = ayarlar.kanal;
 const { GOOGLE_API_KEY } = require("./ayarlar.json");
+client.lang = new Map();
 client.login(process.env.token);
 const app = express();
 app.get("/", (request, response) => {
