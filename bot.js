@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const client = new Discord.Client();
 const fs = require("fs");
+const client = new Discord.Client();
 const http = require("http");
 const db = require("quick.db");
 const moment = require("moment");
@@ -10,14 +10,17 @@ const request = require("node-superfetch");
 const Canvas = require("canvas");
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./ayarlar.json');
+const { TOKEN, prefix, GOOGLE_API_KEY } = require('./ayarlar.json');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 const kanal = ayarlar.kanal;
 client.lang = new Map();
-const prefix = process.env.PREFIX;
+client.login(process.env.token);
+const Prefix = process.env.PREFIX;
 const { Collection, Client } = require("discord.js");
-client.commands = new Discord.Collection();//youtube.com/NoblesYT
+
+const CLIENT = new Client();//youtube.com/NoblesYT
+client.commands = new Collection();//youtube.com/NoblesYT
 client.queue = new Map()
 
 const app = express();
@@ -30,29 +33,6 @@ const log = message => {
 };
 require("./util/eventLoader.js")(client);
 require('./util/eventHandler.js')(client);
-//Loading Events
-fs.readdir(__dirname + "/events/", (err, files) => {//youtube.com/NoblesYT
-  if (err) return console.error(err);
-  files.forEach((file) => {
-    const event = require(__dirname + `/events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client));//youtube.com/NoblesYT
-    console.log("Event Yükleniyor: "+eventName)
-  });
-});
-
-//Loading Commands
-fs.readdir("./commands/", (err, files) => {//youtube.com/NoblesYT
-  if (err) return console.error(err);
-  files.forEach((file) => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
-    let commandName = file.split(".")[0];
-    client.commands.set(commandName, props);//youtube.com/NoblesYT
-    console.log("Komut Yükleniyor: "+commandName)
-  });
-});
-client.on(process.env.TOKEN);
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
@@ -2923,7 +2903,7 @@ client.on('message', async msg => {
   const serverQueue = queue.get(msg.guild.id);
 
   let command = msg.content.toLowerCase().split(' ')[0];
-  command = command.slice(length)
+  command = command.slice(.length)
 
   if (command === 'çal') {
     const voiceChannel = msg.member.voice.channel;
