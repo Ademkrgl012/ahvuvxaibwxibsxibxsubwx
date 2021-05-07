@@ -2851,6 +2851,21 @@ client.on("message", message => {
     message.channel.send(tag)
     }
   });
+//////////////
+client.on('message', async(message) => {
+if (!message.guild) return
+let acikmi = await db.fetch(`${message.guild.id}.capsengel`)
+if (!acikmi) return
+if (message.author.bot) return
+if (message.member.hasPermission("MANAGE_MESSAGES")) return
+let matched = message.content.replace(/[^A-Z]/g, "").length
+let yuzde = percentage(matched, message.content.length)
+if (Math.round(yuzde) > acikmi.yuzde) {
+  message.delete()
+  message.author.send(new Discord.MessageEmbed().setColor("RED").setTimestamp().setFooter(`${message.guild.name}`,message.guild.iconURL({dynamic:true})).setAuthor("CapsLock Engelleme Sistemi").setDescription("**Uyarı! "+message.guild.name+" sunucusunda büyük harfle yazma engeli bulunmaktadır!**\nBu sebepten göndermiş olduğunuz mesaj silindi."))
+  message.channel.send(new Discord.MessageEmbed().setColor("RED").setTimestamp().setFooter(`${message.guild.name}`,message.guild.iconURL({dynamic:true})).setAuthor("CapsLock Engelleme Sistemi",message.author.displayAvatarURL({dynamic:true})).setDescription(message.author.username+" - "+(message.member.nickname ? `${message.member.nickname} - ${message.author.id}` : message.author.id)+"\n**Uyarı!  Bu sunucuda büyük harfle yazma engeli bulunmaktadır!**\nBu sebepten göndermiş olduğunuz mesaj silindi.")).then(msg=>msg.delete({timeout:3000}))
+}else{return}
+  });
               
 
       
