@@ -2888,7 +2888,7 @@ if (Math.round(yuzde) > acikmi.yuzde) {
   //rolİsimi: "spam-susturulmuş"
 //});
 ///////müzik///////
-client.on("message", async msg => {
+client.on('message', async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined;
 
