@@ -2099,7 +2099,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://media.discordapp.net/attachments/753544616657158215/753722621333340391/murat_ledli_gif.gif"
+    "https://cdn.discordapp.com/attachments/813881989778112562/836824107340660776/PicsArt_04-28-07.39.20.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
