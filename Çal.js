@@ -1,4 +1,4 @@
-const play = require('discords-ytdl')
+const play = require('discordjs-ytdl')
 const { MessageEmbed } = require('discord.js')
 module.exports = {
   kod: "çal",
@@ -16,9 +16,12 @@ let kanal = play.channel(args.join(" "), 'AIzaSyADEGjdpN0qGUp855hODYZrjlMvEg4JZT
 kanal.then(titlee => embed.addField('Kanal Adı: ', titlee))
 let id = play.id(args.join(" "), 'AIzaSyADEGjdpN0qGUp855hODYZrjlMvEg4JZT4')
 id.then(titlee => embed.addField('Video Idsi: ', titlee))
-setTimeout(function
+setTimeout(function () {
+  message.channel.send(embed)
+}, 2500);
       } else {
         message.reply('Bir Kanala Katılmaısın')
         }
     }
+  }
   
