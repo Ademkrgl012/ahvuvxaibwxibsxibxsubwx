@@ -30,25 +30,7 @@ require('./util/eventHandler.js')(client);
 const prefix = process.env.PREFIX;
 const { Collection, Client } = require("discord.js");
 client.commands = new Collection();//youtube.com/NoblesYT
-client.queue = new Map()
-
-
-//Loading Events
-fs.readdir(__dirname + "/events/", (err, files) => {//youtube.com/NoblesYT
-  if (err) return console.error(err);
-  files.forEach((file) => {
-    const event = require(__dirname + `/events/${file}`);
-    let eventName = file.split(".")[0];
-    client.on(eventName, event.bind(null, client));//youtube.com/NoblesYT
-    console.log("Event Yükleniyor: "+eventName)
-  });
-});
-
-//Loading Commands
-fs.readdir("./commands/", (err, files) => {//youtube.com/NoblesYT
-  if (err) return console.error(err);
-  files.forEach((file) => {
-    i//////=////////////////////
+client.queue = new Map()//////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined
