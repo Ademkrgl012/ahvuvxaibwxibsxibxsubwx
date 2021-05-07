@@ -2129,7 +2129,7 @@ client.on("guildMemberAdd", async member => {
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
-    "Adem-Reyzz-Bot-hosgeldin.gif"
+    "Adem-Reyzz-Bot-hosgeldin.png"
   );
 
   canvaskanal.send(attachment);
