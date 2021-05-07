@@ -20,8 +20,8 @@ const Prefix = process.env.PREFIX;
 const { Collection, Client } = require("discord.js");
 
 const CLIENT = new Client();//youtube.com/NoblesYT
-client.commands = new Collection();//youtube.com/NoblesYT
-client.queue = new Map()
+CLIENT.commands = new Collection();//youtube.com/NoblesYT
+CLIENT.queue = new Map()
 
 const app = express();
 app.get("/", (request, response) => {
@@ -33,6 +33,28 @@ const log = message => {
 };
 require("./util/eventLoader.js")(client);
 require('./util/eventHandler.js')(client);
+//Loading Events
+fs.readdir(__dirname + "/events/", (err, files) => {//youtube.com/NoblesYT
+  if (err) return console.error(err);
+  files.forEach((file) => {
+    const event = require(__dirname + `/events/${file}`);
+    let eventName = file.split(".")[0];
+    CLIENT.on(eventName, event.bind(null, client));//youtube.com/NoblesYT
+    console.log("Event Yükleniyor: "+eventName)
+  });
+});
+
+//Loading Commands
+fs.readdir("./commands/", (err, files) => {//youtube.com/NoblesYT
+  if (err) return console.error(err);
+  files.forEach((file) => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/${file}`);
+    let commandName = file.split(".")[0];
+    CLIENT.commands.set(commandName, props);//youtube.com/NoblesYT
+    console.log("Komut Yükleniyor: "+commandName)
+  });
+});
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
@@ -2903,7 +2925,7 @@ client.on('message', async msg => {
   const serverQueue = queue.get(msg.guild.id);
 
   let command = msg.content.toLowerCase().split(' ')[0];
-  command = command.slice(.length)
+  command = command.slice(length)
 
   if (command === 'çal') {
     const voiceChannel = msg.member.voice.channel;
