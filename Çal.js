@@ -1,8 +1,7 @@
 const play = require('discordjs-ytdl')
 const { MessageEmbed } = require('discord.js')
-module.exports = {
   kod: "çal",
-  async run (client, message, args){
+  exports.run = async(client, message, args) => {
     if (message.member.voice.channel){
       const embed = new MessageEmbed()
       .setTitle('Şarkı Bulundu')
@@ -23,5 +22,4 @@ setTimeout(function () {
         message.reply('Bir Kanala Katılmaısın')
         }
     }
-  }
   
