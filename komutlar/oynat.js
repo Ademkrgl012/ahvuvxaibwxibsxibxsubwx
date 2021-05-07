@@ -1,6 +1,5 @@
 const play = require('discordjs-ytdl')
 const { MessageEmbed } = require('discord.js')
-  kod: "çal",
   exports.run = async(client, message, args) => {
     if (message.member.voice.channel){
       const embed = new MessageEmbed()
@@ -21,5 +20,14 @@ setTimeout(function () {
       } else {
         message.reply('Bir Kanala Katılmaısın')
         }
-    }
+    };
+exports.conf = {
+  enabled: true,
+  guildOnly: false,
+  aliases: [],
+  permLevel: 0
+  };
+exports.help = {
+  name: 'oynat'
+  };
   
