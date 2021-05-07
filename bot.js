@@ -14,8 +14,8 @@ const { Client, Util } = require('discord.js');
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./ayarlar');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
+var prefix = ayarlar.prefix
 const kanal = ayarlar.kanal;
-const { GOOGLE_API_KEY } = require("./ayarlar.json");
 client.lang = new Map();
 client.login(process.env.token);
 const app = express();
@@ -2302,9 +2302,6 @@ client.on("roleDelete", async role => {
     require("quick.db").delete(`carl-mute-role.${role.guild.id}`);
 });
 ///////muzik
-const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyBNv7r7njLNxLGTEglWVKent2hc_RkEMR0");
-const queue = new Map();
 
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
@@ -2683,11 +2680,11 @@ db.delete(`display.${message.author.id}.${message.guild.id}`)
 
 })// codare ♥
 ////////////
-let prefix = 'm!';
+let prefixx = 'm!';
 client.on('messageCreate', message => {// can#0002
 let args = message.content.split(' ').slice(1);
 
-if(message.content.startsWith(prefix + 'rol')) {
+if(message.content.startsWith(prefixx + 'rol')) {
 let guild = client.guilds.cache.map(a => a).find(a => a.id === message.guildID);
 
 let argümanlar = ['ver', 'al'];
