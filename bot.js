@@ -21,7 +21,7 @@ client.login(process.env.token);
 const app = express();
 app.get("/", (request, response) => {
   response.sendStatus(200);
-});
+})
 app.listen(process.env.PORT);
 const log = message => {
   console.log(` ${message}`);
