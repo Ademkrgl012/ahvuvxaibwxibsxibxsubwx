@@ -10,14 +10,19 @@ const request = require("node-superfetch");
 const Canvas = require("canvas");
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const { Client, Util } = require('discord.js');
 const { TOKEN, prefix, GOOGLE_API_KEY } = require('./ayarlar.json');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
-var PREFIX = ayarlar.PREFIX
 const kanal = ayarlar.kanal;
 client.lang = new Map();
 client.login(process.env.token);
+const Prefix = process.env.PREFIX;
+const { Collection, Client } = require("discord.js");
+
+const CLIENT = new Client();//youtube.com/NoblesYT
+client.commands = new Collection();//youtube.com/NoblesYT
+client.queue = new Map()
+
 const app = express();
 app.get("/", (request, response) => {
   response.sendStatus(200);
@@ -2890,7 +2895,7 @@ if (Math.round(yuzde) > acikmi.yuzde) {
 ///////müzik///////
 client.on('message', async msg => {
   if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(PREFIX)) return undefined;
+  if (!msg.content.startsWith()) return undefined;
 
   const args = msg.content.split(' ');
   const searchString = args.slice(1).join(' ');
@@ -2898,7 +2903,7 @@ client.on('message', async msg => {
   const serverQueue = queue.get(msg.guild.id);
 
   let command = msg.content.toLowerCase().split(' ')[0];
-  command = command.slice(PREFIX.length)
+  command = command.slice(.length)
 
   if (command === 'çal') {
     const voiceChannel = msg.member.voice.channel;
