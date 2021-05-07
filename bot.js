@@ -11,9 +11,10 @@ const Canvas = require("canvas");
 const YouTube = require("simple-youtube-api");
 const ytdl = require("ytdl-core");
 const { Client, Util } = require("discord.js");
-const { TOKEN, PREFIX, GOOGLE_API_KEY } = require("./ayarlar.json");
+const { TOKEN, PREFIX, GOOGLE_API_KEY } = require("./ayarlar");
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
+
 const kanal = ayarlar.kanal;
 var prefixx = ayarlar.Prefix
 client.lang = new Map();
@@ -2302,9 +2303,6 @@ client.on("roleDelete", async role => {
     require("quick.db").delete(`carl-mute-role.${role.guild.id}`);
 });
 ///////muzik
-const YouTube = require("simple-youtube-api");
-const youtube = new YouTube("AIzaSyBNv7r7njLNxLGTEglWVKent2hc_RkEMR0");
-const queue = new Map();
 
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;

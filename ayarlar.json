@@ -10,5 +10,6 @@
   "onayLOG": "839898841716752404",
   "kickLOG": "839898841716752404",
   "redLOG": "839898841716752404",
-  "token": "process.env.token"
+  "token": "process.env.token",
+  "GOOGLE_API_KEY": "AIzaSyDe021FDaJ9StqfyKO7Uf1CNI7DMIKbKAo"
 }
