@@ -1,6 +1,6 @@
 const Discord = require("discord.js");
-const fs = require("fs");
 const client = new Discord.Client();
+const fs = require("fs");
 const http = require("http");
 const db = require("quick.db");
 const moment = require("moment");
@@ -17,10 +17,8 @@ const kanal = ayarlar.kanal;
 client.lang = new Map();
 const prefix = process.env.PREFIX;
 const { Collection, Client } = require("discord.js");
-client.on(process.env.token);
-const CLIENT = new Client();//youtube.com/NoblesYT
-CLIENT.commands = new Collection();//youtube.com/NoblesYT
-CLIENT.queue = new Map()
+client.commands = new Discord.Collection();//youtube.com/NoblesYT
+client.queue = new Map()
 
 const app = express();
 app.get("/", (request, response) => {
@@ -38,7 +36,7 @@ fs.readdir(__dirname + "/events/", (err, files) => {//youtube.com/NoblesYT
   files.forEach((file) => {
     const event = require(__dirname + `/events/${file}`);
     let eventName = file.split(".")[0];
-    CLIENT.on(eventName, event.bind(null, client));//youtube.com/NoblesYT
+    client.on(eventName, event.bind(null, client));//youtube.com/NoblesYT
     console.log("Event Yükleniyor: "+eventName)
   });
 });
@@ -50,11 +48,11 @@ fs.readdir("./commands/", (err, files) => {//youtube.com/NoblesYT
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/${file}`);
     let commandName = file.split(".")[0];
-    CLIENT.commands.set(commandName, props);//youtube.com/NoblesYT
+    client.commands.set(commandName, props);//youtube.com/NoblesYT
     console.log("Komut Yükleniyor: "+commandName)
   });
 });
-CLIENT.on(process.env.TOKEN);
+client.on(process.env.TOKEN);
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
