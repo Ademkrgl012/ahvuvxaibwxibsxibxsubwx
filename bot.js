@@ -10,11 +10,9 @@ const request = require("node-superfetch");
 const Canvas = require("canvas");
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const { Client, Util } = require('discord.js');
-const { TOKEN, prefix, GOOGLE_API_KEY } = require('./ayarlar.json');
+const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./ayarlar.json');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
-var PREFIX = ayarlar.PREFIX
 const kanal = ayarlar.kanal;
 client.lang = new Map();
 client.login(process.env.token);
@@ -28,7 +26,29 @@ const log = message => {
 };
 require("./util/eventLoader.js")(client);
 require('./util/eventHandler.js')(client);
-//////=////////////////////
+
+const prefix = process.env.PREFIX;
+const { Collection, Client } = require("discord.js");
+client.commands = new Collection();//youtube.com/NoblesYT
+client.queue = new Map()
+
+
+//Loading Events
+fs.readdir(__dirname + "/events/", (err, files) => {//youtube.com/NoblesYT
+  if (err) return console.error(err);
+  files.forEach((file) => {
+    const event = require(__dirname + `/events/${file}`);
+    let eventName = file.split(".")[0];
+    client.on(eventName, event.bind(null, client));//youtube.com/NoblesYT
+    console.log("Event Yükleniyor: "+eventName)
+  });
+});
+
+//Loading Commands
+fs.readdir("./commands/", (err, files) => {//youtube.com/NoblesYT
+  if (err) return console.error(err);
+  files.forEach((file) => {
+    i//////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined
@@ -2890,7 +2910,7 @@ if (Math.round(yuzde) > acikmi.yuzde) {
 ///////müzik///////
 client.on('message', async msg => {
   if (msg.author.bot) return undefined;
-  if (!msg.content.startsWith(PREFIX)) return undefined;
+  if (!msg.content.startsWith(prefix)) return undefined;
 
   const args = msg.content.split(' ');
   const searchString = args.slice(1).join(' ');
@@ -2898,7 +2918,7 @@ client.on('message', async msg => {
   const serverQueue = queue.get(msg.guild.id);
 
   let command = msg.content.toLowerCase().split(' ')[0];
-  command = command.slice(PREFIX.length)
+  command = command.slice(prefix.length)
 
   if (command === 'çal') {
     const voiceChannel = msg.member.voice.channel;
