@@ -2478,7 +2478,7 @@ client.on("message", async msg => {
         .setTitle(`:loud_sound: Ses Seviyesi Ayarlanıyor: **${args[1]}**`)
         .setColor("RANDOM")
     );
-  } else if (command === "a!çalan") {
+  } else if (command === "") {
     if (!serverQueue)
       return msg.channel.sendEmbed(
         new Discord.RichEmbed()
@@ -2500,7 +2500,7 @@ client.on("message", async msg => {
           true
         )
     );
-  } else if (command === "a!sıra") {
+  } else if (command === "") {
     let index = 0;
     if (!serverQueue)
       return msg.channel.sendEmbed(
@@ -2520,7 +2520,7 @@ client.on("message", async msg => {
           )
       )
       .addField("Şu Anda Çalınan: " + `${serverQueue.songs[0].title}`);
-  } else if (command === "a!duraklat") {
+  } else if (command === "") {
     if (serverQueue && serverQueue.playing) {
       serverQueue.playing = false;
       serverQueue.connection.dispatcher.pause();
@@ -2531,7 +2531,7 @@ client.on("message", async msg => {
       );
     }
     return msg.channel.send("❎ | **Şarkı Çalmıyor Şu An**");
-  } else if (command === "a!devam") {
+  } else if (command === "") {
     if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
@@ -2902,7 +2902,7 @@ client.on('message', async msg => {
   let command = msg.content.toLowerCase().split(' ')[0];
   command = command.slice(prefix.length)
 
-  if (command === 'çal') {
+  if (command === '') {
     const voiceChannel = msg.member.voice.channel;
     if (!voiceChannel) return msg.channel.send(':x: Lutfen Sesli Bir Kanala Giriniz.');
     const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -2953,42 +2953,42 @@ Hangi şarkıyı seçmek istiyorsun? 1-10 Kadar sayı seç.
       }
       return handleVideo(video, msg, voiceChannel);
     }
-  } else if (command === 'geç') {
+  } else if (command === '') {
     if (!msg.member.voice.channel) return msg.channel.send(':x: Sesli Kanalda Değilsin.');
     if (!serverQueue) return msg.channel.send(':x: Şarkı Çalmıyor');
     serverQueue.connection.dispatcher.end(':white_check_mark:  Başarıyla Atladın');
     return undefined;
-  } else if (command === 'bitir') {
+  } else if (command === '') {
     if (!msg.member.voice.channel) return msg.channel.send(':x: Sesli Kanala Giriniz.');
     if (!serverQueue) return msg.channel.send(':x: Şarkı Çalmıyor.');
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end(':white_check_mark:  Başarıyla Durdu');
     return undefined;
-  } else if (command === 'ses') {
+  } else if (command === '') {
     if (!msg.member.voice.channel) return msg.channel.send(':x:  Sesli Kanala Giriniz');
     if (!serverQueue) return msg.channel.send(':x: Şarkı Çalmıyor.');
     if (!args[1]) return msg.channel.send(`Şimdiki Ses Durumu: **${serverQueue.volume}**`);
     serverQueue.volume = args[1];
     serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
     return msg.channel.send(`Yeni Ses Durumu: **${args[1]}**`);
-  } else if (command === 'np') {
+  } else if (command === '') {
     if (!serverQueue) return msg.channel.send(':x: Müzik Çalmıyor');
     return msg.channel.send(`Oynatilan Sarki: **${serverQueue.songs[0].title}**`);
-  } else if (command === 'kuyruk') {
+  } else if (command === '') {
     if (!serverQueue) return msg.channel.send(':x: Müzik Çalmıyor');
     return msg.channel.send(`
 __**Şarkı Kuyruğu**__
 ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 **Oynatılan:** ${serverQueue.songs[0].title}
 		`);
-  } else if (command === 'dur') {
+  } else if (command === '') {
     if (serverQueue && serverQueue.playing) {
       serverQueue.playing = false;
       serverQueue.connection.dispatcher.pause();
       return msg.channel.send('Şarkı Durdu');
     }
     return msg.channel.send('Şarkı Durdu.');
-  } else if (command === 'devam') {
+  } else if (command === '') {
     if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
