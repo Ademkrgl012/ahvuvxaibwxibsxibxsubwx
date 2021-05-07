@@ -15,9 +15,9 @@ kanal.then(titlee => embed.addField('Kanal Adı: ', titlee))
 let id = play.id(args.join(" "), 'AIzaSyADEGjdpN0qGUp855hODYZrjlMvEg4JZT4')
 id.then(titlee => embed.addField('Video Idsi: ', titlee))
 setTimeout(function () {
-  embed.setImage(play(id))
+  embed.setImage(play.th
   message.channel.send(embed)
-}, 2000);
+}, 2500);
       } else {
         message.reply('Bir Kanala Katılmaısın')
         }
