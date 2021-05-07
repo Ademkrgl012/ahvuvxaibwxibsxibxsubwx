@@ -38,7 +38,7 @@ client.on("message", async msg => {
   const serverQueue = queue.get(msg.guild.id);
   let command = msg.content.toLowerCase().split(" ")[0];
   command = command.slice(prefix.length);
-  if (command === "çal") {
+  if (command === "") {
     const voiceChannel = msg.member.voice.channel;
     if (!voiceChannel)
       return msg.channel.send(
@@ -139,7 +139,7 @@ client.on("message", async msg => {
       }
       return handleVideo(video, msg, voiceChannel);
     }
-  } else if (command === "geç") {
+  } else if (command === "") {
     if (!msg.member.voice.channel)
       if (!msg.member.voice.channel)
         return msg.channel.send(
@@ -157,7 +157,7 @@ client.on("message", async msg => {
       );
     serverQueue.connection.dispatcher.end("**Müziği Geçildi!**");
     return undefined;
-  } else if (command === "durdur") {
+  } else if (command === "") {
     if (!msg.member.voice.channel)
       if (!msg.member.voice.channel)
         return msg.channel.send(
@@ -179,7 +179,7 @@ client.on("message", async msg => {
     serverQueue.songs = [];
     serverQueue.connection.dispatcher.end("**Müzik Bitti**");
     return undefined;
-  } else if (command === "ses") {
+  } else if (command === "") {
     if (!msg.member.voice.channel)
       if (!msg.member.voice.channel)
         return msg.channel.send(
@@ -214,7 +214,7 @@ client.on("message", async msg => {
         .setTitle(`:hammer:  Ses Seviyesi Ayarlanıyor: **${args[1]}**`)
         .setColor("GREEN")
     );
-  } else if (command === "çalan") {
+  } else if (command === "") {
     if (!serverQueue)
       return msg.channel.send(
         new Discord.MessageEmbed()
@@ -236,7 +236,7 @@ client.on("message", async msg => {
           true
         )
     );
-  } else if (command === "kuyruk") {
+  } else if (command === "") {
     let index = 0;
     if (!serverQueue)
       return msg.channel.send(
@@ -256,7 +256,7 @@ client.on("message", async msg => {
           )
       )
       .addField("Şu anda çalınan: " + `${serverQueue.songs[0].title}`);
-  } else if (command === "duraklat") {
+  } else if (command === "") {
     if (serverQueue && serverQueue.playing) {
       serverQueue.playing = false;
       serverQueue.connection.dispatcher.pause();
@@ -267,7 +267,7 @@ client.on("message", async msg => {
       );
     }
     return msg.channel.send(":warning: | **Çalan Müzik Bulunmamakta**");
-  } else if (command === "devam") {
+  } else if (command === "") {
     if (serverQueue && !serverQueue.playing) {
       serverQueue.playing = true;
       serverQueue.connection.dispatcher.resume();
