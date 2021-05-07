@@ -10,15 +10,14 @@ const request = require("node-superfetch");
 const Canvas = require("canvas");
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
-const { TOKEN, prefix, GOOGLE_API_KEY } = require('./ayarlar.json');
+const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./ayarlar.json');
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 const kanal = ayarlar.kanal;
 client.lang = new Map();
-client.login(process.env.token);
-const Prefix = process.env.PREFIX;
+const prefix = process.env.PREFIX;
 const { Collection, Client } = require("discord.js");
-
+client.on(process.env.token);
 const CLIENT = new Client();//youtube.com/NoblesYT
 CLIENT.commands = new Collection();//youtube.com/NoblesYT
 CLIENT.queue = new Map()
@@ -55,6 +54,7 @@ fs.readdir("./commands/", (err, files) => {//youtube.com/NoblesYT
     console.log("Komut Yükleniyor: "+commandName)
   });
 });
+CLIENT.on(process.env.TOKEN);
 //////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
