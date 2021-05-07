@@ -2099,7 +2099,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://cdn.discordapp.com/attachments/813881989778112562/836824107340660776/PicsArt_04-28-07.39.20.jpg"
+    "https://media.discordapp.net/attachments/753544616657158215/753722621333340391/murat_ledli_gif.gif"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2129,7 +2129,7 @@ client.on("guildMemberAdd", async member => {
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
-    "Adem-Reyzz-Bot-hosgeldin.png"
+    "Adem-Reyzz-Bot-hosgeldin.gif"
   );
 
   canvaskanal.send(attachment);
