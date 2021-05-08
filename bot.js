@@ -2034,12 +2034,12 @@ client.on("guildMemberRemove", async member => {
     Font = Canvas.Font,
     path = require("path");
 
-  var randomMsg = [""];
+  var randomMsg = ["Güle Güle"];
   var randomMsg_integer =
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = ``;
+  if (!msj) msj = `${randomMsg_integer} Sensiz Yolumuza Devam Edeceğiz😪`;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
@@ -2096,13 +2096,13 @@ client.on("guildMemberAdd", async member => {
     Font = Canvas.Font,
     path = require("path");
 
-  var randomMsg = [""];
+  var randomMsg = ["Sunucumuza"];
   var randomMsg_integer =
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
   let paket = await db.fetch(`pakets_${member.id}`);
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = ``;
+  if (!msj) msj = `${randomMsg_integer} Hoşgeldin Seni Burada Gördüğüme Sevindim🎉`;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
