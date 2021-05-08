@@ -30,7 +30,31 @@ require('./util/eventHandler.js')(client);
 const prefix = process.env.PREFIX;
 const { Collection, Client } = require("discord.js");
 client.commands = new Collection();//youtube.com/NoblesYT
-client.queue = new Map()//////=////////////////////
+
+const bot = new Discord.Client({
+	partials: ['MESSAGE', 'CHANNEL', 'REACTION']
+});
+const config = require('./ayarlar.json');
+const { loadCommands } = require('./util/eventLoader');
+const DisTube = require('distube')
+
+bot.distube = new DisTube(bot, { searchSongs: false, emitNewSongOnly: true });
+bot.distube
+    .on("playSong", (message, queue, song) => message.channel.send(
+        `Playing \`${song.name}\` - \`${song.formattedDuration}\`\nRequested by: ${song.user}`
+	))
+	.on("addSong", (message, queue, song) => message.channel.send(
+        `Added ${song.name} - \`${song.formattedDuration}\` to the queue by ${song.user}`
+    ))
+
+require('./utils/loadEvents')(bot);
+
+bot.commands = new Discord.Collection();
+bot.aliases = new Discord.Collection();
+
+loadCommands(bot);
+client.queue = new Map()
+//////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined
