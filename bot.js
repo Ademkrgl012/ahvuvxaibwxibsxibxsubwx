@@ -2039,7 +2039,7 @@ client.on("guildMemberRemove", async member => {
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = ``;
+  if (!msj) msj = `&{member}`;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
