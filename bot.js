@@ -30,7 +30,8 @@ require('./util/eventHandler.js')(client);
 const prefix = process.env.PREFIX;
 const { Collection, Client } = require("discord.js");
 client.commands = new Collection();//youtube.com/NoblesYT
-client.queue = new Map()//////=////////////////////
+client.queue = new Map()
+//////=////////////////////
 client.on("message", async msg => {
   if (msg.author.bot) return undefined;
   if (!msg.content.startsWith(prefix)) return undefined
