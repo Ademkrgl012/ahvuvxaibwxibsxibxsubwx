@@ -2069,9 +2069,9 @@ client.on("guildMemberRemove", async member => {
   ctx.lineWidth = 4;
   ctx.fill();
   ctx.lineWidth = 4;
-  ctx.arc(310, 135, 100, 0, Math.PI * 2, true);
+  ctx.arc(310, 10, 100, 0, Math.PI * 2, true);
   ctx.clip();
-  ctx.drawImage(avatar, 210, 35, 200, 200);
+  ctx.drawImage(avatar, 210, 2, 200, 200);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
@@ -2132,9 +2132,9 @@ client.on("guildMemberAdd", async member => {
   ctx.lineWidth = 0;
   ctx.fill();
   ctx.lineWidth = 0;
-  ctx.arc(310, 155, 100, 0, Math.PI * 2, true);
+  ctx.arc(310, 102, 100, 0, Math.PI * 2, true);
   ctx.clip();
-  ctx.drawImage(avatar, 210, 55, 200, 200);
+  ctx.drawImage(avatar, 210, 2, 200, 200);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
