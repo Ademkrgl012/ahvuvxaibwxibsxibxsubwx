@@ -2039,13 +2039,13 @@ client.on("guildMemberRemove", async member => {
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = `&{member}`;
+  if (!msj) msj = ``;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://cdn.discordapp.com/attachments/813881989778112562/836824107744100352/PicsArt_04-28-07.39.44.jpg"
+    "https://cdn.discordapp.com/attachments/813881989778112562/840416763971502130/PicsArt_05-08-05.35.35.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2055,7 +2055,7 @@ client.on("guildMemberRemove", async member => {
   ctx.fillStyle = `#ffffff`;
   ctx.font = `37px "Warsaw"`;
   ctx.textAlign = "center";
-  ctx.fillText(`${member.user.username}`, 300, 342);
+  ctx.fillText(`${member.user.username}`, 310, 322);
 
   let avatarURL = member.user.displayAvatarURL({
     format: "png",
@@ -2069,9 +2069,9 @@ client.on("guildMemberRemove", async member => {
   ctx.lineWidth = 4;
   ctx.fill();
   ctx.lineWidth = 4;
-  ctx.arc(310, 175, 100, 0, Math.PI * 2, true);
+  ctx.arc(310, 135, 100, 0, Math.PI * 2, true);
   ctx.clip();
-  ctx.drawImage(avatar, 210, 75, 200, 200);
+  ctx.drawImage(avatar, 210, 35, 200, 200);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
@@ -2108,7 +2108,7 @@ client.on("guildMemberAdd", async member => {
   const ctx = canvas.getContext("2d");
 
   const background = await Canvas.loadImage(
-    "https://cdn.discordapp.com/attachments/813881989778112562/836824107340660776/PicsArt_04-28-07.39.20.jpg"
+    "https://cdn.discordapp.com/attachments/813881989778112562/840416763476967475/PicsArt_05-08-05.35.00.jpg"
   );
   ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
@@ -2118,7 +2118,7 @@ client.on("guildMemberAdd", async member => {
   ctx.fillStyle = `#ffffff`;
   ctx.font = `37px "Warsaw"`;
   ctx.textAlign = "center";
-  ctx.fillText(`${member.user.username}`, 310, 320);
+  ctx.fillText(`${member.user.username}`, 310, 322);
 
   let avatarURL = member.user.displayAvatarURL({
     format: "png",
@@ -2132,9 +2132,9 @@ client.on("guildMemberAdd", async member => {
   ctx.lineWidth = 0;
   ctx.fill();
   ctx.lineWidth = 0;
-  ctx.arc(310, 175, 100, 0, Math.PI * 2, true);
+  ctx.arc(310, 155, 100, 0, Math.PI * 2, true);
   ctx.clip();
-  ctx.drawImage(avatar, 210, 75, 200, 200);
+  ctx.drawImage(avatar, 210, 55, 200, 200);
 
   const attachment = new Discord.MessageAttachment(
     canvas.toBuffer(),
