@@ -2039,7 +2039,7 @@ client.on("guildMemberRemove", async member => {
     randomMsg[Math.floor(Math.random() * randomMsg.length)];
 
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = `${randomMsg_integer} Sensiz Yolumuza Devam Edeceğiz😪`;
+  if (!msj) msj = `{uye}, ${randomMsg_integer} Sensiz Yolumuza Devam Edeceğiz😪`;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
@@ -2102,7 +2102,7 @@ client.on("guildMemberAdd", async member => {
 
   let paket = await db.fetch(`pakets_${member.id}`);
   let msj = await db.fetch(`cikisM_${member.guild.id}`);
-  if (!msj) msj = `${randomMsg_integer} Hoşgeldin Seni Burada Gördüğüme Sevindim🎉`;
+  if (!msj) msj = `{uye}, ${randomMsg_integer} Hoşgeldin Seni Burada Gördüğüme Sevindim🎉`;
 
   const canvas = Canvas.createCanvas(640, 360);
   const ctx = canvas.getContext("2d");
